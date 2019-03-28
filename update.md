@@ -1,6 +1,6 @@
 ## 升级
 
-Cloudreve会在每个稳定版本发布的同时，在[release页面](https://github.com/cloudreve/Cloudreve/releases)发布增量更新包。如使用的是开发版，也可以使用`git`更新至最新的版本，无需等待安装包。
+Cloudreve会在每个稳定版本发布的同时，在[release页面](https://github.com/cloudreve/Cloudreve/releases)发布增量更新包，适用于开发版和稳定版。如使用的是开发版，也可以使用`git`更新至最新的版本，无需等待安装包。
 
 #### 使用增量更新包升级
 
