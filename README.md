@@ -1,4 +1,4 @@
-# Initial page
+# 欢迎
 
 ## Getting Super Powers
 
