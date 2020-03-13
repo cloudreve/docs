@@ -4,6 +4,7 @@
 
 ## 起步 <a id="getting-started"></a>
 
-* [安装部署](getting-started/install.md)
+* [快速开始](getting-started/install.md)
+* [配置](getting-started/config.md)
 * [构建](getting-started/build.md)
 
