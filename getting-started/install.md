@@ -16,7 +16,7 @@ Linux下，直接解压并执行主程序即可：
 
 ```bash
 #解压获取到的主程序
-tar - czvf cloudreve_VERSION_OS_ARCH.tar.gz
+tar -zxvf cloudreve_VERSION_OS_ARCH.tar.gz
 
 # 赋予执行权限
 chmod +x ./cloudreve
