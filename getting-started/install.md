@@ -75,7 +75,66 @@ location / {
 
 ### 进程守护
 
-文档会以`supervisor`为例，你也可以根据情况选用其他方案。首先安装`supervisor`，已安装的可以跳过。
+#### Systemd
+
+```bash
+# 编辑配置文件
+vim /usr/lib/systemd/system/cloudreve.service
+```
+
+将下文 `PATH_TO_CLOUDREVE` 更换为程序所在目录：
+
+```bash
+[Unit]
+Description=Cloudreve
+Documentation=https://docs.cloudreve.org
+After=network.target
+Wants=network.target
+
+[Service]
+WorkingDirectory=/PATH_TO_CLOUDREVE
+ExecStart=/PATH_TO_CLOUDREVE/cloudreve
+Restart=on-abnormal
+RestartSec=5s
+KillMode=mixed
+
+StandardOutput=null
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+# 更新配置
+systemctl daemon-reload
+
+# 启动服务
+systemctl start cloudreve
+
+# 设置开机启动
+systemctl enable cloudreve
+```
+
+管理命令：
+
+```bash
+# 启动服务
+systemctl start cloudreve
+
+# 停止服务
+systemctl stop cloudreve
+
+# 重启服务
+systemctl restart cloudreve
+
+# 查看状态
+systemctl status cloudreve
+```
+
+#### Supervisor
+
+首先安装`supervisor`，已安装的可以跳过。
 
 ```bash
 # 安装 supervisor
