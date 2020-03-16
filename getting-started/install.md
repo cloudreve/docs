@@ -27,7 +27,7 @@ chmod +x ./cloudreve
 {% endtab %}
 
 {% tab title="Windows" %}
-Windows下，直接解压获取到的 zip 压缩包，启动  `cloudreve.exe` 即可。
+Windows下，直接解压获取到的 zip 压缩包，启动 `cloudreve.exe` 即可。
 {% endtab %}
 {% endtabs %}
 
@@ -156,7 +156,7 @@ sudo vim /etc/supervisord.conf
 
 ```bash
 [include]
-files = /etc/supervisor/conf/*.conf    
+files = /etc/supervisor/conf/*.conf
 ```
 
 创建 Cloudreve 应用配置所在文件目录，并创建打开配置文件：
