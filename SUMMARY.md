@@ -15,6 +15,7 @@
 * [WebDAV](use/webdav.md)
 * [离线下载](use/li-xian-xia-zai.md)
 * [捐助版相关](use/pro/README.md)
+  * [介绍](use/pro/jie-shao.md)
   * [授权管理](use/pro/shou-quan-guan-li.md)
   * [存储策略切换](use/pro/cun-chu-ce-lve-qie-huan.md)
   * [支付](use/pro/pay.md)
