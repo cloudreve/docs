@@ -71,7 +71,7 @@ FileSuffix = ._thumb
 
 ## 使用 MySQL
 
-默认情况下，Cloudreve 会使用内置的 SQLite 数据库，并在同级目录创建数据库文件`cloudreve.db`，如果您想要使用 MySQL，请在配置文件中加入以下内容，并重启 Cloudreve。
+默认情况下，Cloudreve 会使用内置的 SQLite 数据库，并在同级目录创建数据库文件`cloudreve.db`，如果您想要使用 MySQL，请在配置文件中加入以下内容，并重启 Cloudreve。注意，Cloudreve 只支持大于或等于 5.7 版本的 MySQL 。
 
 ```text
 [Database]
