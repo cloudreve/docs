@@ -75,6 +75,8 @@ location / {
 
 ### 进程守护
 
+以下两种方式可任选其一。
+
 #### Systemd
 
 ```bash
@@ -204,4 +206,11 @@ sudo supervisorctl stop cloudreve
 # 查看状态
 sudo supervisorctl status cloudreve
 ```
+
+## Docker
+
+你可以选择使用以下镜像部署：
+
+* [xavierniu/cloudreve](https://hub.docker.com/r/xavierniu/cloudreve)
+* [littleplus/Cloudreve-Docker](https://github.com/littleplus/Cloudreve-Docker)
 
