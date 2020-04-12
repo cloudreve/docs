@@ -38,7 +38,7 @@
 
 ### 运行升级助手
 
-在 [Release 3.0.0 RC-1](https://github.com/cloudreve/Cloudreve/releases/tag/3.0.0-rc1) 页面下载 `upgrade_from_2.0.0-Alpha1.zip` \( Pro 版用户请下载`upgrade_from_2.0.0-Alpha1-pro.zip`\)，解压覆盖到 V2 根目录下。
+在 [Release 3.0.0](https://github.com/cloudreve/Cloudreve/releases/tag/3.0.0) 页面下载 `upgrade_from_2.0.0-Alpha1.zip` \( Pro 版用户请下载`upgrade_from_2.0.0-Alpha1-pro.zip`\)，解压覆盖到 V2 根目录下。
 
 在命令行下，切换工作目录到 V2 根目录，启动升级助手：
 
