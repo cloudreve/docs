@@ -29,6 +29,8 @@ HashIDSalt = something really hard to guss
 [Database]
 ; 数据库类型，目前支持 sqlite | mysql
 Type = mysql
+; MySQL 端口
+Port = 3306
 ; 用户名
 User = root
 ; 密码
@@ -39,6 +41,8 @@ Host = 127.0.0.1
 Name = v3
 ; 数据表前缀
 TablePrefix = cd
+; SQLite 数据库文件路径
+DBFile = cloudreve.db
 
 ; 从机模式下的配置
 [Slave]
@@ -77,6 +81,8 @@ FileSuffix = ._thumb
 [Database]
 ; 数据库类型，目前支持 sqlite | mysql
 Type = mysql
+; MySQL 端口
+Port = 3306
 ; 用户名
 User = root
 ; 密码
