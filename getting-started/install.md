@@ -213,4 +213,5 @@ sudo supervisorctl status cloudreve
 
 * [xavierniu/cloudreve](https://hub.docker.com/r/xavierniu/cloudreve)
 * [littleplus/Cloudreve-Docker](https://github.com/littleplus/Cloudreve-Docker)
+* [awesome-builder/Cloudreve](https://github.com/EscapeLife/awesome-builder/blob/master/dockerfiles/cloudreve/README.md)
 
