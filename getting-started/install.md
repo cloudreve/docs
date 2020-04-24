@@ -55,6 +55,9 @@ location / {
     proxy_set_header Host $http_host;
     proxy_redirect off;
     proxy_pass http://127.0.0.1:5212;
+    
+    # 如果您要使用本地存储策略，请将下一行注释符删除，并更改大小为理论最大文件尺寸
+    # client_max_body_size 20000m;
 }
 ```
 {% endtab %}
