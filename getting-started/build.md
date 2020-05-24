@@ -14,7 +14,11 @@ Cloudreve 项目主要由两部分组成：后端主仓库 [cloudreve/Cloudreve]
 ### 克隆代码
 
 ```bash
+# 克隆仓库
 git clone --recurse-submodules https://github.com/cloudreve/Cloudreve.git
+
+# 签出您要编译的版本
+git checkout 3.x.x
 ```
 
 ### 构建静态资源

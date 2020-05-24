@@ -14,6 +14,7 @@
   * [对比](use/policy/compare.md)
 * [WebDAV](use/webdav.md)
 * [离线下载](use/aria2.md)
+* [自定义前端](use/zi-ding-yi-qian-duan.md)
 * [捐助版相关](use/pro/README.md)
   * [介绍](use/pro/jie-shao.md)
   * [授权管理](use/pro/shou-quan-guan-li.md)

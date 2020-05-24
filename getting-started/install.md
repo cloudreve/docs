@@ -4,6 +4,8 @@
 
 你可以在 [GitHub Release](https://github.com/cloudreve/Cloudreve/releases) 页面获取已经构建打包完成的主程序。其中每个版本都提供了常见系统架构下可用的主程序，命名规则为`cloudreve_版本号_操作系统_CPU架构.tar.gz` 。比如，普通64位Linux系统上部署3.0.0版本，则应该下载`cloudreve_3.0.0_linux_amd64.tar.gz`。
 
+如果你想体验最新的功能特性，可以在 [GitHub Actions](https://github.com/cloudreve/Cloudreve/actions) 中下载每次 commit 后构建的开发版。注意，开发版并不稳定，无法用于生产用途，且不保证完全可用。
+
 如果想要自行从源代码构建，请参阅以下章节：
 
 {% page-ref page="build.md" %}
@@ -70,7 +72,7 @@ location / {
     ServerName myapp.example.com
     ServerAdmin webmaster@example.com
     DocumentRoot /www/myapp/public
-    ProxyPass "/" "http://127.0.0.1:5212/"
+    ProxyPass "/" "http://127.0.0.1:5212/" nocanon
 </VirtualHost>
 ```
 {% endtab %}

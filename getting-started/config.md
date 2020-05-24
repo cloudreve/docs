@@ -12,7 +12,7 @@
 
 一个完整的配置文件示例如下：
 
-```text
+```d
 [System]
 ; 运行模式
 Mode = master
@@ -24,6 +24,15 @@ Debug = false
 SessionSecret = 23333
 ; Hash 加盐, 一般在首次启动时自动生成
 HashIDSalt = something really hard to guss
+
+; SSL 相关
+[SSL]
+; SSL 监听端口
+Listen = :443
+; 证书路径
+CertPath = C:\Users\i\Documents\fullchain.pem
+; 私钥路径
+KeyPath = C:\Users\i\Documents\privkey.pem
 
 ; 数据库相关，如果你只想使用内置的 SQLite数据库，这一部分直接删去即可
 [Database]
@@ -121,5 +130,20 @@ DB = 0
 * 回调会话
 * OneDrive 凭证
 
+## 启用 HTTPS
 
+{% hint style="info" %}
+如果您正在使用 Web 服务器反向代理 Cloudreve，推荐您在 Web 服务器中配置 SSL，本小节所阐述的启用方式只针对使用 Cloudreve 内置 Web 服务器的情境下有效。
+{% endhint %}
+
+在配置配置文件中加入：
+
+```text
+[SSL]
+Listen = :443
+CertPath = C:\Users\i\Documents\fullchain.pem
+KeyPath = C:\Users\i\Documents\privkey.pem
+```
+
+其中 `CertPath` 和`KeyPath` 分别为 SSL 证书和私钥路径。保存后重启 Cloudreve 生效。
 
