@@ -72,7 +72,11 @@ location / {
     ServerName myapp.example.com
     ServerAdmin webmaster@example.com
     DocumentRoot /www/myapp/public
+    
+    # 以下为关键部分
+    AllowEncodedSlashes NoDecod
     ProxyPass "/" "http://127.0.0.1:5212/" nocanon
+    
 </VirtualHost>
 ```
 {% endtab %}
