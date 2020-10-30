@@ -74,7 +74,7 @@ location / {
     DocumentRoot /www/myapp/public
     
     # 以下为关键部分
-    AllowEncodedSlashes NoDecod
+    AllowEncodedSlashes NoDecode
     ProxyPass "/" "http://127.0.0.1:5212/" nocanon
     
 </VirtualHost>
