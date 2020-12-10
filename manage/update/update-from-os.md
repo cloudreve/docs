@@ -11,7 +11,7 @@
 使用 Cloudreve 的命令行参数，运行升级数据库脚本：
 
 {% tabs %}
-{% tab title="Lixnu" %}
+{% tab title="Linux" %}
 ```text
 ./cloudreve --database-script UpgradeToPro
 ```
