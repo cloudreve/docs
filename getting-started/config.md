@@ -34,6 +34,10 @@ CertPath = C:\Users\i\Documents\fullchain.pem
 ; 私钥路径
 KeyPath = C:\Users\i\Documents\privkey.pem
 
+; 启用 Unix Socket 监听
+[UnixSocket]
+Listen = /run/cloudreve/cloudreve.sock
+
 ; 数据库相关，如果你只想使用内置的 SQLite数据库，这一部分直接删去即可
 [Database]
 ; 数据库类型，目前支持 sqlite | mysql
@@ -49,7 +53,7 @@ Host = 127.0.0.1
 ; 数据库名称
 Name = v3
 ; 数据表前缀
-TablePrefix = cd
+TablePrefix = cd_
 ; SQLite 数据库文件路径
 DBFile = cloudreve.db
 

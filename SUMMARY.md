@@ -24,7 +24,9 @@
 
 ## 维护 <a id="manage"></a>
 
+* [数据库脚本](manage/db-script.md)
 * [升级](manage/update/README.md)
   * [从 3.x.x 升级](manage/update/cong-3.x.x-sheng-ji.md)
   * [从 2.x.x 升级](manage/update/upgrade.md)
+  * [升级到捐助版](manage/update/update-from-os.md)
 
