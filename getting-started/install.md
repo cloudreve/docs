@@ -100,6 +100,7 @@ vim /usr/lib/systemd/system/cloudreve.service
 Description=Cloudreve
 Documentation=https://docs.cloudreve.org
 After=network.target
+After=mysqld.service
 Wants=network.target
 
 [Service]
