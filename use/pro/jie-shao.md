@@ -17,7 +17,7 @@ Pro 版本目前的独占特性如下，您可以在[官方演示站](https://de
 * 分享举报、处理
 * 为新注册的用户指定初始文件
 
-目前捐赠版的售价为￥199 /域名\*1，支持根域相同情况下授权多域名，如 www.abc.com,pan.abc.com.
+目前捐赠版的售价为￥299 /域名\*1，支持根域相同情况下授权多域名，如 www.abc.com,pan.abc.com.
 
 赞助页面：[https://pro.cloudreve.org/Buy](https://pro.cloudreve.org/Buy)
 
