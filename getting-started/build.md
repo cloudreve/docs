@@ -78,10 +78,10 @@ go build -a -o cloudreve -ldflags " -X 'github.com/cloudreve/Cloudreve/v3/pkg/co
 
 ```bash
 ./build.sh  [-a] [-c] [-b] [-r]
-	a - 构建静态资源
-	c - 编译二进制文件
-	b - 构建前端 + 编译二进制文件
-	r - 交叉编译，构建用于release的版本
+    a - 构建静态资源
+    c - 编译二进制文件
+    b - 构建前端 + 编译二进制文件
+    r - 交叉编译，构建用于release的版本
 ```
 
 ## 交叉编译
