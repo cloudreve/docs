@@ -40,7 +40,7 @@ Listen = /run/cloudreve/cloudreve.sock
 
 ; 数据库相关，如果你只想使用内置的 SQLite数据库，这一部分直接删去即可
 [Database]
-; 数据库类型，目前支持 sqlite | mysql
+; 数据库类型，目前支持 sqlite/mysql/mssql/postgres
 Type = mysql
 ; MySQL 端口
 Port = 3306
@@ -54,6 +54,8 @@ Host = 127.0.0.1
 Name = v3
 ; 数据表前缀
 TablePrefix = cd_
+; 字符集
+Charset = utf8
 ; SQLite 数据库文件路径
 DBFile = cloudreve.db
 
@@ -92,7 +94,7 @@ FileSuffix = ._thumb
 
 ```text
 [Database]
-; 数据库类型，目前支持 sqlite | mysql
+; 数据库类型，目前支持 sqlite/mysql/mssql/postgres
 Type = mysql
 ; MySQL 端口
 Port = 3306
@@ -106,6 +108,8 @@ Host = 127.0.0.1
 Name = v3
 ; 数据表前缀
 TablePrefix = cd
+; 字符集
+Charset = utf8
 ```
 
 {% hint style="info" %}
