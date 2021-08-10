@@ -1,6 +1,6 @@
 # 自定义前端
 
-默认情况下，Cloudreve 会使用内置的静态资源文件，包括 HTML文档、JS脚本、CSS、图像资源等。如果您需要使用自己个性化修改后的静态资源，请将[前端仓](https://github.com/cloudreve/frontend)编译编译得到的`build` 目录重命名为`statics` 并置于 Cloudreve 同级目录下，重启 Cloudreve 后生效。
+默认情况下，Cloudreve 会使用内置的静态资源文件，包括 HTML文档、JS脚本、CSS、图像资源等。如果您需要使用自己个性化修改后的静态资源，请将[前端仓库](https://github.com/cloudreve/frontend)编译编译得到的`build` 目录重命名为`statics` 并置于 Cloudreve 同级目录下，重启 Cloudreve 后生效。
 
 有关前端仓库的构建流程，请参阅以下章节：
 
