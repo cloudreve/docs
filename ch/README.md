@@ -2,7 +2,7 @@
 description: 目前文档仍在陆续完善中！
 ---
 
-[English version](./en/README.md)
+[English version](../en/README.md)
 
 # 欢迎
 
