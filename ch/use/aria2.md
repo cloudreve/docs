@@ -12,9 +12,9 @@ Aria2 的安装、启动过程不在本文讨论范围之内。您需要在 Clou
 
 {% hint style="info" %}
 推荐在日常启动流程中，先启动 Aria2，再启动 Cloudreve，这样 Cloudreve 可以向 Aria2 订阅事件通知，下载状态变更处理更及时。当然，如果没有这一流程，Cloudreve 也会通过轮询追踪任务状态。
+{% endhint %}
 
 在启动 Aria2 时，需要在其配置文件中启用 RPC 服务，并设定 RPC Secret，以便后续使用。
-{% endhint %}
 
 ```bash
 # 启用 RPC 服务
