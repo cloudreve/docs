@@ -22,7 +22,7 @@ enable-rpc=true
 # RPC监听端口
 rpc-listen-port=6800
 # RPC 授权令牌，可自行设定
-rpc-secure=<your token>
+rpc-secret=<your token>
 ```
 
 ### 接入 Cloudreve
