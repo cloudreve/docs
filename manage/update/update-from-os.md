@@ -12,17 +12,15 @@
 
 {% tabs %}
 {% tab title="Linux" %}
-```text
-./cloudreve --database-script UpgradeToPro
+```
+./cloudreve --database-script OSSToPro
 ```
 {% endtab %}
 
 {% tab title="Windows" %}
-```text
+```
 cloudreve.exe --database-script UpgradeToPro
 ```
 {% endtab %}
 {% endtabs %}
-
-
 
