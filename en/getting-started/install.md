@@ -1,12 +1,12 @@
-# Quick start
+# Quick Start
 
 ## Get Cloudreve
 
-You can get the main program already built and packaged on the [GitHub Release](https://github.com/cloudreve/Cloudreve/releases) page. Each of these releases provides the main program available on common system architectures with the naming convention `cloudreve_version_number_OS_CPU_architecture.tar.gz` . For example, to deploy version 3.0.0 on a common 64-bit Linux system, you should download `cloudreve_3.0.0_linux_amd64.tar.gz`.
+You can get the packaged master on the [GitHub Release](https://github.com/cloudreve/Cloudreve/releases) page. Each of these releases provides the main program available on common system architectures with the naming convention `cloudreve_version_number_OS_CPU_architecture.tar.gz` . For example, to deploy version 3.0.0 on a common 64-bit Linux system, you should download `cloudreve_3.0.0_linux_amd64.tar.gz`.
 
-If you want to experience the latest features, you can download the development version built after each commit from [GitHub Actions](https://github.com/cloudreve/Cloudreve/actions). Note that development builds are not stable, cannot be used for production use, and are not guaranteed to be fully available.
+If you want to experience the latest features, you can download the development version built after each commit in [GitHub Actions](https://github.com/cloudreve/Cloudreve/actions). Note that development builds are not stable, cannot be used in production, and are not guaranteed to be fully available.
 
-If you want to build from source yourself, see the following section.
+If you want to build from source yourself, see the following sections.
 
 {% page-ref page="build.md" %}
 
@@ -14,7 +14,7 @@ If you want to build from source yourself, see the following section.
 
 {% tabs %}
 {% tab title="Linux" %}
-On Linux, simply unpack and execute the main program as follows.
+On Linux, just unpack and execute the main program directly as follows.
 
 ```bash
 ## Unzip the main program you got
@@ -33,19 +33,19 @@ On Windows, unzip the zip archive and start `cloudreve.exe`.
 {% endtab %}
 {% endtabs %}
 
-When Cloudreve is first started, an initial administrator account will be created, please take care of the administrator password as it will only appear on first start. If you forget your initial administrator password, you will need to delete `cloudreve.db` from the same directory and restart the main application to initialise a new administrator account.
+When Cloudreve is first started, an initial administrator account will be created. Please keep the administrator password, which will only appear on first startup. If you forget the initial administrator password, you will need to delete `cloudreve.db` from the same directory and restart the main application to initialize a new administrator account.
 
 Cloudreve will listen on port `5212` by default. You can access Cloudreve by visiting `http://ServerIP:5212` in your browser.
 
-After the above steps, the simplest deployment is complete. You may need some more specific configuration to make Cloudreve work better, please refer to the configuration process below for details.
+After the above steps, the simplest deployment is complete. You may need some more specific configuration to make Cloudreve work better, please refer to the following configuration process.
 
-## Optional deployment process
+## Optional Deployment Process
 
 ### Reverse Proxy
 
-For self-use or small-scale use scenarios, you can absolutely use Cloudreve's built-in web server. However, if you need to use HTTPS or coexist with other web services on the server, you may need to use a mainstream web server to reverse proxy Cloudreve for richer extensions.
+In a self-use or small-scale usage scenario, you can absolutely use Cloudreve's built-in web server. However, if you need to use HTTPS or need it to coexist with other web services on the server, you may need to use a mainstream web server to reverse proxy Cloudreve for richer extensions.
 
-You will need to create a new virtual host on your web server, complete the required configuration (e.g. enable HTTPS) and then add the reverse proxy rules to your website configuration file:
+You need to create a new virtual host on your web server, complete the required configuration (e.g. enable HTTPS) and then add the reverse proxy rules to your website configuration file:
 
 {% tabs %}
 {% tab title="NGINX" %}
@@ -124,7 +124,7 @@ systemctl daemon-reload
 # Start the service
 systemctl start cloudreve
 
-# Set up boot up
+# Set up bootup
 systemctl enable cloudreve
 ```
 
@@ -144,17 +144,16 @@ systemctl restart cloudreve
 systemctl status cloudreve
 ```
 
-
 #### Supervisor
 
-First install ``supervisor``, you can skip it if you already have it installed.
+First install ``supervisor``, you can skip it if it is already installed.
 
 ```bash
 # Install supervisor
 sudo yum install python-setuptools
 sudo easy_install supervisor
 
-# Initialise the global configuration file
+# Initialize the global configuration file
 sudo touch /etc/supervisord.conf
 sudo echo_supervisord_conf > /etc/supervisord.conf
 ```
@@ -172,7 +171,7 @@ Remove the `[include]` partition comment symbol `;` from the bottom of the file 
 files = /etc/supervisor/conf/*.conf
 ```
 
-Create the directory where the Cloudreve application configuration is located and create the open configuration file: 
+Create the directory where the Cloudreve application configuration is located and create the open configuration file:
 
 ```bash
 sudo mkdir -p /etc/supervisor/conf
@@ -199,13 +198,13 @@ Where the following configuration items need to be changed as appropriate.
 * `stderr_logfile`: path to the error log
 * `stdout_logfile`: path to the usual log
 
-To start the supervisor via the global configuration file.
+Start the supervisor via the global configuration file.
 
 ```bash
 supervisord -c /etc/supervisord.conf
 ```
 
-In future you can manage the Cloudreve process with the following command.
+In the future you can manage the Cloudreve process with the following command.
 
 ```bash
 # Start
@@ -214,14 +213,12 @@ sudo supervisorctl start cloudreve
 # Stop
 sudo supervisorctl stop cloudreve
 
-# Check status
+# Check the status
 sudo supervisorctl status cloudreve
 ```
 
 ## Docker
 
-You can choose to deploy using the following images.
+You can choose to deploy with the following images.
 
 * [xavierniu/cloudreve](https://hub.docker.com/r/xavierniu/cloudreve)
-* [littleplus/Cloudreve-Docker](https://github.com/littleplus/Cloudreve-Docker)
-* [awesome-builder/Cloudreve](https://github.com/EscapeLife/awesome-builder/blob/master/dockerfiles/cloudreve/README.md)
