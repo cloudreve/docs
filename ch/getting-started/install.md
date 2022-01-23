@@ -222,6 +222,3 @@ sudo supervisorctl status cloudreve
 你可以选择使用以下镜像部署：
 
 * [xavierniu/cloudreve](https://hub.docker.com/r/xavierniu/cloudreve)
-* [littleplus/Cloudreve-Docker](https://github.com/littleplus/Cloudreve-Docker)
-* [awesome-builder/Cloudreve](https://github.com/EscapeLife/awesome-builder/blob/master/dockerfiles/cloudreve/README.md)
-

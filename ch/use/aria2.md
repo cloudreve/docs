@@ -1,12 +1,14 @@
 # 离线下载
 
-Cloudreve 的离线下载核心由 [Aria2](https://aria2.github.io/) 驱动。正确配置并启用离线下载功能后，用户可以创建磁力链、HTTP、种子下载任务，由服务端下载完成后加入到用户文件中。
+Cloudreve 的离线下载核心由 [Aria2](https://aria2.github.io) 驱动。正确配置并启用离线下载功能后，用户可以创建磁力链、HTTP、种子下载任务，由服务端下载完成后加入到用户文件中。
 
 对于云存储策略，离线下载任务完成后，Cloudreve 会将所下载的文件转存到云存储端，在转存结束前，用户无法下载、管理已下载的文件。用户可以在前台任务队列中查看转存任务进度。
 
+Cloudreve 支持“从机离线下载”，您可以将离线下载任务分流至多台服务器处理，避免这些任务过多占用主机的资源。每个负责处理离线下载任务的节点需要运行一组 Cloudreve 和 Aria2 实例。您可以按照管理面板中的节点添加向导指引配置并添加新节点。从机离线下载节点与用于从机存储策略的 节点本质上是一样的，您可以将从机 Cloudreve 实例同时用作存储节点和离线下载节点。如果您不需要从机节点处理离线下载任务，只想让当前主机 Cloudreve 处理离线下载，只需要编辑主机节点并配置 Aria2 相关信息即可。用户创建的离线下载任务会被轮流分配到所有可用的离线下载节点处理。
+
 ## 启用离线下载
 
-### Aria2  RPC 配置
+### Aria2 RPC 配置
 
 Aria2 的安装、启动过程不在本文讨论范围之内。您需要在 Cloudreve 相同的机器上启动 Aria2。
 
@@ -22,12 +24,12 @@ enable-rpc=true
 # RPC监听端口
 rpc-listen-port=6800
 # RPC 授权令牌，可自行设定
-rpc-secure=<your token>
+rpc-secret=<your token>
 ```
 
 ### 接入 Cloudreve
 
-前往 Cloudreve 的 管理面板-参数设置-离线下载，根据指引填写信息并测试是否可以与aria2正常通信。
+前往 Cloudreve 的 管理面板-离线下载节点-添加/编辑 节点-离线下载，根据指引填写信息并测试是否可以与 Aria2 正常通信。
 
 对于其中重要参数项的解释如下：
 
@@ -37,7 +39,7 @@ Aria2 RPC 服务器的地址，一般可填写为`http://127.0.0.1:6800/` 。其
 
 **RPC Secret**
 
-上文中您在  Aria2 配置文件中设定的 RPC 授权令牌
+上文中您在 Aria2 配置文件中设定的 RPC 授权令牌
 
 **临时下载目录**
 
@@ -90,7 +92,7 @@ Cloudreve 会定期轮询任务状态，任务创建后状态不会实时更新�
 bt-tracker=udp://tracker.coppersurfer.tk:6969/announce,http://tracker.internetwarriors.net:1337/announce,udp://tracker.opentrackr.org:1337/announce
 ```
 
-以上指定的 Tracker 列表只是示例，你需要根据实际自己填写。你可以使用  [trackerslist](https://github.com/ngosang/trackerslist) 项目中每日更新的最佳 Tracker 列表。
+以上指定的 Tracker 列表只是示例，你需要根据实际自己填写。你可以使用 [trackerslist](https://github.com/ngosang/trackerslist) 项目中每日更新的最佳 Tracker 列表。
 
 #### BT 任务进度100%后，任务仍长期处在”进行中“的列表中不被处理
 
@@ -102,6 +104,3 @@ seed-ratio=1.0
 # 作种时间大于30分钟，则停止作种
 seed-time=30
 ```
-
-
-

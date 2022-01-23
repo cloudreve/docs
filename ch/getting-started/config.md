@@ -6,7 +6,7 @@
 
 你也可以在启动时加入`-c`参数指定配置文件路径：
 
-```text
+```
 ./cloudreve -c /path/to/conf.ini
 ```
 
@@ -81,18 +81,26 @@ Server = 127.0.0.1:6379
 Password =
 DB = 0
 
-; 从机模式缩略图
+; 缩略图
 [Thumbnail]
 MaxWidth = 400
 MaxHeight = 300
 FileSuffix = ._thumb
+; 最大并行执行缩略图生成的数量，填写 -1 时会根据 CPU 核心数自动决定
+MaxTaskCount = -1
+; 可填写 jpg / png
+EncodeMethod = jpg
+; 是否在缩略图生成完毕后立刻进行垃圾回收
+GCAfterGen = false
+; 缩略图质量
+EncodeQuality = 85
 ```
 
 ## 使用 MySQL
 
 默认情况下，Cloudreve 会使用内置的 SQLite 数据库，并在同级目录创建数据库文件`cloudreve.db`，如果您想要使用 MySQL，请在配置文件中加入以下内容，并重启 Cloudreve。注意，Cloudreve 只支持大于或等于 5.7 版本的 MySQL 。
 
-```text
+```
 [Database]
 ; 数据库类型，目前支持 sqlite/mysql/mssql/postgres
 Type = mysql
@@ -120,7 +128,7 @@ Charset = utf8
 
 你可以在配置文件中加入 Redis 相关设置：
 
-```text
+```
 [Redis]
 Server = 127.0.0.1:6379
 Password = your password
@@ -146,7 +154,7 @@ DB = 0
 
 在配置配置文件中加入：
 
-```text
+```
 [SSL]
 Listen = :443
 CertPath = C:\Users\i\Documents\fullchain.pem
@@ -154,4 +162,3 @@ KeyPath = C:\Users\i\Documents\privkey.pem
 ```
 
 其中 `CertPath` 和`KeyPath` 分别为 SSL 证书和私钥路径。保存后重启 Cloudreve 生效。
-
