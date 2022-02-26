@@ -19,11 +19,10 @@ Pro 版本目前的独占特性如下，您可以在[官方演示站](https://de
 * 为新注册的用户指定初始文件
 * 站点公告模块
 * 注册邮箱后缀白名单/黑名单
-* \(持续更新中...\)
+* (持续更新中...)
 
-[详细图文介绍及常见问题&gt;&gt;](https://forum.cloudreve.org/d/1587)
+[详细图文介绍及常见问题>>](https://forum.cloudreve.org/d/1587)
 
-目前捐赠版的售价为￥299 /域名\*1，支持根域相同情况下授权多域名，如 www.abc.com,pan.abc.com.
+目前捐赠版的限时优惠售价为 ￥299(~~￥399)~~，支持根域相同情况下授权多域名，如 www.abc.com,pan.abc.com.
 
 赞助页面：[https://pro.cloudreve.org/Buy](https://pro.cloudreve.org/Buy)
-
