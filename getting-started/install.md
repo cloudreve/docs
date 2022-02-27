@@ -8,7 +8,9 @@
 
 如果想要自行从源代码构建，请参阅以下章节：
 
-{% page-ref page="build.md" %}
+{% content-ref url="build.md" %}
+[build.md](build.md)
+{% endcontent-ref %}
 
 ## 启动 Cloudreve
 
@@ -51,7 +53,7 @@ Cloudreve 默认会监听`5212`端口。你可以在浏览器中访问`http://�
 {% tab title="NGINX" %}
 在网站的`server`字段中加入：
 
-```text
+```
 location / {
     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header Host $http_host;
@@ -78,6 +80,56 @@ location / {
     ProxyPass "/" "http://127.0.0.1:5212/" nocanon
 
 </VirtualHost>
+```
+{% endtab %}
+
+{% tab title="IIS" %}
+#### 启用 ARR
+
+打开 IIS，进入主页的 **Application Request Routing Cache**，再进入右边的 **Server Proxy Settings...**，勾选最上面的 **Enable proxy**，同时取消勾选下面的 **Reverse rewrite host in response headers**。点击右边的 应用 保存更改。
+
+如果不取消勾选反向重写主机头，会导致 Cloudreve API 无法返回正确的地址，导致无法预览图片视频等。
+
+#### 调整上传大小限制
+
+打开 IIS，进入主页最下面的 **配置编辑器 (Configuration Editor)**，转到 `system.webServer/security/requestFiltering` 节点，调整下面的 **requestLimits -> maxAllowedContentLength** 为你希望的理论最大文件值 (单位 byte) 后点击右边的 应用 保存更改即可。
+
+如果需要对网站进行限流，可以通过右击你的站点 -> 管理网站 -> 高级设置 里设置 Limit。
+
+#### 保留主机头
+
+打开 IIS，进入主页最下面的 **配置编辑器 (Configuration Editor)**，转到 `system.webServer/proxy` 节点，调整下面的 **preserveHostHeader** 为 **True** 后点击右边的 应用 保存更改即可。
+
+#### 配置反代规则
+
+这是 `web.config` 文件的内容，包括了两个规则：强制 HTTPS 和 反代。请根据你的需求使用，同时记得更改反代地址的端口号为你实际设置的。
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <system.webServer>
+        <rewrite>
+            <rules>
+                <clear />
+                <rule name="HTTP to HTTPS redirect" stopProcessing="true">
+                    <match url=".*" />
+                    <conditions logicalGrouping="MatchAll" trackAllCaptures="false">
+                        <add input="{HTTPS}" pattern="off" />
+                    </conditions>
+                    <action type="Redirect" url="https://{HTTP_HOST}/{R:0}" redirectType="Permanent" />
+                </rule>
+                <rule name="Rerwite" stopProcessing="true">
+                    <match url=".*" />
+                    <conditions logicalGrouping="MatchAny" trackAllCaptures="false">
+                        <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
+                        <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
+                    </conditions>
+                    <action type="Rewrite" url="http://localhost:1300/{R:0}" />
+                </rule>
+            </rules>
+        </rewrite>
+    </system.webServer>
+</configuration>
 ```
 {% endtab %}
 {% endtabs %}
