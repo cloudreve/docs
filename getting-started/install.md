@@ -309,7 +309,7 @@ docker run -d \
 cloudreve/cloudreve:latest
 ```
 
-# Docker Compose
+## Docker Compose
 
 除此之外，我们还提供 `docker compose` 部署，并且整合了离线下载服务
 在此之前，需要创建 `data` 目录作为离线下载临时中转目录
