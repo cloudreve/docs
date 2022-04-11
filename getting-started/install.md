@@ -2,7 +2,7 @@
 
 ## 获取 Cloudreve
 
-你可以在 [GitHub Release](https://github.com/cloudreve/Cloudreve/releases) 页面获取已经构建打包完成的主程序。其中每个版本都提供了常见系统架构下可用的主程序，命名规则为`cloudreve_版本号_操作系统_CPU架构.tar.gz` 。比如，普通64位Linux系统上部署3.0.0版本，则应该下载`cloudreve_3.0.0_linux_amd64.tar.gz`。
+你可以在 [GitHub Release](https://github.com/cloudreve/Cloudreve/releases) 页面获取已经构建打包完成的主程序。其中每个版本都提供了常见系统架构下可用的主程序，命名规则为`cloudreve_版本号_操作系统_CPU架构.tar.gz` 。比如，普通 64 位 Linux 系统上部署 3.0.0 版本，则应该下载`cloudreve_3.0.0_linux_amd64.tar.gz`。
 
 如果你想体验最新的功能特性，可以在 [GitHub Actions](https://github.com/cloudreve/Cloudreve/actions) 中下载每次 commit 后构建的开发版。注意，开发版并不稳定，无法用于生产用途，且不保证完全可用。
 
@@ -16,7 +16,7 @@
 
 {% tabs %}
 {% tab title="Linux" %}
-Linux下，直接解压并执行主程序即可：
+Linux 下，直接解压并执行主程序即可：
 
 ```bash
 #解压获取到的主程序
@@ -28,10 +28,11 @@ chmod +x ./cloudreve
 # 启动 Cloudreve
 ./cloudreve
 ```
+
 {% endtab %}
 
 {% tab title="Windows" %}
-Windows下，直接解压获取到的 zip 压缩包，启动 `cloudreve.exe` 即可。
+Windows 下，直接解压获取到的 zip 压缩包，启动 `cloudreve.exe` 即可。
 {% endtab %}
 {% endtabs %}
 
@@ -39,15 +40,15 @@ Cloudreve 在首次启动时，会创建初始管理员账号，请注意保管�
 
 Cloudreve 默认会监听`5212`端口。你可以在浏览器中访问`http://服务器IP:5212`进入 Cloudreve。
 
-以上步骤操作完后，最简单的部署就完成了。你可能需要一些更为具体的配置，才能让Cloudreve更好的工作，具体流程请参考下面的配置流程。
+以上步骤操作完后，最简单的部署就完成了。你可能需要一些更为具体的配置，才能让 Cloudreve 更好的工作，具体流程请参考下面的配置流程。
 
 ## 可选部署流程
 
 ### 反向代理
 
-在自用或者小规模使用的场景下，你完全可以使用 Cloudreve 内置的 Web 服务器。但是如果你需要使用HTTPS，亦或是需要与服务器上其他 Web 服务共存时，你可能需要使用主流 Web 服务器反向代理 Cloudreve ，以获得更丰富的扩展功能。
+在自用或者小规模使用的场景下，你完全可以使用 Cloudreve 内置的 Web 服务器。但是如果你需要使用 HTTPS，亦或是需要与服务器上其他 Web 服务共存时，你可能需要使用主流 Web 服务器反向代理 Cloudreve ，以获得更丰富的扩展功能。
 
-你需要在Web服务器中新建一个虚拟主机，完成所需的各项配置（如启用HTTPS），然后在网站配置文件中加入反代规则：
+你需要在 Web 服务器中新建一个虚拟主机，完成所需的各项配置（如启用 HTTPS），然后在网站配置文件中加入反代规则：
 
 {% tabs %}
 {% tab title="NGINX" %}
@@ -64,6 +65,7 @@ location / {
     # client_max_body_size 20000m;
 }
 ```
+
 {% endtab %}
 
 {% tab title="Apache" %}
@@ -81,9 +83,11 @@ location / {
 
 </VirtualHost>
 ```
+
 {% endtab %}
 
 {% tab title="IIS" %}
+
 #### 启用 ARR
 
 打开 IIS，进入主页的 **Application Request Routing Cache**，再进入右边的 **Server Proxy Settings...**，勾选最上面的 **Enable proxy**，同时取消勾选下面的 **Reverse rewrite host in response headers**。点击右边的 应用 保存更改。
@@ -131,6 +135,7 @@ location / {
     </system.webServer>
 </configuration>
 ```
+
 {% endtab %}
 {% endtabs %}
 
@@ -245,12 +250,12 @@ environment=CODENATION_ENV=prod
 
 其中以下配置项需要根据实际情况更改：
 
-* `directory`: Clopudreve 主程序所在目录
-* `command`: Cloudreve 主程序绝对路径
-* `stderr_logfile`: 错误日志路径
-* `stdout_logfile`: 通常日志路径
+- `directory`: Clopudreve 主程序所在目录
+- `command`: Cloudreve 主程序绝对路径
+- `stderr_logfile`: 错误日志路径
+- `stdout_logfile`: 通常日志路径
 
-通过全局配置文件启动supervisor：
+通过全局配置文件启动 supervisor：
 
 ```bash
 supervisord -c /etc/supervisord.conf
@@ -271,6 +276,103 @@ sudo supervisorctl status cloudreve
 
 ## Docker
 
-你可以选择使用以下镜像部署：
+我们提供官方的 docker image，支持三种架构 `armv7`, `arm64` 以及 `amd64`, 你可以使用以下命令部署
 
-* [xavierniu/cloudreve](https://hub.docker.com/r/xavierniu/cloudreve)
+### 创建目录结构
+
+请**确保**运行之前：
+
+> 1. 手动创建 `conf.ini` 空文件或者符合 Cloudreve 配置文件规范的 `conf.ini`, 并将 `<path_to_your_config> ` 替换为该路径
+> 2. 手动创建 `cloudreve.db` 空文件, 并将 `<path_to_your_db> ` 替换为该路径
+> 3. 手动创建 `uploads` 文件夹, 并将 `<path_to_your_uploads>` 替换为该路径
+> 4. 手动创建 `avatar` 文件夹，并将 `<path_to_your_avatar>` 替换为该路径
+
+或者，直接使用以下命令创建：
+
+```bash
+mkdir -vp cloudreve/{uploads,avatar} \
+&& touch cloudreve/conf.ini \
+&& touch cloudreve/cloudreve.db
+```
+
+### 运行
+
+然后，运行 docker container:
+
+```bash
+docker run -d \
+-p 5212:5212 \
+--mount type=bind,source=<path_to_your_config>,target=/cloudreve/conf.ini \
+--mount type=bind,source=<path_to_your_db>,target=/cloudreve/cloudreve.db \
+-v <path_to_your_uploads>:/cloudreve/uploads \
+-v <path_to_your_avatar>:/cloudreve/avatar \
+cloudreve/cloudreve:latest
+```
+
+## Docker Compose
+
+除此之外，我们还提供 `docker compose` 部署，并且整合了离线下载服务
+在此之前，需要创建 `data` 目录作为离线下载临时中转目录
+
+### 创建目录结构
+
+```bash
+mkdir -vp cloudreve/{uploads,avatar} \
+&& touch cloudreve/conf.ini \
+&& touch cloudreve/cloudreve.db \
+&& mkdir -p aria2/config \
+&& mkdir -p data/aria2 \
+&& chmod -R 777 data/aria2
+```
+
+### 运行
+
+然后将以下文件保存为 `docker-compose.yml`，放置于上文创建的 cloudreve 目录下，与 uploads 同一层级，同时，修改文件中的 `RPC_SECRET`
+
+```yml
+version: "3.8"
+services:
+  cloudreve:
+    container_name: cloudreve
+    image: cloudreve/cloudreve:latest
+    restart: unless-stopped
+    ports:
+      - "5212:5212"
+    volumes:
+      - temp_data:/data
+      - ./cloudreve/uploads:/cloudreve/uploads
+      - ./cloudreve/conf.ini:/cloudreve/conf.ini
+      - ./cloudreve/cloudreve.db:/cloudreve/cloudreve.db
+      - ./cloudreve/avatar:/cloudreve/avatar
+    depends_on:
+      - aria2
+  aria2:
+    container_name: aria2
+    image: p3terx/aria2-pro
+    restart: unless-stopped
+    environment:
+      - RPC_SECRET=your_aria_rpc_token
+      - RPC_PORT=6800
+    volumes:
+      - ./aria2/config:/config
+      - temp_data:/data
+volumes:
+  temp_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: $PWD/data
+      o: bind
+```
+
+运行镜像
+
+```bash
+docker-compose up -d
+```
+
+在之后的控制面板中，按照如下配置
+
+1. **[不可修改]** RPC 服务器地址 => `http://aria2:6800`
+2. **[可修改, 需保持和 docker-compose.yml 文件一致]** RPC 授权令牌 => `your_aria_rpc_token`
+3. **[不可修改]** Aria2 用作临时下载目录的 节点上的绝对路径 => `/data`
