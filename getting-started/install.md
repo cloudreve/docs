@@ -327,7 +327,7 @@ mkdir -vp cloudreve/{uploads,avatar} \
 
 ### 运行
 
-然后将以下文件保存为 `docker-compose.yml`，放置于上文创建的 cloudreve 目录下，与 uploads 同一层级，同时，修改文件中的 `RPC_SECRET`
+然后将以下文件保存为 `docker-compose.yml`，放置于当前目录，与 cloudreve 同一层级，同时，修改文件中的 `RPC_SECRET`
 
 ```yml
 version: "3.8"
