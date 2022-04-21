@@ -4,8 +4,9 @@ Cloudreve 支持多种底层存储策略，但是由于 API 限制等各方面�
 
 ## 基本对比
 
-| 上传        | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |  :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
+|           |          本机          |          从机          |          七牛          |          OSS         |          COS          |          又拍云         |       OneDrive       | S3                   |
 | --------- | :------------------: | :------------------: | :------------------: | :------------------: | :-------------------: | :------------------: | :------------------: | -------------------- |
+| 上传        | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |  :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
 | 分片上传      | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |          :x:          |          :x:         | :white\_check\_mark: | :white\_check\_mark: |
 | 下载        | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |  :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
 | 复制        | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |  :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
