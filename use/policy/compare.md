@@ -17,7 +17,7 @@ Cloudreve 支持多种底层存储策略，但是由于 API 限制等各方面�
 | 缩略图       | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |  :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :x:                  |
 | 打包下载      | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |  :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
 | 真实文件名下载   | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |  :white\_check\_mark: | :white\_check\_mark: |          :x:         | :white\_check\_mark: |
-| 理论最大文件    |          无限          |          无限          |          无限          |          无限          |          5GB          |         150GB        |          未知          | 无限                   |
+| 理论最大文件    |          无限          |          无限          |          无限          |          无限          |          5 GB          |         150 GB        |          250 GB          | 无限                   |
 | 公网接入要求    |           无          |           无          |          需要          |          需要          |           需要          |          需要          |          需要          | 需要                   |
 | 可用于对公使用   | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |  :white\_check\_mark: | :white\_check\_mark: |       以 ToS 为准       | :x:                  |
 
