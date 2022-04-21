@@ -12,7 +12,8 @@
 
 一个完整的配置文件示例如下：
 
-```d
+{% code title="conf.ini" %}
+```ini
 [System]
 ; 运行模式
 Mode = master
@@ -81,26 +82,20 @@ Server = 127.0.0.1:6379
 Password =
 DB = 0
 
-; 缩略图
-[Thumbnail]
-MaxWidth = 400
-MaxHeight = 300
-FileSuffix = ._thumb
-; 最大并行执行缩略图生成的数量，填写 -1 时会根据 CPU 核心数自动决定
-MaxTaskCount = -1
-; 可填写 jpg / png
-EncodeMethod = jpg
-; 是否在缩略图生成完毕后立刻进行垃圾回收
-GCAfterGen = false
-; 缩略图质量
-EncodeQuality = 85
+; 从机配置覆盖
+[OptionOverwrite]
+; 可直接使用 `设置名称 = 值` 的格式覆盖
+max_worker_num = 50
 ```
+{% endcode %}
 
-## 使用 MySQL
+## 配置案例
+
+### 使用 MySQL
 
 默认情况下，Cloudreve 会使用内置的 SQLite 数据库，并在同级目录创建数据库文件`cloudreve.db`，如果您想要使用 MySQL，请在配置文件中加入以下内容，并重启 Cloudreve。注意，Cloudreve 只支持大于或等于 5.7 版本的 MySQL 。
 
-```
+```ini
 [Database]
 ; 数据库类型，目前支持 sqlite/mysql/mssql/postgres
 Type = mysql
@@ -124,11 +119,11 @@ Charset = utf8
 更换数据库配置后，Cloudreve 会重新初始化数据库，原有的数据将会丢失。
 {% endhint %}
 
-## 使用 Redis
+### 使用 Redis
 
 你可以在配置文件中加入 Redis 相关设置：
 
-```
+```ini
 [Redis]
 Server = 127.0.0.1:6379
 Password = your password
@@ -146,7 +141,7 @@ DB = 0
 * 回调会话
 * OneDrive 凭证
 
-## 启用 HTTPS
+### 启用 HTTPS
 
 {% hint style="info" %}
 如果您正在使用 Web 服务器反向代理 Cloudreve，推荐您在 Web 服务器中配置 SSL，本小节所阐述的启用方式只针对使用 Cloudreve 内置 Web 服务器的情境下有效。
@@ -154,7 +149,7 @@ DB = 0
 
 在配置配置文件中加入：
 
-```
+```ini
 [SSL]
 Listen = :443
 CertPath = C:\Users\i\Documents\fullchain.pem
@@ -162,3 +157,32 @@ KeyPath = C:\Users\i\Documents\privkey.pem
 ```
 
 其中 `CertPath` 和`KeyPath` 分别为 SSL 证书和私钥路径。保存后重启 Cloudreve 生效。
+
+### 覆盖从机节点的配置项
+
+Cloudreve 的某些配置项时存储测在数据库中的，但是从机机点并不会连接数据库，你可以在配置文件中覆盖响应的配置项。
+
+比如，从机节点作为存储端运行时，你可以通过下面的配置设定从机生成的缩略图规格：
+
+```ini
+[OptionOverwrite]
+thumb_width = 400
+thumb_height = 300
+thumb_file_suffix = ._thumb
+thumb_max_task_count = -1
+thumb_encode_method = jpg
+thumb_gc_after_gen = 0
+thumb_encode_quality = 85
+```
+
+如果从机端作为离线下载节点使用，你可以通过下面的配置覆盖默认的重试、超时参数，以避免默认的数值过于保守导致文件转存失败：
+
+```ini
+[OptionOverwrite]
+; 任务队列最多并行执行的任务数
+max_worker_num = 50
+; 任务队列中转任务传输时，最大并行协程数
+max_parallel_transfer = 10
+; 中转分片上传失败后重试的最大次数
+chunk_retries = 10
+```

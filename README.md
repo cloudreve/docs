@@ -25,4 +25,4 @@ Cloudreve 可以让您快速搭建起公私兼备的网盘系统。Cloudreve 在
 
 或是与开发者联系：
 
-&#x20;Email：[abslant@foxmail.com](mailto:abslant@foxmail.com)
+&#x20;Email：[abslant.liu@gmail.com](mailto:abslant.liu@gmail.com)

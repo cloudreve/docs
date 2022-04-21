@@ -4,10 +4,9 @@ Cloudreve 项目主要由两部分组成：后端主仓库 [cloudreve/Cloudreve]
 
 ## 环境准备
 
-1. 参照 [Getting Started - The Go Programming Language](https://golang.org/doc/install) 安装并配置Go语言开发环境；
-2. 参考 [下载 \| Node.js](https://nodejs.org/zh-cn/download/) 安装 Node.js;
-3. 参考 [安装 \| Yarn](https://classic.yarnpkg.com/zh-Hans/docs/install#windows-stable) 安装Yarn;
-4. 执行 `go get github.com/rakyll/statik` 安装statik 命令行工具;
+1. 参照 [Getting Started - The Go Programming Language](https://golang.org/doc/install) 安装并配置 Go 语言开发环境 (>=1.17)；
+2. 参考 [下载 | Node.js](https://nodejs.org/zh-cn/download/) 安装 Node.js;
+3. 参考 [安装 | Yarn](https://classic.yarnpkg.com/zh-Hans/docs/install#windows-stable) 安装Yarn;
 
 ## 开始构建
 
@@ -36,28 +35,12 @@ yarn run build
 
 你可以将此目录改名为`statics` 目录，放置在 Cloudreve 主程序同级目录下并重启 Cloudreve，Cloudreve 将会使用此目录下的静态资源文件，而非内置的。
 
-### 嵌入静态资源
+### 编译项目
 
 ```bash
 # 回到项目主目录
 cd ../
 
-# 安装 statik, 用于嵌入静态资源
-go get github.com/rakyll/statik
-
-# 开始嵌入
-statik -src=assets/build/  -include=*.html,*.js,*.json,*.css,*.png,*.svg,*.ico,*.ttf -f
-```
-
-{% hint style="info" %}
-如果在嵌入时找不到`statik` 命令，请尝试执行：
-
-`export PATH=$PATH:$(go env GOPATH)/bin`
-{% endhint %}
-
-### 编译项目
-
-```bash
 # 获得当前版本号、Commit
 export COMMIT_SHA=$(git rev-parse --short HEAD)
 export VERSION=$(git describe --tags)
@@ -98,4 +81,3 @@ export CGO_ENABLED=1
 
 go build
 ```
-
