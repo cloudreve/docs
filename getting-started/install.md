@@ -88,25 +88,28 @@ location / {
 
 {% tab title="IIS" %}
 
-#### 启用 ARR
+#### 1. 安装 IIS URL Rewrite 和 ARR 模块
+
+- URL Rewrite: [点击下载](https://www.iis.net/downloads/microsoft/url-rewrite#additionalDownloads)
+- ARR: [点击下载](https://www.iis.net/downloads/microsoft/application-request-routing#additionalDownloads)
+
+如已安装，请跳过本步。
+
+#### 2. 启用并配置 ARR
 
 打开 IIS，进入主页的 **Application Request Routing Cache**，再进入右边的 **Server Proxy Settings...**，勾选最上面的 **Enable proxy**，同时取消勾选下面的 **Reverse rewrite host in response headers**。点击右边的 应用 保存更改。
 
+进入主页最下面的 **配置编辑器 (Configuration Editor)**，转到 `system.webServer/proxy` 节点，调整 **preserveHostHeader** 为 **True** 后点击右边的 应用 保存更改。
+
 如果不取消勾选反向重写主机头，会导致 Cloudreve API 无法返回正确的地址，导致无法预览图片视频等。
 
-#### 调整上传大小限制
+#### 3. 配置反代规则
 
-打开 IIS，进入主页最下面的 **配置编辑器 (Configuration Editor)**，转到 `system.webServer/security/requestFiltering` 节点，调整下面的 **requestLimits -> maxAllowedContentLength** 为你希望的理论最大文件值 (单位 byte) 后点击右边的 应用 保存更改即可。
+这是 `web.config` 文件的内容，将它放在目标网站根目录即可。此样例包括两个规则与一个限制：
 
-如果需要对网站进行限流，可以通过右击你的站点 -> 管理网站 -> 高级设置 里设置 Limit。
-
-#### 保留主机头
-
-打开 IIS，进入主页最下面的 **配置编辑器 (Configuration Editor)**，转到 `system.webServer/proxy` 节点，调整下面的 **preserveHostHeader** 为 **True** 后点击右边的 应用 保存更改即可。
-
-#### 配置反代规则
-
-这是 `web.config` 文件的内容，包括了两个规则：强制 HTTPS 和 反代。请根据你的需求使用，同时记得更改反代地址的端口号为你实际设置的。
+- HTTP to HTTPS redirect (强制 HTTPS，需要自行配置 SSL 后才可使用，不使用请删除该 rule)
+- Rerwite (反代)
+- `requestLimits` 中的 `60000000` 为传输文件大小限制，单位 byte，如果您要使用本地存储策略请更改大小为理论最大文件尺寸
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -114,7 +117,6 @@ location / {
     <system.webServer>
         <rewrite>
             <rules>
-                <clear />
                 <rule name="HTTP to HTTPS redirect" stopProcessing="true">
                     <match url=".*" />
                     <conditions logicalGrouping="MatchAll" trackAllCaptures="false">
@@ -128,10 +130,15 @@ location / {
                         <add input="{REQUEST_FILENAME}" matchType="IsFile" negate="true" />
                         <add input="{REQUEST_FILENAME}" matchType="IsDirectory" negate="true" />
                     </conditions>
-                    <action type="Rewrite" url="http://localhost:1300/{R:0}" />
+                    <action type="Rewrite" url="http://localhost:5212/{R:0}" />
                 </rule>
             </rules>
         </rewrite>
+        <security>
+            <requestFiltering allowDoubleEscaping="true">
+                <requestLimits maxAllowedContentLength="60000000" />
+            </requestFiltering>
+        </security>
     </system.webServer>
 </configuration>
 ```
