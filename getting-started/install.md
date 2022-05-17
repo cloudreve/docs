@@ -282,6 +282,7 @@ sudo supervisorctl status cloudreve
 ```
 
 ## Docker
+> 使用之前，请确保您知道 docker 的工作机制，在一般情况下，上述部署流程已经能够覆盖绝大多数使用场景。
 
 我们提供官方的 docker image，支持三种架构 `armv7`, `arm64` 以及 `amd64`, 你可以使用以下命令部署
 
@@ -375,7 +376,11 @@ volumes:
 运行镜像
 
 ```bash
+# 后台运行模式，可以从 docker/docker-compose 的日志中获取默认管理员账户用户名和密码
 docker-compose up -d
+
+# 或者，直接运行，log 将会直接输出在当前控制台中，请注意退出之后保持当前容器运行
+docker-compose up
 ```
 
 在之后的控制面板中，按照如下配置
@@ -383,3 +388,17 @@ docker-compose up -d
 1. **[不可修改]** RPC 服务器地址 => `http://aria2:6800`
 2. **[可修改, 需保持和 docker-compose.yml 文件一致]** RPC 授权令牌 => `your_aria_rpc_token`
 3. **[不可修改]** Aria2 用作临时下载目录的 节点上的绝对路径 => `/data`
+
+### 更新
+
+关闭当前运行的容器，此步骤不会删除挂载的配置文件以及相关目录
+```bash
+docker-compose down
+```
+
+如果此前已经拉取 docker 镜像，使用以下命令获取最新镜像
+```bash
+docker pull cloudreve/cloudreve
+```
+
+重复运行步骤即可
