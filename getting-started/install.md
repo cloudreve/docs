@@ -257,7 +257,7 @@ environment=CODENATION_ENV=prod
 
 其中以下配置项需要根据实际情况更改：
 
-- `directory`: Clopudreve 主程序所在目录
+- `directory`: Cloudreve 主程序所在目录
 - `command`: Cloudreve 主程序绝对路径
 - `stderr_logfile`: 错误日志路径
 - `stdout_logfile`: 通常日志路径
@@ -305,7 +305,7 @@ mkdir -vp cloudreve/{uploads,avatar} \
 
 ### 运行
 
-然后，运行 docker container:
+然后，运行 docker container：
 
 ```bash
 docker run -d \

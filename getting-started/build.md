@@ -1,12 +1,12 @@
 # 构建
 
-Cloudreve 项目主要由两部分组成：后端主仓库 [cloudreve/Cloudreve](https://github.com/cloudreve/Cloudreve)，以及前端仓库 [cloudreve/frontend](https://github.com/cloudreve/frontend)。编译 Cloudreve 后端前，需要先构建`assets` 目录下的前端子模块，并使用[statik](https://github.com/rakyll/statik)嵌入到后端仓库。
+Cloudreve 项目主要由两部分组成：后端主仓库 [cloudreve/Cloudreve](https://github.com/cloudreve/Cloudreve)，以及前端仓库 [cloudreve/frontend](https://github.com/cloudreve/frontend)。编译 Cloudreve 后端前，需要先构建`assets` 目录下的前端子模块，并使用 [statik](https://github.com/rakyll/statik) 嵌入到后端仓库。
 
 ## 环境准备
 
 1. 参照 [Getting Started - The Go Programming Language](https://golang.org/doc/install) 安装并配置 Go 语言开发环境 (>=1.17)；
 2. 参考 [下载 | Node.js](https://nodejs.org/zh-cn/download/) 安装 Node.js;
-3. 参考 [安装 | Yarn](https://classic.yarnpkg.com/zh-Hans/docs/install#windows-stable) 安装Yarn;
+3. 参考 [安装 | Yarn](https://classic.yarnpkg.com/zh-Hans/docs/install#windows-stable) 安装 Yarn;
 
 ## 开始构建
 
@@ -69,7 +69,7 @@ go build -a -o cloudreve -ldflags " -X 'github.com/cloudreve/Cloudreve/v3/pkg/co
 
 ## 交叉编译
 
-交叉编译前，你需要启用`CGO` ，正确安装目标平台的 GCC 工具链，并将`CC` 环境变量设定为对应平台的GCC 编译工具。
+交叉编译前，你需要启用`CGO` ，正确安装目标平台的 GCC 工具链，并将`CC` 环境变量设定为对应平台的 GCC 编译工具。
 
 比如，在 Linux/AMD64 宿主平台上交叉编译 Windows/AMD64：
 
