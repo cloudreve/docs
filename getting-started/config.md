@@ -18,7 +18,7 @@
 ; 运行模式
 Mode = master
 ; 监听端口
-Listen = :5000
+Listen = :5212
 ; 是否开启 Debug
 Debug = false
 ; Session 密钥, 一般在首次启动时自动生成
