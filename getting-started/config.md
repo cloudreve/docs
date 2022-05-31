@@ -56,7 +56,7 @@ Name = v3
 ; 数据表前缀
 TablePrefix = cd_
 ; 字符集
-Charset = utf8
+Charset = utf8mb4
 ; SQLite 数据库文件路径
 DBFile = cloudreve.db
 
