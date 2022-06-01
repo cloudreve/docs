@@ -18,7 +18,7 @@
 ; 运行模式
 Mode = master
 ; 监听端口
-Listen = :5000
+Listen = :5212
 ; 是否开启 Debug
 Debug = false
 ; Session 密钥, 一般在首次启动时自动生成
@@ -39,7 +39,7 @@ KeyPath = C:\Users\i\Documents\privkey.pem
 [UnixSocket]
 Listen = /run/cloudreve/cloudreve.sock
 
-; 数据库相关，如果你只想使用内置的 SQLite数据库，这一部分直接删去即可
+; 数据库相关，如果你只想使用内置的 SQLite 数据库，这一部分直接删去即可
 [Database]
 ; 数据库类型，目前支持 sqlite/mysql/mssql/postgres
 Type = mysql
@@ -56,7 +56,7 @@ Name = v3
 ; 数据表前缀
 TablePrefix = cd_
 ; 字符集
-Charset = utf8
+Charset = utf8mb4
 ; SQLite 数据库文件路径
 DBFile = cloudreve.db
 
@@ -136,7 +136,7 @@ DB = 0
 
 重启 Cloudreve 后，可注意控制台输出，确定 Cloudreve 是否成功连接 Redis 服务器。使用 Redis 后，以下内容将被 Redis 接管：
 
-* 用户会话（重启Cloudreve后不会再丢失登录会话）
+* 用户会话（重启 Cloudreve 后不会再丢失登录会话）
 * 数据表高频记录查询缓存（如存储策略、设置项）
 * 回调会话
 * OneDrive 凭证
@@ -147,7 +147,7 @@ DB = 0
 如果您正在使用 Web 服务器反向代理 Cloudreve，推荐您在 Web 服务器中配置 SSL，本小节所阐述的启用方式只针对使用 Cloudreve 内置 Web 服务器的情境下有效。
 {% endhint %}
 
-在配置配置文件中加入：
+在配置文件中加入：
 
 ```ini
 [SSL]
@@ -160,7 +160,7 @@ KeyPath = C:\Users\i\Documents\privkey.pem
 
 ### 覆盖从机节点的配置项
 
-Cloudreve 的某些配置项时存储测在数据库中的，但是从机机点并不会连接数据库，你可以在配置文件中覆盖响应的配置项。
+Cloudreve 的某些配置项是存储在数据库中的，但是从机节点并不会连接数据库，你可以在配置文件中覆盖相应的配置项。
 
 比如，从机节点作为存储端运行时，你可以通过下面的配置设定从机生成的缩略图规格：
 
@@ -175,7 +175,7 @@ thumb_gc_after_gen = 0
 thumb_encode_quality = 85
 ```
 
-如果从机端作为离线下载节点使用，你可以通过下面的配置覆盖默认的重试、超时参数，以避免默认的数值过于保守导致文件转存失败：
+如果从机节点作为离线下载节点使用，你可以通过下面的配置覆盖默认的重试、超时参数，以避免默认的数值过于保守导致文件转存失败：
 
 ```ini
 [OptionOverwrite]
