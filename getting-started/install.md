@@ -317,6 +317,14 @@ docker run -d \
 cloudreve/cloudreve:latest
 ```
 
+> 需要注意的是：`-d`是后台运行，没有显示一些账户信息，我们需要用`docker logs`来查看账户登录名和密码信息****
+>
+> ```
+> docker logs 
+> ```
+
+
+
 ## Docker Compose
 
 除此之外，我们还提供 `docker compose` 部署，并且整合了离线下载服务
