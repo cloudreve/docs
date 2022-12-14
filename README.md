@@ -10,11 +10,11 @@ Cloudreve 可以让您快速搭建起公私兼备的网盘系统。Cloudreve 在
 
 ## 问题反馈
 
-如果在使用过程中发现了什么缺陷，或是有新的需求提议，请先检查一下以前的文档、[issue](https://github.com/cloudreve/Cloudreve/issues) 、[讨论社区](https://forum.cloudreve.org)是否提过。
+如果在使用过程中发现了什么缺陷，或是有新的需求提议，请先检查一下以前的文档、[issue](https://github.com/cloudreve/Cloudreve/issues) 、[讨论社区](https://forum.cloudreve.org/)是否提过。
 
 如果疑似 Bug 或是功能提议，请创建一个 [issue](https://github.com/cloudreve/Cloudreve/issues) 用于追踪问题；
 
-如果是日常使用上的疑问，请到 [讨论社区](https://forum.cloudreve.org) 创建新的话题，并详细描述你遇到的问题。
+如果是日常使用上的疑问，请到 [讨论社区](https://forum.cloudreve.org/) 创建新的话题，并详细描述你遇到的问题。
 
 ## 联系
 

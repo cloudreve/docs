@@ -1,36 +1,37 @@
 # 对比
 
-Cloudreve 支持多种底层存储策略，但是由于 API 限制等各方面因素，Cloudreve 对每种策略的支持程度并不一致，本章节将会详细列出不同存储策略之间的具体支持性区别。
+中转Cloudreve 支持多种底层存储策略，但是由于 API 限制等各方面因素，Cloudreve 对每种策略的支持程度并不一致，本章节将会详细列出不同存储策略之间的具体支持性区别。
 
 ## 基本对比
 
-|           |          本机          |          从机          |          七牛          |          OSS         |          COS          |          又拍云         |       OneDrive       | S3                   |
-| --------- | :------------------: | :------------------: | :------------------: | :------------------: | :-------------------: | :------------------: | :------------------: | -------------------- |
-| 上传        | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |  :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
-| 分片上传      | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |          :x:          |          :x:         | :white\_check\_mark: | :white\_check\_mark: |
-| 下载        | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |  :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
-| 复制        | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |  :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
-| 移动        | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |  :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
-| 普通预览      | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |  :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
-| Office 预览 | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |  :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
-| 删除        | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |  :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
-| 缩略图       | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |  :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :x:                  |
-| 打包下载      | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |  :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
-| 真实文件名下载   | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |  :white\_check\_mark: | :white\_check\_mark: |          :x:         | :white\_check\_mark: |
-| 理论最大文件    |          无限          |          无限          |          无限          |          无限          |          5 GB          |         150 GB        |          250 GB          | 无限                   |
-| 公网接入要求    |           无          |           无          |          需要          |          需要          |           需要          |          需要          |          需要          | 需要                   |
-| 可用于对公使用   | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |  :white\_check\_mark: | :white\_check\_mark: |       以 ToS 为准       | :x:                  |
+|           |          本机          |          从机          |          七牛          |          OSS         |          COS         |          又拍云         |       OneDrive       | S3                   |
+| --------- | :------------------: | :------------------: | :------------------: | :------------------: | :------------------: | :------------------: | :------------------: | -------------------- |
+| 上传        | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
+| 分片上传      | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |          :x:         |          :x:         | :white\_check\_mark: | :white\_check\_mark: |
+| 下载        | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
+| 复制        | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
+| 移动        | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
+| 普通预览      | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
+| Office 预览 | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
+| 删除        | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
+| 缩略图       | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :x:                  |
+| 打包下载      | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
+| 真实文件名下载   | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |          :x:         | :white\_check\_mark: |
+| 理论最大文件    |          无限          |          无限          |          无限          |          无限          |         5 GB         |        150 GB        |        250 GB        | 无限                   |
+| 公网接入要求    |           无          |           无          |          需要          |          需要          |          需要          |          需要          |          需要          | 需要                   |
+| 可用于对公使用   | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |       以 ToS 为准       | :x:                  |
 
 ## 高级功能
 
-|      |          本机          |          从机          |          七牛          |          OSS         |          COS         |          又拍云         |       OneDrive       | S3                   |
-| ---- | :------------------: | :------------------: | :------------------: | :------------------: | :------------------: | :------------------: | :------------------: | -------------------- |
-| 离线下载 | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
-| 下载限速 | :white\_check\_mark: | :white\_check\_mark: |          :x:         | :white\_check\_mark: | :white\_check\_mark: |          :x:         |          :x:         | :x:                  |
-| 直链获取 | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :x:                  |
-| 解压缩  | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
-| 压缩   | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
-|      |                      |                      |                      |                      |                      |                      |                      |                      |
+|          |          本机          |          从机          |          七牛          |          OSS         |          COS         |          又拍云         |       OneDrive       | S3                   |
+| -------- | :------------------: | :------------------: | :------------------: | :------------------: | :------------------: | :------------------: | :------------------: | -------------------- |
+| 离线下载     | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
+| 下载限速     | :white\_check\_mark: | :white\_check\_mark: |          :x:         | :white\_check\_mark: | :white\_check\_mark: |          :x:         |          :x:         | :x:                  |
+| 中转直链永久有效 | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :x:                  |
+| 原始直链永久有效 | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |          :x:         | :white\_check\_mark: |
+| 解压缩      | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
+| 压缩       | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
+|          |                      |                      |                      |                      |                      |                      |                      |                      |
 
 ## 流量路径
 

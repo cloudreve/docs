@@ -38,6 +38,10 @@ KeyPath = C:\Users\i\Documents\privkey.pem
 ; 启用 Unix Socket 监听
 [UnixSocket]
 Listen = /run/cloudreve/cloudreve.sock
+; 设置产生的 socket 文件的权限
+Perm = 0666
+; 呈递客户端 IP 时使用的 Header
+ProxyHeader = X-Forwarded-For
 
 ; 数据库相关，如果你只想使用内置的 SQLite 数据库，这一部分直接删去即可
 [Database]
@@ -59,6 +63,8 @@ TablePrefix = cd_
 Charset = utf8mb4
 ; SQLite 数据库文件路径
 DBFile = cloudreve.db
+; 进程退出前安全关闭数据库连接的缓冲时间
+GracePeriod = 30
 
 ; 从机模式下的配置
 [Slave]
