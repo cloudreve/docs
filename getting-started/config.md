@@ -81,6 +81,8 @@ AllowOrigins = *
 AllowMethods = OPTIONS,GET,POST
 AllowHeaders = *
 AllowCredentials = false
+SameSite = Default
+Secure = lse
 
 ; Redis 相关
 [Redis]
