@@ -25,6 +25,8 @@ Debug = false
 SessionSecret = 23333
 ; Hash 加盐, 一般在首次启动时自动生成
 HashIDSalt = something really hard to guss
+; 呈递客户端 IP 时使用的 Header
+ProxyHeader = X-Forwarded-For
 
 ; SSL 相关
 [SSL]
@@ -40,8 +42,6 @@ KeyPath = C:\Users\i\Documents\privkey.pem
 Listen = /run/cloudreve/cloudreve.sock
 ; 设置产生的 socket 文件的权限
 Perm = 0666
-; 呈递客户端 IP 时使用的 Header
-ProxyHeader = X-Forwarded-For
 
 ; 数据库相关，如果你只想使用内置的 SQLite 数据库，这一部分直接删去即可
 [Database]

@@ -4,7 +4,7 @@ Cloudreve 项目主要由两部分组成：后端主仓库 [cloudreve/Cloudreve]
 
 ## 环境准备
 
-1. 参照 [Getting Started - The Go Programming Language](https://golang.org/doc/install) 安装并配置 Go 语言开发环境 (>=1.17)；
+1. 参照 [Getting Started - The Go Programming Language](https://golang.org/doc/install) 安装并配置 Go 语言开发环境 (>=1.18)；
 2. 参考 [下载 | Node.js](https://nodejs.org/zh-cn/download/) 安装 Node.js;
 3. 参考 [安装 | Yarn](https://classic.yarnpkg.com/zh-Hans/docs/install#windows-stable) 安装 Yarn;
 
