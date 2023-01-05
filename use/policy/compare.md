@@ -27,7 +27,7 @@
 | -------- | :------------------: | :------------------: | :------------------: | :------------------: | :------------------: | :------------------: | :------------------: | -------------------- |
 | 离线下载     | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
 | 下载限速     | :white\_check\_mark: | :white\_check\_mark: |          :x:         | :white\_check\_mark: | :white\_check\_mark: |          :x:         |          :x:         | :x:                  |
-| 中转直链永久有效 | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :x:                  |
+| 中转直链永久有效 | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
 | 原始直链永久有效 | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |          :x:         | :white\_check\_mark: |
 | 解压缩      | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
 | 压缩       | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: | :white\_check\_mark: |
