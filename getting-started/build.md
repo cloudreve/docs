@@ -65,12 +65,13 @@ go build -a -o cloudreve -ldflags " -X 'github.com/cloudreve/Cloudreve/v3/pkg/co
 
 你可以使用 [goreleaser](https://goreleaser.com/intro/) 快速完成构建、打包等操作，使用方法如下：
 
-<pre class="language-bash"><code class="lang-bash"># 安装 goreleaser
+```bash
+# 安装 goreleaser
 go install github.com/goreleaser/goreleaser@latest
 
-<strong># 构建项目
-</strong>goreleaser build --clean --single-target --snapshot
-</code></pre>
+# 构建项目
+goreleaser build --clean --single-target --snapshot
+```
 
 或者交叉编译出所有可用版本：
 
