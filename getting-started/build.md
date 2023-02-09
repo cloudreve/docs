@@ -29,6 +29,12 @@ cd assets
 yarn install
 # 开始构建
 yarn run build
+# 构建完成后删除映射文件
+cd build
+find . -name "*.map" -type f -delete
+# 返回项目主目录打包静态资源
+cd ../../
+zip -r - assets/build >assets.zip
 ```
 
 完成后，所构建的静态资源文件位于 `assets/build` 目录下。
@@ -57,27 +63,17 @@ go build -a -o cloudreve -ldflags " -X 'github.com/cloudreve/Cloudreve/v3/pkg/co
 
 ## 构建助手
 
-你可以使用项目根目录下的构建脚本`build.sh` 快速完成构建、打包等操作，使用方法如下：
+你可以使用 [goreleaser](https://goreleaser.com/intro/) 快速完成构建、打包等操作，使用方法如下：
 
-```bash
-./build.sh  [-a] [-c] [-b] [-r]
-    a - 构建静态资源
-    c - 编译二进制文件
-    b - 构建前端 + 编译二进制文件
-    r - 交叉编译，构建用于release的版本
-```
+<pre class="language-bash"><code class="lang-bash"># 安装 goreleaser
+go install github.com/goreleaser/goreleaser@latest
 
-## 交叉编译
+<strong># 构建项目
+</strong>goreleaser build --clean --single-target --snapshot
+</code></pre>
 
-交叉编译前，你需要启用`CGO` ，正确安装目标平台的 GCC 工具链，并将`CC` 环境变量设定为对应平台的 GCC 编译工具。
+或者交叉编译出所有可用版本：
 
-比如，在 Linux/AMD64 宿主平台上交叉编译 Windows/AMD64：
-
-```bash
-export GOOS=windows
-export GOARCH=amd64
-export CC=x86_64-w64-mingw32-gcc
-export CGO_ENABLED=1
-
-go build
+```sh
+goreleaser build --clean --snapshot
 ```
