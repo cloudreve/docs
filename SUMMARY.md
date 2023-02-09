@@ -18,10 +18,8 @@
 * [自定义前端](use/zi-ding-yi-qian-duan.md)
 * [捐助版相关](use/pro/README.md)
   * [介绍](use/pro/jie-shao.md)
-  * [授权管理](use/pro/shou-quan-guan-li.md)
-  * [存储策略切换](use/pro/cun-chu-ce-lve-qie-huan.md)
+  * [iOS 客户端批量授权](use/pro/vo-l.md)
   * [自定义支付渠道](use/pro/pay.md)
-  * [QQ互联](use/pro/qq.md)
 
 ## 维护 <a href="#manage" id="manage"></a>
 
