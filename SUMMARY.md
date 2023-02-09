@@ -20,7 +20,7 @@
   * [介绍](use/pro/jie-shao.md)
   * [授权管理](use/pro/shou-quan-guan-li.md)
   * [存储策略切换](use/pro/cun-chu-ce-lve-qie-huan.md)
-  * [支付](use/pro/pay.md)
+  * [自定义支付渠道](use/pro/pay.md)
   * [QQ互联](use/pro/qq.md)
 
 ## 维护 <a href="#manage" id="manage"></a>
