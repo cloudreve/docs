@@ -65,6 +65,8 @@ Charset = utf8mb4
 DBFile = cloudreve.db
 ; 进程退出前安全关闭数据库连接的缓冲时间
 GracePeriod = 30
+; 使用 Unix Socket 连接到数据库
+UnixSocket = 
 
 ; 从机模式下的配置
 [Slave]
