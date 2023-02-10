@@ -16,7 +16,7 @@ WebDAV 是一种基于 HTTP 协议的文件传输协议，如今有许多第三�
 
 在 “此电脑”空白处右键，选择“添加一个网络位置”：
 
-![](<../.gitbook/assets/image (1) (1).png>)
+![](<../.gitbook/assets/image (1) (1) (1).png>)
 
 输入站点 WebDAV 连接地址，一般格式为`https://您的域名/dav`，填写完成后输入您的 Cloudreve 账号和系统生成的账号密码即可。
 
