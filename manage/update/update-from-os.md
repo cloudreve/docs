@@ -19,7 +19,7 @@
 
 {% tab title="Windows" %}
 ```
-cloudreve.exe --database-script UpgradeToPro
+cloudreve.exe --database-script OSSToPro
 ```
 {% endtab %}
 {% endtabs %}
