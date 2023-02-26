@@ -136,3 +136,9 @@ X-Cr-Cloudreve-Version: 3.6.2
 ## 添加支付接口
 
 实现并部署支付接口后，请在 Cloudreve 后台 - 增值服务 - 自定义支付渠道 中开启并填写接口地址。
+
+## 第三方实现
+
+| 支付平台 | 许可    | 文档                                                                                             |
+| ---- | ----- | ---------------------------------------------------------------------------------------------- |
+| 易支付  | 开放源代码 | [https://github.com/topjohncian/cloudreve-epay](https://github.com/topjohncian/cloudreve-epay) |
