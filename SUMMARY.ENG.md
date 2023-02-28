@@ -24,8 +24,8 @@
 
 ## Maintain <a href="#manage" id="manage"></a>
 
-* [Database script](manage/db-script.md)
-* [Update](manage/update/README.md)
-   * [upgrade from 3.x.x](manage/update/cong-3.x.x-sheng-ji.md)
-   * [upgrade from 2.x.x](manage/update/upgrade.md)
-   * [Upgrade to Contribution Version](manage/update/update-from-os.md)
+* [Database script](manage/db-script.ENG.md)
+* [Update](manage/update/README.ENG.md)
+   * [upgrade from 3.x.x](manage/update/cong-3.x.x-sheng-ji.ENG.md)
+   * [upgrade from 2.x.x](manage/update/upgrade.ENG.md)
+   * [Upgrade to Contribution Version](manage/update/update-from-os.ENG.md)
