@@ -4,7 +4,7 @@
 
 ## Getting Started <a href="#getting-started" id="getting-started"></a>
 
-* [Quick start](getting-started/install.md)
+* [Quick start](getting-started/install.ENG.md)
 * [configuration file](getting-started/config.md)
 * [Build](getting-started/build.md)
 
