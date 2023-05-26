@@ -142,3 +142,4 @@ X-Cr-Cloudreve-Version: 3.6.2
 | 支付平台 | 许可    | 文档                                                                                             |
 | ---- | ----- | ---------------------------------------------------------------------------------------------- |
 | 易支付  | 开放源代码 | [https://github.com/topjohncian/cloudreve-epay](https://github.com/topjohncian/cloudreve-epay) |
+| 爱发电 | MIT许可 | [https://github.com/essesoul/Cloudreve-AfdianPay](https://github.com/essesoul/Cloudreve-AfdianPay) |
