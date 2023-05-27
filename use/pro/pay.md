@@ -101,7 +101,7 @@ X-Cr-Cloudreve-Version: 3.6.2
 你可以在 Cloudreve 后台设定`通信密钥`，Cloudreve 创建订单的请求会使用此密钥进行加密并放在`Authorization` header 中，你可以通过以下算法验证这一签名：
 
 1. 将 `Authorization` 值中 `Bearer` 之后的部分取出，使用`:`分割字符串，其第二部分是签名过期的时间戳，验证确保其大于当前时间戳。将`:`前一部分记为`SIGNATURE`；
-2. 参考 [getSignContent](https://github.com/cloudreve/Cloudreve/blob/b441d884f61d59da86d861b14d1302ec25bbea40/pkg/auth/auth.go#L71) 对请求正文及 header进行编码，并使用 HMAC 算法对编码内容及过期时间戳计算签名：[Sign](https://github.com/cloudreve/Cloudreve/blob/b441d884f61d59da86d861b14d1302ec25bbea40/pkg/auth/auth.go#L71)；
+2. 参考 [getSignContent](https://github.com/cloudreve/Cloudreve/blob/b441d884f61d59da86d861b14d1302ec25bbea40/pkg/auth/auth.go#L71) 对请求正文及 header进行编码，并使用 HMAC 算法对编码内容及过期时间戳计算签名：[Sign](https://github.com/cloudreve/Cloudreve/blob/b441d884f61d59da86d861b14d1302ec25bbea40/pkg/auth/hmac.go#L20)；
 3. 对比签名后的内容和`SIGNATURE`是否一致。
 
 ### 支付成功回调
