@@ -74,13 +74,4 @@ Web Application Open Platform Interface (WOPI) 协议是一种用于集成 Web �
 
 Cloudreve 对 WOPI REST 方法的实现情况如下表所示：
 
-| Method          | 支持情况        |
-| --------------- | ----------- |
-| CheckFileInfo   | ✅           |
-| GetFile         | ✅           |
-| Lock            | ⚠️（可调用但无效果） |
-| RefreshLock     | ⚠️（可调用但无效果） |
-| Unlock          | ⚠️（可调用但无效果） |
-| PutFile         | ✅           |
-| PutRelativeFile | ❌           |
-| RenameFile      | ✅           |
+<table><thead><tr><th width="318">Method</th><th>支持情况</th></tr></thead><tbody><tr><td>CheckFileInfo</td><td>✅</td></tr><tr><td>GetFile</td><td>✅</td></tr><tr><td>Lock</td><td>⚠️（可调用但无效果）</td></tr><tr><td>RefreshLock</td><td>⚠️（可调用但无效果）</td></tr><tr><td>Unlock</td><td>⚠️（可调用但无效果）</td></tr><tr><td>PutFile</td><td>✅</td></tr><tr><td>PutRelativeFile</td><td>❌</td></tr><tr><td>RenameFile</td><td>✅</td></tr></tbody></table>

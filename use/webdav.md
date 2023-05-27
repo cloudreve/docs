@@ -22,4 +22,3 @@ WebDAV 是一种基于 HTTP 协议的文件传输协议，如今有许多第三�
 
 已知问题：重启后无法访问已添加的 WebDAV 挂载，需要重新输入账号密码。这是由于 Windows 不再支持 BasicAuth 下存储 WebDAV 账号及密码信息 ([相关说明](https://docs.microsoft.com/en-us/troubleshoot/windows-client/networking/cannot-automatically-reconnect-dav-share))。Cloudreve 会在后续版本中更换 WebDAV 验证方式以改善此问题。
 
-****
