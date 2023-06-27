@@ -1,0 +1,198 @@
+# configuration file
+
+## configuration file
+
+When starting for the first time, Cloudreve will create a configuration file named `conf.ini` in the same directory. You can modify this file to configure some parameters. After saving, you need to restart Cloudreve to take effect.
+
+You can also add the `-c` parameter to specify the configuration file path at startup:
+
+```
+./cloudreve -c /path/to/conf.ini
+```
+
+An example of a complete configuration file is as follows:
+
+{% code title="conf.ini" %}
+```ini
+[System]
+; run mode
+Mode = master
+; listening port
+Listen = :5212
+; Whether to enable Debug
+Debug = false
+; Session key, usually automatically generated at first startup
+SessionSecret = 23333
+; Hash plus salt, usually automatically generated at the first startup
+HashIDSalt = something really hard to guss
+; Header to use when presenting client IP
+ProxyHeader = X-Forwarded-For
+
+; SSL related
+[SSL]
+; SSL listening port
+Listen = :443
+; certificate path
+CertPath = C:\Users\i\Documents\fullchain.pem
+; private key path
+KeyPath = C:\Users\i\Documents\privkey.pem
+
+; Enable Unix Socket listening
+[UnixSocket]
+Listen = /run/cloudreve/cloudreve.sock
+; Set the permissions of the generated socket file
+Perm = 0666
+
+; Database related, if you only want to use the built-in SQLite database, delete this part directly
+[Database]
+; Database type, currently supports sqlite/mysql/mssql/postgres
+Type = mysql
+; MySQL port
+Port = 3306
+; username
+User = root
+; password
+Password = root
+; database address
+Host = 127.0.0.1
+; Name database
+Name = v3
+; data table prefix
+TablePrefix = cd_
+; character set
+Charset = utf8mb4
+; SQLite database file path
+DBFile = cloudreve.db
+; The buffer time to safely close the database connection before the process exits
+GracePeriod = 30
+; Connect to database using Unix Socket
+UnixSocket = false
+
+; Configuration in slave mode
+[Slave]
+; communication key
+Secret = 1234567891234567123456789123456712345678912345671234567891234567
+; Callback request timeout (s)
+CallbackTimeout = 20
+; signature validity period
+SignatureTTL = 60
+
+; Cross domain configuration
+[CORS]
+AllowOrigins = *
+AllowMethods = OPTIONS,GET,POST
+AllowHeaders = *
+AllowCredentials = false
+SameSite = Default
+Secure = lse
+
+; Redis related
+[Redis]
+Server=127.0.0.1:6379
+Password =
+DB = 0
+
+; Slave configuration override
+[OptionOverwrite]
+; Can be overridden directly using `setting name=value` format
+max_worker_num = 50
+```
+{% endcode %}
+
+## Configuration example
+
+### Using MySQL
+
+By default, Cloudreve will use the built-in SQLite database and create a database file `cloudreve.db` in the same directory. If you want to use MySQL, please add the following content to the configuration file and restart Cloudreve. Note that Cloudreve only supports MySQL versions greater than or equal to 5.7.
+
+```ini
+[Database]
+; Database type, currently supports sqlite/mysql/mssql/postgres
+Type = mysql
+; MySQL port
+Port = 3306
+; username
+User = root
+; password
+Password = root
+; database address
+Host = 127.0.0.1
+; Name database
+Name = v3
+; data table prefix
+TablePrefix = cd
+; character set
+Charset = utf8
+```
+
+{% hint style="info" %}
+After changing the database configuration, Cloudreve will re-initialize the database, and the original data will be lost.
+{% endhint %}
+
+### Using Redis
+
+You can add Redis related settings in the configuration file:
+
+```ini
+[Redis]
+Server=127.0.0.1:6379
+Password = your password
+DB = 0
+```
+
+{% hint style="info" %}
+Please specify a DB that is not used by other businesses for Cloudreve to avoid conflicts.
+{% endhint %}
+
+After restarting Cloudreve, you can pay attention to the console output to determine whether Cloudreve successfully connected to the Redis server. After using Redis, the following will be taken over by Redis:
+
+* User sessions (login sessions are no longer lost after restarting Cloudreve)
+* Data table high-frequency record query cache (such as storage strategy, setting items)
+* callback session
+* OneDrive Credentials
+
+### Enable HTTPS
+
+{% hint style="info" %}
+If you are using the web server as a reverse proxy to Cloudreve, it is recommended that you configure SSL on the web server. The enabling method described in this section is only valid for the scenario of using Cloudreve's built-in web server.
+{% endhint %}
+
+Add to the configuration file:
+
+```ini
+[SSL]
+Listen = :443
+CertPath = C:\Users\i\Documents\fullchain.pem
+KeyPath = C:\Users\i\Documents\privkey.pem
+```
+
+Where `CertPath` and `KeyPath` are the SSL certificate and private key path respectively. After saving, restart Cloudreve to take effect.
+
+### Override the configuration items of the slave node
+
+Some configuration items of Cloudreve are stored in the database, but the slave node does not connect to the database, you can override the corresponding configuration items in the configuration file.
+
+For example, when the slave node is running as a storage node, you can set the thumbnail specification generated by the slave through the following configuration:
+
+```ini
+[OptionOverwrite]
+thumb_width = 400
+thumb_height = 300
+thumb_file_suffix = ._thumb
+thumb_max_task_count = -1
+thumb_encode_method = jpg
+thumb_gc_after_gen = 0
+thumb_encode_quality = 85
+```
+
+If the slave node is used as an offline download node, you can override the default retry and timeout parameters through the following configuration to avoid file transfer failure due to the default value being too conservative:
+
+```ini
+[OptionOverwrite]
+; The maximum number of tasks that can be executed in parallel in the task queue
+max_worker_num = 50
+; The maximum number of parallel coroutines when the task queue transfers tasks
+max_parallel_transfer = 10
+; The maximum number of retries after the upload of intermediate parts fails
+chunk_retries = 10
+```

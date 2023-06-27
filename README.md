@@ -2,6 +2,8 @@
 description: 目前文档仍在陆续完善中！
 ---
 
+![ENGLISH version](README.ENG.md)
+
 # 欢迎
 
 ## Cloudreve 是什么？
