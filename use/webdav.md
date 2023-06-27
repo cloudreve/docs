@@ -10,6 +10,10 @@ WebDAV 是一种基于 HTTP 协议的文件传输协议，如今有许多第三�
 
 ### 使用 Windows 资源管理器(不推荐)
 
+{% hint style="warning" %}
+不建议使用 Windows 默认的 WebDAV 客户端，该客户端实现有较大缺陷，在网络发生波动时，易导致整个操作系统卡顿甚至死机，一旦该客户端发生阻塞，您甚至无法通过紧急重启来恢复系统响应。此外，您无法获知传输进度，也无法中断正在进行的 WebDAV 传输（即使结束资源管理器的进程，传输也不会停止），出于这种原因，默认情况下，Windows 拒绝操作大于 50MB 的文件，即使[修改注册表](https://superuser.com/questions/1540281/windows-10-webdav-issue-freezes-crashes-stalls-with-files-over-50-mb)，也没有任何办法操作大于 4GB 的文件。
+{% endhint %}
+
 {% hint style="info" %}
 使用这种方式前，请确保你的 Cloudreve 站点已启用 HTTPS。如果需要在非 HTTPS 协议下添加，需要修改注册表`\HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WebClient\Parameters` 将`BasicAuthLevel` 的值改为`2`。
 {% endhint %}
