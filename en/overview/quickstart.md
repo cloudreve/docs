@@ -7,7 +7,7 @@ Learn how to quickly launch a Cloudreve instance for trial or exploring Cloudrev
 :::tabs
 == Community Edition
 
-You can obtain pre-compiled versions on the [GitHub Release](https://github.com/cloudreve/Cloudreve/releases) page. If you need to build from source code, please refer to [Building from Source Code](./index).
+You can obtain pre-compiled versions on the [GitHub Release](https://github.com/cloudreve/Cloudreve/releases) page. If you need to build from source code, please refer to [Building from Source Code](./deploy/index).
 
 == Pro Edition
 
