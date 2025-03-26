@@ -137,6 +137,6 @@ docker-compose pull
 docker-compose up -d
 ```
 
-You also need to refer to the [Update Cloudreve](./maintain/update) page to complete the subsequent process.
+You also need to refer to the [Update Cloudreve](./index) page to complete the subsequent process.
 
 :::

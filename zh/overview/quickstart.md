@@ -7,7 +7,7 @@
 :::tabs
 == 社区版
 
-你可以在 [GitHub Release](https://github.com/cloudreve/Cloudreve/releases) 页面获取已经构建打包完成的预编译版本。如果你需要从源代码构建，请参考 [从源代码构建](./build)。
+你可以在 [GitHub Release](https://github.com/cloudreve/Cloudreve/releases) 页面获取已经构建打包完成的预编译版本。如果你需要从源代码构建，请参考 [从源代码构建](./deploy/index)。
 
 == Pro 版
 
@@ -70,4 +70,4 @@ Cloudreve 默认会监听 5212 端口。你可以在浏览器中访问 `http://l
 
 ## 下一步 {#next-steps}
 
-本页面只包含了最基本的启动流程，用于本地试用体验，如果你需要将 Cloudreve 正式部署到生产环境中，请参考 [部署指南](./deploy)。
+本页面只包含了最基本的启动流程，用于本地试用体验，如果你需要将 Cloudreve 正式部署到生产环境中，请参考 [部署指南](./deploy/index)。

@@ -7,7 +7,7 @@ Learn how to quickly launch a Cloudreve instance for trial or exploring Cloudrev
 :::tabs
 == Community Edition
 
-You can obtain pre-compiled versions on the [GitHub Release](https://github.com/cloudreve/Cloudreve/releases) page. If you need to build from source code, please refer to [Building from Source Code](./build).
+You can obtain pre-compiled versions on the [GitHub Release](https://github.com/cloudreve/Cloudreve/releases) page. If you need to build from source code, please refer to [Building from Source Code](./index).
 
 == Pro Edition
 
@@ -70,4 +70,4 @@ Cloudreve will listen on port 5212 by default. You can access Cloudreve by visit
 
 ## Next Steps {#next-steps}
 
-This page only contains the most basic startup process for local trial and experience. If you need to formally deploy Cloudreve to a production environment, please refer to the [Deployment Guide](./deploy).
+This page only contains the most basic startup process for local trial and experience. If you need to formally deploy Cloudreve to a production environment, please refer to the [Deployment Guide](./deploy/index).

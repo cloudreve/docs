@@ -231,6 +231,6 @@ docker run -d --name cloudreve -p 5212:5212 \
     cloudreve/cloudreve:latest
 ```
 
-You also need to refer to the [Update Cloudreve](./maintain/update) page to complete the subsequent process.
+You also need to refer to the [Update Cloudreve](./index) page to complete the subsequent process.
 
 :::

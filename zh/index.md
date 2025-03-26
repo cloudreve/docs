@@ -14,6 +14,6 @@ Cloudreve 本身是一款“网盘”而非“其他网盘的管理器”，其�
 
 如果在使用过程中发现了什么缺陷，或是有新的需求提议，请先检查一下当前的文档、[issue](https://github.com/cloudreve/Cloudreve/issues) 、[讨论社区](https://github.com/cloudreve/Cloudreve/discussions)是否提过。
 
-如果疑似 Bug 或是功能提议，请创建一个 [ssue](https://github.com/cloudreve/Cloudreve/issues) 用于追踪问题；
+如果疑似 Bug 或是功能提议，请创建一个 [issue](https://github.com/cloudreve/Cloudreve/issues) 用于追踪问题；
 
 如果是日常使用上的疑问，请到 [讨论社区](https://github.com/cloudreve/Cloudreve/discussions) 或者 [Discord 频道](https://discord.gg/WTpMFpZT76) 创建新的话题，并详细描述你遇到的问题。

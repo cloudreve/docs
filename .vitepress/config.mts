@@ -10,7 +10,6 @@ export default defineConfig({
     root: { label: "English", link: "/en", ...en },
     zh: { label: "简体中文", link: "/zh", ...zh },
   },
-  ignoreDeadLinks: true,
   markdown: {
     config(md) {
       md.use(tabsMarkdownPlugin);
