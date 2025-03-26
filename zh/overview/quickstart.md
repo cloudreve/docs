@@ -1,6 +1,6 @@
 # 快速开始 {#quickstart}
 
-了解如何快速启动一个 Cloudreve 实例，用于试用或探索 Cloudreve 的功能。此页面只包含了最基本的启动流程，如果你需要将 Cloudreve 正式部署到生产环境中，请参考 [部署指南](./deploy/)。
+了解如何快速启动一个 Cloudreve 实例，用于试用或探索 Cloudreve 的功能。此页面只包含了最基本的启动流程，如果你需要将 Cloudreve 正式部署到生产环境中，请参考 [部署指南](./deploy/index)。
 
 ## 获取 Cloudreve {#get-cloudreve}
 

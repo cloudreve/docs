@@ -1,6 +1,6 @@
 # Quick Start {#quickstart}
 
-Learn how to quickly launch a Cloudreve instance for trial or exploring Cloudreve's features. This page only contains the most basic startup process. If you need to formally deploy Cloudreve to a production environment, please refer to the [Deployment Guide](./deploy/).
+Learn how to quickly launch a Cloudreve instance for trial or exploring Cloudreve's features. This page only contains the most basic startup process. If you need to formally deploy Cloudreve to a production environment, please refer to the [Deployment Guide](./deploy/index).
 
 ## Get Cloudreve {#get-cloudreve}
 
