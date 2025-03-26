@@ -10,8 +10,8 @@ export default defineConfig({
   themeConfig: {
     siteTitle: false,
     logo: {
-      light: "/images/logo.svg",
-      dark: "/images/logo_light.svg",
+      light: "/logo.svg",
+      dark: "/logo_light.svg",
     },
     socialLinks: [
       { icon: "github", link: "https://github.com/cloudreve/Cloudreve" },
