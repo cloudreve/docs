@@ -14,7 +14,7 @@ Cloudreve 支持多种存储提供商，但是由于 API 限制等各方面因�
 | 未中转公有直链 [注 3](#public-direct-link)  | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark:             | :white_check_mark: | :white_check_mark: | :white_check_mark:             | :x:                | :white_check_mark: |
 | 回调要求 [注 4](#callback-required)         | -                  | 需要               | 需要               | -                              | 需要               | 需要               | 需要                           | -                  | -                  |
 | 跨域配置 [注 5](#cors-required)             | -                  | 需要               | 需要               | 需要                           | -                  | -                  | 需要                           | -                  | 需要               |
-| 内网 Endpoin [注 6](#internal-endpoint)     | -                  | :x:                | :white_check_mark: | [注 7](#internal-endpoint-cos) | :x:                | :x:                | [注 8](#internal-endpoint-obs) | :x:                | :x:                |
+| 内网 Endpoint [注 6](#internal-endpoint)    | -                  | :x:                | :white_check_mark: | [注 7](#internal-endpoint-cos) | :x:                | :x:                | [注 8](#internal-endpoint-obs) | :x:                | :x:                |
 
 </div>
 
