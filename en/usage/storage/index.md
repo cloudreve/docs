@@ -1,0 +1,30 @@
+# Comparing Storage Policies {#compare-storage-policies}
+
+Cloudreve supports multiple storage providers, but due to API limitations and other factors, Cloudreve's support level for each policy varies. This chapter will detail the specific support differences between different storage policies.
+
+<div style="overflow-x: auto;word-break: keep-all; white-space: nowrap;">
+
+| Feature                                                             | Local              | Remote node        | OSS                | COS                              | Qiniu              | Upyun              | OBS                              | OneDrive           | S3                 |
+| ------------------------------------------------------------------- | ------------------ | ------------------ | ------------------ | -------------------------------- | ------------------ | ------------------ | -------------------------------- | ------------------ | ------------------ |
+| Chunked upload                                                      | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark:               | :white_check_mark: | :x:                | :white_check_mark:               | :white_check_mark: | :white_check_mark: |
+| Native thumbnails                                                   | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark:               | :white_check_mark: | :white_check_mark: | :white_check_mark:               | :white_check_mark: | :x:                |
+| Custom speed limit [Note 1](#custom-speed-limit)                    | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark:               | :white_check_mark: | :x:                | :white_check_mark:               | :x:                | :x:                |
+| Theoretical max file size                                           | Unlimited          | Unlimited          | Unlimited          | Unlimited                        | Unlimited          | 150 GB             | 48.8 TB                          | 250 GB             | Unlimited          |
+| Private direct link without redirect [Note 2](#private-direct-link) | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark:               | :white_check_mark: | :white_check_mark: | :white_check_mark:               | :x:                | :x:                |
+| Public direct link without redirect [Note 3](#public-direct-link)   | :white_check_mark: | :white_check_mark: | :white_check_mark: | :white_check_mark:               | :white_check_mark: | :white_check_mark: | :white_check_mark:               | :x:                | :white_check_mark: |
+| Callback required [Note 4](#callback-required)                      | -                  | Required           | Required           | -                                | Required           | Required           | Required                         | -                  | -                  |
+| CORS config [Note 5](#cors-required)                                | -                  | Required           | Required           | Required                         | -                  | -                  | Required                         | -                  | Required           |
+| Intranet Endpoint [Note 6](#internal-endpoint)                      | -                  | :x:                | :white_check_mark: | [Note 7](#internal-endpoint-cos) | :x:                | :x:                | [Note 8](#internal-endpoint-obs) | :x:                | :x:                |
+
+</div>
+
+**Notes**
+
+1. `Custom speed limit` refers to whether the download speed limit configured in user groups can take effect. For third-party storage policies, speed limit settings rely on signatures to ensure they cannot be arbitrarily modified, so please use private-read storage buckets. {#custom-speed-limit}
+2. `Private direct link without redirect` refers to whether the original direct link obtained can remain valid long-term when the bucket type is `private` and redirected direct link is not enabled. {#private-direct-link}
+3. `Public direct link without redirect` refers to whether the original direct link obtained can remain valid long-term when the bucket type is `public` and redirected direct link is not enabled. {#public-direct-link}
+4. `Callback required` indicates whether the Cloudreve instance needs to receive callback requests from this storage endpoint. For storage policies that require callbacks, your `Main Site URL` setting needs to be valid and accessible by the storage endpoint. {#callback-required}
+5. `CORS config` indicates whether cross-origin configuration needs to be set for the bucket. Cloudreve can help you set this up when creating the storage policy. {#cors-required}
+6. `Intranet endpoint` indicates whether configuring an internal endpoint is supported. When Cloudreve and the storage bucket are with the same cloud service provider, you can configure Cloudreve's server requests to use the internal endpoint, reducing latency and costs. {#internal-endpoint}
+7. When using COS official domains, it will automatically resolve to internal endpoints within available regions: [Private Network and Public Network Access](https://www.tencentcloud.com/document/product/436/6224?lang=en#private-network-and-public-network-access) {#internal-endpoint-cos}
+8. Need to manually configure `hosts` to resolve public endpoints to internal network: [Overview of Accessing OBS Through Internal Network on ECS](https://support.huaweicloud.com/bestpractice-obs/obs_05_0410.html) {#internal-endpoint-obs}

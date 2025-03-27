@@ -115,6 +115,7 @@ In Debug mode:
 - Log level is forced to `debug`, regardless of your settings in the configuration file;
 - All available routes are printed at startup;
 - All database queries will print detailed log information. Note that this may include some sensitive information.
+- Error messages displayed to users will include the original error information.
 
 ## Slave Node Configuration Override {#slave-node-configuration-override}
 

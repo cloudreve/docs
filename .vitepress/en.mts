@@ -53,6 +53,29 @@ export default defineConfig({
           { text: "Configure", link: "/en/overview/configure" },
         ],
       },
+      {
+        text: "Usage",
+        collapsed: false,
+        items: [
+          { text: "Concept", link: "/en/usage/concept" },
+          {
+            text: "Storage",
+            collapsed: true,
+            link: "/en/usage/storage/",
+            items: [
+              {
+                text: "Compare Storage Policies",
+                link: "/en/usage/storage/",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        text: "维护",
+        collapsed: false,
+        items: [{ text: "更新 Cloudreve", link: "/zh/maintain/upgrade" }],
+      },
     ],
   },
 });

@@ -55,6 +55,29 @@ export default defineConfig({
           { text: "配置", link: "/zh/overview/configure" },
         ],
       },
+      {
+        text: "使用",
+        collapsed: false,
+        items: [
+          { text: "概念", link: "/zh/usage/concept" },
+          {
+            text: "存储",
+            collapsed: true,
+            link: "/zh/usage/storage/",
+            items: [
+              {
+                text: "对比存储策略",
+                link: "/zh/usage/storage/",
+              },
+            ],
+          },
+        ],
+      },
+      {
+        text: "维护",
+        collapsed: false,
+        items: [{ text: "更新 Cloudreve", link: "/zh/maintain/upgrade" }],
+      },
     ],
 
     editLink: {
