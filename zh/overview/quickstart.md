@@ -7,7 +7,7 @@
 :::tabs
 == 社区版
 
-你可以在 [GitHub Release](https://github.com/cloudreve/Cloudreve/releases) 页面获取已经构建打包完成的预编译版本。如果你需要从源代码构建，请参考 [从源代码构建](./deploy/index)。
+你可以在 [GitHub Release](https://github.com/cloudreve/Cloudreve/releases) 页面获取已经构建打包完成的预编译版本。如果你需要从源代码构建，请参考 [从源代码构建](./build)。
 
 == Pro 版
 

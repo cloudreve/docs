@@ -31,7 +31,7 @@ location / {
 
 Add the following configuration to the `Caddyfile`:
 
-```caddy
+```txt
 reverse_proxy 127.0.0.1:5212
 ```
 

@@ -213,7 +213,7 @@ Configuration items passed through environment variables when starting the conta
 
 :::
 
-::: details How to update Cloudreve?
+::: details How to upgrade Cloudreve?
 
 Since Cloudreve stores all configuration and data in the `/cloudreve/data` Volume, we just need to create a new container with the new image and mount the same Volume.
 
@@ -231,6 +231,6 @@ docker run -d --name cloudreve -p 5212:5212 \
     cloudreve/cloudreve:latest
 ```
 
-You also need to refer to the [Update Cloudreve](./index) page to complete the subsequent process.
+You also need to refer to the [Upgrade Cloudreve](../../maintain/upgrade) page to complete the subsequent process.
 
 :::

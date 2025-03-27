@@ -231,6 +231,6 @@ docker run -d --name cloudreve -p 5212:5212 \
     cloudreve/cloudreve:latest
 ```
 
-你还需要参考 [更新 Cloudreve](./index) 页面，完成后续流程。
+你还需要参考 [更新 Cloudreve](../../maintain/upgrade) 页面，完成后续流程。
 
 :::

@@ -124,7 +124,7 @@ Please check whether you have correctly set the `CR_LICENSE_KEY` environment var
 
 :::
 
-::: details How to update Cloudreve?
+::: details How to upgrade Cloudreve?
 
 ```bash
 # Shut down the currently running containers
@@ -137,6 +137,6 @@ docker-compose pull
 docker-compose up -d
 ```
 
-You also need to refer to the [Update Cloudreve](./index) page to complete the subsequent process.
+You also need to refer to the [Upgrade Cloudreve](../../maintain/upgrade) page to complete the subsequent process.
 
 :::
