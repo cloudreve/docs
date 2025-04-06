@@ -99,6 +99,15 @@ User =
 queue_slave_worker_num = 50
 ```
 
+::: tip
+If your configuration value contains `#` or `;`, the characters after it will be treated as a comment and will not take effect. You can use `` ` `` to wrap the setting value, for example:
+
+```ini
+Password = `#123456`
+```
+
+:::
+
 ## Debug Mode {#debug-mode}
 
 You can enable Debug mode by setting `Debug` to `true`. When enabled, Cloudreve will record more log information to help you troubleshoot issues.

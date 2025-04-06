@@ -99,6 +99,15 @@ User =
 queue_slave_worker_num = 50
 ```
 
+::: tip
+如果你的配置值中包含 `#` 或者 `;`，其之后的字符会被视为注释，不会生效。你可以使用 `` ` ``包裹设置值，比如：
+
+```ini
+Password = `#123456`
+```
+
+:::
+
 ## Debug 模式 {#debug-mode}
 
 你可以通过设置 `Debug` 为 `true` 来开启 Debug 模式，开启后，Cloudreve 会记录更多的日志信息，方便你进行问题排查。

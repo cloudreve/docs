@@ -79,7 +79,7 @@ volumes:
 在 `docker-compose.yml` 文件所在目录下运行：
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 == Pro 版
@@ -94,7 +94,7 @@ docker login -u 获取到的用户名 -p 获取到的密码 cloudreve.azurecr.io
 export CR_LICENSE_KEY=你的授权密钥
 
 # 启动
-docker-compose up -d
+docker compose up -d
 ```
 
 > [!NOTE]
@@ -128,13 +128,13 @@ docker logs -f 容器ID
 
 ```bash
 # 关闭当前运行的容器
-docker-compose down
+docker compose down
 
 # 更新 Cloudreve 镜像
-docker-compose pull
+docker compose pull
 
 # 启动新的容器
-docker-compose up -d
+docker compose up -d
 ```
 
 你还需要参考 [更新 Cloudreve](../../maintain/upgrade) 页面，完成后续流程。

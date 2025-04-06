@@ -69,8 +69,13 @@ export default defineConfig({
                 text: "对比存储策略",
                 link: "/zh/usage/storage/",
               },
+              {
+                text: "本机存储",
+                link: "/zh/usage/storage/local",
+              },
             ],
           },
+          { text: "从机节点", link: "/zh/usage/slave-node" },
         ],
       },
       {

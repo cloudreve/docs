@@ -79,7 +79,7 @@ volumes:
 Run the following command in the directory where the `docker-compose.yml` file is located:
 
 ```bash
-docker-compose up -d
+docker compose up -d
 ```
 
 == Pro Edition
@@ -94,7 +94,7 @@ docker login -u obtained_username -p obtained_password cloudreve.azurecr.io
 export CR_LICENSE_KEY=your_authorization_key
 
 # Start
-docker-compose up -d
+docker compose up -d
 ```
 
 > [!NOTE]
@@ -128,13 +128,13 @@ Please check whether you have correctly set the `CR_LICENSE_KEY` environment var
 
 ```bash
 # Shut down the currently running containers
-docker-compose down
+docker compose down
 
 # Update the Cloudreve image
-docker-compose pull
+docker compose pull
 
 # Start new containers
-docker-compose up -d
+docker compose up -d
 ```
 
 You also need to refer to the [Upgrade Cloudreve](../../maintain/upgrade) page to complete the subsequent process.
