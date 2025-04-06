@@ -79,7 +79,10 @@ export default defineConfig({
       {
         text: "Maintain",
         collapsed: false,
-        items: [{ text: "Upgrade Cloudreve", link: "/en/maintain/upgrade" }],
+        items: [
+          { text: "Upgrade Cloudreve", link: "/en/maintain/upgrade" },
+          { text: "Upgrade from V3", link: "/en/maintain/upgrade-from-v3" },
+        ],
       },
     ],
   },

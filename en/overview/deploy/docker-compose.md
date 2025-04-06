@@ -126,16 +126,7 @@ Please check whether you have correctly set the `CR_LICENSE_KEY` environment var
 
 ::: details How to upgrade Cloudreve?
 
-```bash
-# Shut down the currently running containers
-docker compose down
-
-# Update the Cloudreve image
-docker compose pull
-
-# Start new containers
-docker compose up -d
-```
+<!--@include: ../../parts/docker-compose-upgrade.md-->
 
 You also need to refer to the [Upgrade Cloudreve](../../maintain/upgrade) page to complete the subsequent process.
 

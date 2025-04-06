@@ -81,7 +81,10 @@ export default defineConfig({
       {
         text: "维护",
         collapsed: false,
-        items: [{ text: "更新 Cloudreve", link: "/zh/maintain/upgrade" }],
+        items: [
+          { text: "更新 Cloudreve", link: "/zh/maintain/upgrade" },
+          { text: "从 V3 升级", link: "/zh/maintain/upgrade-from-v3" },
+        ],
       },
     ],
 

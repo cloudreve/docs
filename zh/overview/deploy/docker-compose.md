@@ -126,16 +126,7 @@ docker logs -f 容器ID
 
 ::: details 如何更新 Cloudreve？
 
-```bash
-# 关闭当前运行的容器
-docker compose down
-
-# 更新 Cloudreve 镜像
-docker compose pull
-
-# 启动新的容器
-docker compose up -d
-```
+<!--@include: ../../parts/docker-compose-upgrade.md-->
 
 你还需要参考 [更新 Cloudreve](../../maintain/upgrade) 页面，完成后续流程。
 
