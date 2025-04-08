@@ -73,6 +73,10 @@ export default defineConfig({
                 text: "本机存储",
                 link: "/zh/usage/storage/local",
               },
+              {
+                text: "从机存储",
+                link: "/zh/usage/storage/remote",
+              },
             ],
           },
           {

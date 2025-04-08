@@ -86,3 +86,22 @@ This means the master node can connect to the slave node, but the slave node ret
   - Check the network communication between the slave and master for any firewall blocking.
 
 :::
+
+::: details Task execution fails or partially fails on slave nodes
+
+There are many possible reasons for failures. You can find the specific cause by checking the slave's logs. First, locate the failed task in the master Cloudreve admin dashboard, then search for logs related to this task on the slave using the task's `Request ID`. Common causes include: task timeouts, network fluctuations, etc.
+
+The default configuration for the slave node's task queue is as follows:
+
+| Configuration Item | Value         |
+| ------------------ | ------------- |
+| Worker threads     | 15            |
+| Max execution time | 86400 seconds |
+| Backoff factor     | 4             |
+| Max backoff time   | 3600 seconds  |
+| Retry delay        | 5 seconds     |
+| Max retry count    | 5             |
+
+If you believe the default configuration is causing task failures, please refer to the [Slave Node Configuration Override](../overview/configure#slave-node-configuration-override) section to modify the configuration.
+
+:::

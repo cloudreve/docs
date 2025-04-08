@@ -71,6 +71,10 @@ export default defineConfig({
                 text: "Local",
                 link: "/en/usage/storage/local",
               },
+              {
+                text: "Remote",
+                link: "/en/usage/storage/remote",
+              },
             ],
           },
           {
