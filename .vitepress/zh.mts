@@ -77,6 +77,10 @@ export default defineConfig({
                 text: "从机存储",
                 link: "/zh/usage/storage/remote",
               },
+              {
+                text: "阿里云 OSS",
+                link: "/zh/usage/storage/oss",
+              },
             ],
           },
           {

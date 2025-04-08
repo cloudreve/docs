@@ -75,6 +75,10 @@ export default defineConfig({
                 text: "Remote",
                 link: "/en/usage/storage/remote",
               },
+              {
+                text: "OSS",
+                link: "/en/usage/storage/oss",
+              },
             ],
           },
           {

@@ -57,7 +57,7 @@
 
 ### 存储文件 {#storage-files}
 
-请参考 [从机存储](./storage/slave)。
+请参考 [从机存储](./storage/remote)。
 
 ## 负载均衡
 

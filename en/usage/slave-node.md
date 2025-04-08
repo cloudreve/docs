@@ -57,7 +57,7 @@ Please refer to [Remote Download](./remote-download).
 
 ### Storage Files {#storage-files}
 
-Please refer to [Slave Storage](./storage/slave).
+Please refer to [Slave Storage](./storage/remote).
 
 ## Load Balancing
 
