@@ -73,6 +73,10 @@ export default defineConfig({
               },
             ],
           },
+          {
+            text: "Custom Payment Provider",
+            link: "/en/payment/custom",
+          },
           { text: "Slave Node", link: "/en/usage/slave-node" },
         ],
       },

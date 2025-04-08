@@ -75,6 +75,10 @@ export default defineConfig({
               },
             ],
           },
+          {
+            text: "自定义支付渠道",
+            link: "/zh/payment/custom",
+          },
           { text: "从机节点", link: "/zh/usage/slave-node" },
         ],
       },
