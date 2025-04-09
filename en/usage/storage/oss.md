@@ -93,3 +93,24 @@ In the error message, `xxxx` is the specific error when requesting the callback 
    - Make sure you've added and verified this custom domain in your OSS bucket configuration; or that you've correctly rewritten the `Host` header in your reverse proxy configuration;
 
 :::
+
+::: details Relay upload failed, error: `Unable to parse response`
+
+1. Expand the detailed error, check if the error message contains `413 Request Entity Too Large`
+
+   If yes, please modify the Nginx reverse proxy configuration, set or increase the value of `client_max_body_size`, for example `client_max_body_size 20000m;`. This value should be greater than the size of the uploaded file.
+
+2. Check if an external WAF firewall is blocking the upload request.
+
+:::
+
+::: details Upload error: `Request failed: AxiosError: Network Error xxx`
+
+1. Check if the `Endpoint` setting in the storage policy is correct:
+
+   - Whether the user side can access this Endpoint;
+   - If the site is using HTTPS, please ensure that the Endpoint you filled in is also HTTPS, and a valid SSL certificate is configured;
+
+2. Check if the bucket CORS policy is set and if it is correct;
+
+:::

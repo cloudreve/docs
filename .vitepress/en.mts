@@ -76,8 +76,20 @@ export default defineConfig({
                 link: "/en/usage/storage/remote",
               },
               {
-                text: "OSS",
+                text: "Alibaba Cloud OSS",
                 link: "/en/usage/storage/oss",
+              },
+              {
+                text: "Tencent Cloud COS",
+                link: "/en/usage/storage/cos",
+              },
+              {
+                text: "OneDrive or SharePoint",
+                link: "/en/usage/storage/onedrive",
+              },
+              {
+                text: "Cloudflare R2 (S3 compatible)",
+                link: "/en/usage/storage/r2",
               },
             ],
           },

@@ -93,3 +93,24 @@ reverse_proxy https://<bucket-name>.oss-<region>.aliyuncs.com {
    - 请检查是否在 OSS 存储桶配置中添加并验证了了该自定义域名; 或者在反代配置中是否正确重写了 `Host` 头;
 
 :::
+
+::: details 中转上传失败，提示 `无法解析响应`
+
+1. 展开详细错误，检查错误信息中是否含有 `413 Request Entity Too Large` 字样。
+
+   如果有，请修改 Nginx 反代配置，设定或增大 `client_max_body_size` 的值，比如 `client_max_body_size 20000m;`。此设定值应大于上传文件的大小。
+
+2. 检查是否有外部 WAF 防火墙拦截了上传请求。
+
+:::
+
+::: details 上传报错 `请求失败: AxiosError: Network Error xxx`
+
+1. 检查存储策略 `Endpoint` 设置是否正确:
+
+   - 用户侧是否能够访问到此 Endpoint;
+   - 站点如果启用了 HTTPS，请确保你填写的 Endpoint 也是 HTTPS 开头，并配置了有效的 SSL 证书;
+
+2. 检查跨域策略是否设置，以及设置是否正确；
+
+:::

@@ -81,6 +81,18 @@ export default defineConfig({
                 text: "阿里云 OSS",
                 link: "/zh/usage/storage/oss",
               },
+              {
+                text: "腾讯云 COS",
+                link: "/zh/usage/storage/cos",
+              },
+              {
+                text: "OneDrive 或 SharePoint",
+                link: "/zh/usage/storage/onedrive",
+              },
+              {
+                text: "Cloudflare R2 (S3 兼容)",
+                link: "/zh/usage/storage/r2",
+              },
             ],
           },
           {
