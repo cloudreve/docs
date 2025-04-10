@@ -8,7 +8,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "首页", link: "https://cloudreve.org/" },
-      { text: "文档", link: "/zh" },
+      { text: "V3 文档", link: "https://docs.cloudreve.org" },
     ],
 
     sidebar: [
@@ -92,6 +92,18 @@ export default defineConfig({
               {
                 text: "Cloudflare R2 (S3 兼容)",
                 link: "/zh/usage/storage/r2",
+              },
+              {
+                text: "Google Cloud Storage (S3 兼容)",
+                link: "/zh/usage/storage/gcs",
+              },
+              {
+                text: "MinIO (S3 兼容)",
+                link: "/zh/usage/storage/minio",
+              },
+              {
+                text: "Backblaze B2 (S3 兼容)",
+                link: "/zh/usage/storage/b2",
               },
             ],
           },

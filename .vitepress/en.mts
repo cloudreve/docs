@@ -6,7 +6,7 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: "Home", link: "https://cloudreve.org/" },
-      { text: "Documentation", link: "/en" },
+      { text: "V3 Doc", link: "https://docs.cloudreve.org/" },
     ],
 
     sidebar: [
@@ -90,6 +90,18 @@ export default defineConfig({
               {
                 text: "Cloudflare R2 (S3 compatible)",
                 link: "/en/usage/storage/r2",
+              },
+              {
+                text: "Google Cloud Storage (S3 compatible)",
+                link: "/en/usage/storage/gcs",
+              },
+              {
+                text: "MinIO (S3 compatible)",
+                link: "/en/usage/storage/minio",
+              },
+              {
+                text: "Backblaze B2 (S3 compatible)",
+                link: "/en/usage/storage/b2",
               },
             ],
           },
