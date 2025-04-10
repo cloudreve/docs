@@ -109,3 +109,10 @@ Save and restart the slave Cloudreve. Finally, add the newly supported file exte
 3. Ensure that the slave address you use in the node configuration can be directly accessed by users.
 
 :::
+
+::: details File cannot be downloaded, and the thumbnail is also not visible.
+
+1. Check if the system time on slave node is significantly different from the client time. If so, please synchronize the time and then try downloading again by clicking the `Clear Blob URL Cache` button at the bottom of the `Filesystem` page in the `Settings`.
+2. If you are using Cloudflare, please check that the `Cache Level` is set to `Standard`.
+
+:::

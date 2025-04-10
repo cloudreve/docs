@@ -28,6 +28,7 @@ On Linux or macOS, when the `Pre-allocate disk space` option is enabled, Cloudre
 
 2. Check if you're using an HTTP site URL in an HTTPS environment.
 3. Check if the server time differs significantly from the client time. If there's a large difference, synchronize the time, then go to `Admin Panel` -> `File System`, click `Clear Blob URL Cache` at the bottom, and try downloading again.
+4. If you're using Cloudflare, please check that the `Cache Level` is set to `Standard`.
 
 :::
 
