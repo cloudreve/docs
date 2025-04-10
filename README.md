@@ -1,8 +1,8 @@
----
-description: 目前文档仍在陆续完善中！
----
-
 # 欢迎
+
+{% hint style="info" %}
+当前文档针对的是 V3.x 版本，V4 的文档请前往 [docsv4.cloudreve.org](https://docsv4.cloudreve.org/)。
+{% endhint %}
 
 ## Cloudreve 是什么？
 
@@ -20,8 +20,8 @@ Cloudreve 可以让您快速搭建起公私兼备的网盘系统。Cloudreve 在
 
 你可以加入以下群组与其他正在使用 Cloudreve 的用户交流：
 
-* [Telegram 群组](https://t.me/cloudreve\_official)
-* [QQ 群组](https://qm.qq.com/cgi-bin/qm/qr?k=pjwJ2pi\_V4LN\_JdPZk\_HMwJv\_x8zuCPX\&jump\_from=webapi)
+* [Telegram 群组](https://t.me/cloudreve_official)
+* [QQ 群组](https://qm.qq.com/cgi-bin/qm/qr?k=pjwJ2pi_V4LN_JdPZk_HMwJv_x8zuCPX\&jump_from=webapi)
 
 或是与开发者联系：
 
