@@ -116,3 +116,13 @@ Simply re-run the upgrade tool. Cloudreve will save the upgrade progress to the 
 2. Delete the `migration_state.json` file, or use the `--force-reset` parameter to restart the upgrade.
 
 :::
+
+::: details Upgrade failed with `hash ID salt is not set, please set it from v3 conf file`
+
+Please check if the `HashIDSalt` configuration item is configured in the V3 configuration file `conf.ini`. This configuration affects all share links and direct links. By default, V3 will automatically generate and fill in this value when it starts, but you may have manually deleted this value. The solution is:
+
+1. Add the `HashIDSalt` configuration item to the `[System]` configuration item in the V3 configuration file `conf.ini`, and fill in a random value;
+2. Retry the upgrade program.
+3. After the upgrade is complete, all share links and direct links from V3 will be invalid. If you want to avoid this situation, please manually go to the database and set the `hash_id_salt` field in the `settings` table to an empty string.
+
+:::

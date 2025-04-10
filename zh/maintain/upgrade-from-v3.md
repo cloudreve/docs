@@ -114,3 +114,15 @@ nano data/conf.ini
 
 1. 删除 V4 数据库中已经生成的所有数据表和数据；
 2. 删除 `migration_state.json` 文件，或者使用 `--force-reset` 参数重新开始升级。
+
+:::
+
+::: details 升级报错 `hash ID salt is not set, please set it from v3 conf file`
+
+请检查 V3 的配置文件 `conf.ini` 中是否配置了 `HashIDSalt` 配置项，这一配置影响所有分享链接和中转直链。默认情况下，V3 启动时会在配置文件自动生成并填写此值，但你可能手动删去了此值。解决办法是：
+
+1. 在 V3 的配置文件 `conf.ini` 的 `[System]` 配置项中添加 `HashIDSalt` 配置项，并填写一个随机值；
+2. 重试升级程序.
+3. 升级完成后，V3 的分享链接和直链会全部失效，如果你想避免这种情况，请手动前往数据库下 `settings` 表，将 `hash_id_salt` 字段设置为空字符串。
+
+:::
