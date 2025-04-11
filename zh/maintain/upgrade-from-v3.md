@@ -126,3 +126,9 @@ nano data/conf.ini
 3. 升级完成后，V3 的分享链接和直链会全部失效，如果你想避免这种情况，请手动前往数据库下 `settings` 表，将 `hash_id_salt` 字段设置为空字符串。
 
 :::
+
+::: details 升级报错 `Failed to migrate: failed creating schema resources: sql/schema: copy rows from old table "xxx" to new temporary table "new_xxx"`
+
+这一报错说明 V4 和 V3 使用了同一个数据库，且数据表发生了冲突。请在 V4 的配置文件中指定一个新的数据库。
+
+:::

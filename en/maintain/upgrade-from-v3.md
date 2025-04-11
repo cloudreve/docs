@@ -126,3 +126,9 @@ Please check if the `HashIDSalt` configuration item is configured in the V3 conf
 3. After the upgrade is complete, all share links and direct links from V3 will be invalid. If you want to avoid this situation, please manually go to the database and set the `hash_id_salt` field in the `settings` table to an empty string.
 
 :::
+
+::: details Upgrade failed with `Failed to migrate: failed creating schema resources: sql/schema: copy rows from old table "xxx" to new temporary table "new_xxx"`
+
+This error indicates that V4 and V3 are using the same database, and the data tables have conflicted. Please specify a new database in the V4 configuration file.
+
+:::

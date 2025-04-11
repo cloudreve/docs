@@ -92,3 +92,11 @@ Common information recorded in metadata includes:
 - File tags
 
 Metadata can be used for file searching.
+
+## File Permissions {#file-permission}
+
+File permissions define the access permissions for other users when this file is **a descendant of a shared directory**, if not set, Cloudreve will search upwards for the first available permission setting of the parent directory until it reaches the shared root directory.
+
+When a user shares a directory, the directory's own permissions are ignored because the user sets the permissions of the shared link when sharing, this setting overrides the directory's permissions, but the permissions of its subdirectories remain effective.
+
+For single file sharing, the file's permission settings are ignored, and the permission settings of the shared link are used.

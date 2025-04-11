@@ -106,10 +106,21 @@ export default defineConfig({
             ],
           },
           {
-            text: "Custom Payment Provider",
-            link: "/en/payment/custom",
+            collapsed: true,
+            text: "Payment",
+            items: [
+              {
+                text: "Official Payment Provider",
+                link: "/en/payment/official",
+              },
+              {
+                text: "Custom Payment Provider",
+                link: "/en/payment/custom",
+              },
+            ],
           },
           { text: "Slave Node", link: "/en/usage/slave-node" },
+          { text: "Thumbnails", link: "/en/usage/thumbnails" },
         ],
       },
       {

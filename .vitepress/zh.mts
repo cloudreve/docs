@@ -108,10 +108,21 @@ export default defineConfig({
             ],
           },
           {
-            text: "自定义支付渠道",
-            link: "/zh/payment/custom",
+            collapsed: true,
+            text: "支付",
+            items: [
+              {
+                text: "官方支付平台",
+                link: "/zh/payment/official",
+              },
+              {
+                text: "自定义支付渠道",
+                link: "/zh/payment/custom",
+              },
+            ],
           },
           { text: "从机节点", link: "/zh/usage/slave-node" },
+          { text: "缩略图", link: "/zh/usage/thumbnails" },
         ],
       },
       {
