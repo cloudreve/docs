@@ -1,5 +1,9 @@
 # Official Payment Platforms {#official}
 
+::: tip <Badge type="tip" text="Pro edition" />
+This section introduces a Pro edition feature.
+:::
+
 This section describes how to use the payment platforms natively supported by Cloudreve: Alipay, WeChat Pay, and Stripe.
 
 ## Currency Settings {#currency}

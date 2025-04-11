@@ -147,7 +147,7 @@ vips -v
 
 某些较老发行版的包管理器中无最新版本的 libvips，推荐从源代码编译安装最新版：[https://www.libvips.org/install.html](https://www.libvips.org/install.html)
 
-### FFMpeg
+### FFMpeg {#ffmpeg}
 
 主页：[https://ffmpeg.org](https://ffmpeg.org/)
 

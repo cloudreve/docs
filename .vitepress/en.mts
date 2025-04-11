@@ -121,6 +121,7 @@ export default defineConfig({
           },
           { text: "Slave Node", link: "/en/usage/slave-node" },
           { text: "Thumbnails", link: "/en/usage/thumbnails" },
+          { text: "Extract Media Metadata", link: "/en/usage/media-meta" },
         ],
       },
       {
@@ -129,6 +130,7 @@ export default defineConfig({
         items: [
           { text: "Upgrade Cloudreve", link: "/en/maintain/upgrade" },
           { text: "Upgrade from V3", link: "/en/maintain/upgrade-from-v3" },
+          { text: "Pro License Management", link: "/en/maintain/pro-license" },
         ],
       },
     ],

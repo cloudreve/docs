@@ -123,6 +123,7 @@ export default defineConfig({
           },
           { text: "从机节点", link: "/zh/usage/slave-node" },
           { text: "缩略图", link: "/zh/usage/thumbnails" },
+          { text: "媒体信息提取", link: "/zh/usage/media-meta" },
         ],
       },
       {
@@ -131,6 +132,7 @@ export default defineConfig({
         items: [
           { text: "更新 Cloudreve", link: "/zh/maintain/upgrade" },
           { text: "从 V3 升级", link: "/zh/maintain/upgrade-from-v3" },
+          { text: "Pro 授权管理", link: "/zh/maintain/pro-license" },
         ],
       },
     ],

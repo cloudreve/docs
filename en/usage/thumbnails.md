@@ -140,7 +140,7 @@ vips -v
 
 Some older distribution package managers may not have the latest version of libvips. It's recommended to compile and install the latest version from source: [https://www.libvips.org/install.html](https://www.libvips.org/install.html)
 
-### FFMpeg
+### FFMpeg {#ffmpeg}
 
 Homepage: [https://ffmpeg.org](https://ffmpeg.org/)
 

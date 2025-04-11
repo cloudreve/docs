@@ -1,5 +1,9 @@
 # 官方支付平台 {#official}
 
+::: tip <Badge type="tip" text="Pro" />
+本节介绍的是一个 Pro 版本特性。
+:::
+
 本节介绍的是如何使用 Cloudreve 原生支持的支付平台：支付宝当面付、微信支付 和 Stripe。
 
 ## 货币设置 {#currency}
