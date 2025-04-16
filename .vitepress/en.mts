@@ -122,6 +122,7 @@ export default defineConfig({
           { text: "Slave Node", link: "/en/usage/slave-node" },
           { text: "Thumbnails", link: "/en/usage/thumbnails" },
           { text: "Extract Media Metadata", link: "/en/usage/media-meta" },
+          { text: "Remote Download", link: "/en/usage/remote-download" },
         ],
       },
       {

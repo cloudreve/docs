@@ -80,3 +80,12 @@ reverse_proxy https://<bucket-name>.cos.<region>.myqcloud.com {
 2. 某些用户侧的防火墙（如 TPLink 路由器）会过滤掉 `Etag` 头，请检查防火墙配置。
 
 :::
+
+::: details 下载 CDN 使用绑定至存储桶的域名后，下载文件报错 `InvalidAccessKeyId`?
+
+在 COS 存储桶设置添加自定义 CDN 加速域名时，检查你是否开启了 `回源鉴权`:
+
+- 如果开启了，通过 CDN 下载文件时不再需要签名，请在 Cloudreve 存储策略设置中勾选 `下载` -> `下载 CD` -> `不为 CDN 签名文件 URL`;
+- 如果并未开启，请检查你的 CDN CNAME 是否配置正确、存储策略凭证填写是否正确；
+
+:::

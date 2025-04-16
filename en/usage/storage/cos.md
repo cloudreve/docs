@@ -78,3 +78,12 @@ The root cause of this error is that the Cloudreve client cannot read the `Etag`
 2. Some user-side firewalls (such as TPLink) filter out the `Etag` header, please check the firewall configuration.
 
 :::
+
+::: details After enabling the custom download CDN domain, the file download failed with error `InvalidAccessKeyId`?
+
+When adding a custom CDN acceleration domain to the COS bucket settings, check if you have enabled `Origin-pull authentication`:
+
+- If enabled, the file download request does not need to be signed when using CDN, please enable `Download` -> `Download CD` -> `Skip URL signature for CDN` in the Cloudreve storage policy settings;
+- If not enabled, please check if your CDN CNAME is configured correctly and the storage policy credentials are filled in correctly;
+
+:::

@@ -100,3 +100,9 @@ File permissions define the access permissions for other users when this file is
 When a user shares a directory, the directory's own permissions are ignored because the user sets the permissions of the shared link when sharing, this setting overrides the directory's permissions, but the permissions of its subdirectories remain effective.
 
 For single file sharing, the file's permission settings are ignored, and the permission settings of the shared link are used.
+
+::: tip
+
+File permissions are invalid for the admin user group, the admin user group always has all permissions.
+
+:::

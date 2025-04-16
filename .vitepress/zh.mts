@@ -124,6 +124,7 @@ export default defineConfig({
           { text: "从机节点", link: "/zh/usage/slave-node" },
           { text: "缩略图", link: "/zh/usage/thumbnails" },
           { text: "媒体信息提取", link: "/zh/usage/media-meta" },
+          { text: "离线下载", link: "/zh/usage/remote-download" },
         ],
       },
       {

@@ -58,3 +58,9 @@ Entra ID requires that the callback address must be an HTTPS address. You can ma
 The `Client Secret` of the Entra ID application has expired or is invalid. Please create a new secret, click the `Authorize again` button on the storage policy settings page, fill in the new secret, and then log in to the account.
 
 :::
+
+::: details All OneDrive storage policy authorizations suddenly become invalid.
+
+It may be due to clearing the Redis cache, please restart Cloudreve to reload the authorization.
+
+:::
