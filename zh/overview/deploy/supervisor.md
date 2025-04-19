@@ -166,24 +166,26 @@ Name = cloudreve
 
 在首次成功启动 Cloudreve 后，会在 `Cloudreve 主程序所在目录/data/conf.ini` 生成一份默认的配置文件，在此文件中中增加 Redis 配置：
 
-```bash{3-5}
-docker run -d --name cloudreve -p 5212:5212 \
-    -v ~/cloudreve/data:/cloudreve/data \
-    -e CR_CONF_Redis.Server=127.0.0.1:6379 \
-    -e CR_CONF_Redis.Password=your_redis_password \
-    -e CR_CONF_Redis.DB=0 \
-    cloudreve/cloudreve:latest
+```ini{5-8}
+[System]
+Mode = master
+Listen = :5212
+
+[Redis]
+Server = 127.0.0.1:6379
+Password = your_redis_password
+DB = 0
 ```
 
 其中可用的配置变量为：
 
-| 变量名                   | 说明                                                                                                                                                                                                   |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `CR_CONF_Redis.Server`   | Redis 地址                                                                                                                                                                                             |
-| `CR_CONF_Redis.Password` | 连接密码                                                                                                                                                                                               |
-| `CR_CONF_Redis.DB`       | 数据库编号，默认为 `0`                                                                                                                                                                                 |
-| `CR_CONF_Redis.Network`  | 网络类型，默认为`tcp`，可选 `tcp`, `tcp4` (IPv4-only), `tcp6` (IPv6-only), `udp`, `udp4` (IPv4-only), `udp6` (IPv6-only), `ip`, `ip4` (IPv4-only), `ip6` (IPv6-only), `unix`, `unixgram`, `unixpacket` |
-| `CR_CONF_Redis.User`     | Redis ACL 用户名                                                                                                                                                                                       |
+| 设置名     | 说明                                                                                                                                                                                                   |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Server`   | Redis 地址                                                                                                                                                                                             |
+| `Password` | 连接密码                                                                                                                                                                                               |
+| `DB`       | 数据库编号, 默认为 `0`                                                                                                                                                                                 |
+| `Network`  | 网络类型，默认为`tcp`，可选 `tcp`, `tcp4` (IPv4-only), `tcp6` (IPv6-only), `udp`, `udp4` (IPv4-only), `udp6` (IPv6-only), `ip`, `ip4` (IPv4-only), `ip6` (IPv6-only), `unix`, `unixgram`, `unixpacket` |
+| `User`     | Redis ACL 用户名                                                                                                                                                                                       |
 
 修改配置文件后，需要重启 Cloudreve。
 
