@@ -132,3 +132,9 @@ nano data/conf.ini
 这一报错说明 V4 和 V3 使用了同一个数据库，且数据表发生了冲突。请在 V4 的配置文件中指定一个新的数据库。
 
 :::
+
+::: details 升级报错 `Error 1071: Specified key was too long; max key length is 1000 bytes`
+
+使用 MySQL 时，请将默认数据库引擎修改为 `InnoDB`。
+
+:::

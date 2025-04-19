@@ -164,47 +164,59 @@ HTTP/1.1 200 OK
 
 ## 验证签名 {#verify-signature}
 
-你可以在 Cloudreve 后台设定 `通信密钥`，Cloudreve 创建订单的请求会使用此密钥进行加密并放在 Authorization header 中，你可以通过以下算法验证这一签名：
+你可以在 Cloudreve 后台设定 `通信密钥`，Cloudreve 创建订单的请求会使用此密钥进行加密并放在请求中：
 
-1. 将 Authorization 值中 Bearer 之后的部分取出，使用:分割字符串，其第二部分是签名过期的时间戳，记为 `timestamp`，验证确保其大于当前时间戳。将:前一部分记为 `signature`；
+- 对于创建订单请求，签名放在 `Authorization` header 中，并追加 `Bearer Cr` 前缀，请将此前缀去除；
+- 对于查询订单状态请求，签名放在 URL 参数 `sign` 中。
 
-2. 遍历所有请求头，筛选出以 `X-Cr-` 为前缀的请求头，并将其转换为 `key=value` 的形式，然后进行排序，将结果用 `&` 拼接为字符串 `signedHeaderStr`。
+验证签名的算法如下：
 
-```go
-var signedHeader []string
-for k, _ := range r.Header {
-	if strings.HasPrefix(k, "X-Cr-") {
-		signedHeader = append(signedHeader, fmt.Sprintf("%s=%s", k, r.Header.Get(k)))
-	}
-}
-sort.Strings(signedHeader)
-signedHeaderStr := strings.Join(signedHeader, "&")
-```
+1. 签名从请求中取出，使用`:`分割字符串，其第二部分是签名过期的时间戳，记为 `timestamp`，验证确保其大于当前时间戳。将:前一部分记为 `signature`；
 
-3. 将请求 URL 的 `Path` 部分，请求正文，`signedHeaderStr` 以 JSON 格式编码为字符串 `signContent`。
+2. 获取待签名字段：
 
-```go
-type RequestRawSign struct {
-	Path   string
-	Header string
-	Body   string
-}
+   - **对于创建订单请求：**
 
-signContent, err := json.Marshal(RequestRawSign{
-	Path:   r.URL.Path,
-	Header: signedHeaderStr,
-	Body:   string(r.Body),
-})
-```
+     1. 遍历所有请求头，筛选出以 `X-Cr-` 为前缀的请求头，并将其转换为 `key=value` 的形式，然后进行排序，将结果用 `&` 拼接为字符串 `signedHeaderStr`。
 
-4. 将 `signContent` 和 `timestamp` 用 `:` 拼接为字符串 `signContentFinal`, 使用 HMAC 算法和 `通信密钥` 对 `signContentFinal` 计算签名，记为 `signActual`。
+     ```go
+     var signedHeader []string
+     for k, _ := range r.Header {
+         if strings.HasPrefix(k, "X-Cr-") {
+             signedHeader = append(signedHeader, fmt.Sprintf("%s=%s", k, r.Header.Get(k)))
+         }
+     }
+     sort.Strings(signedHeader)
+     signedHeaderStr := strings.Join(signedHeader, "&")
+     ```
+
+     2. 将请求 URL 的 `Path` 部分，请求正文，`signedHeaderStr` 以 JSON 格式编码为字符串 `signContent`。
+
+     ```go
+     type RequestRawSign struct {
+         Path   string
+         Header string
+         Body   string
+     }
+
+     signContent, err := json.Marshal(RequestRawSign{
+         Path:   r.URL.Path,
+         Header: signedHeaderStr,
+         Body:   string(r.Body),
+     })
+     ```
+
+   - **对于查询订单状态请求：**
+     直接将请求 URL 的 `Path` 部分（不包含 `Query`）作为 `signContent`。
+
+3. 将 `signContent` 和 `timestamp` 用 `:` 拼接为字符串 `signContentFinal`, 使用 HMAC 算法和 `通信密钥` 对 `signContentFinal` 计算签名，记为 `signActual`。
 
 ```go
 signContentFinal := fmt.Sprintf("%s:%s", signContent, timestamp)
 signActual := hmac.New(sha256.New, []byte(通信密钥)).Sum([]byte(signContentFinal))
 ```
 
-5. 对比 `signActual` 和 `signature` 是否一致。
+4. 对比 `signActual` 和 `signature` 是否一致。
 
 ## 发送回调
 

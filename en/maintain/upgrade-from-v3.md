@@ -132,3 +132,9 @@ Please check if the `HashIDSalt` configuration item is configured in the V3 conf
 This error indicates that V4 and V3 are using the same database, and the data tables have conflicted. Please specify a new database in the V4 configuration file.
 
 :::
+
+::: details Upgrade failed with `Error 1071: Specified key was too long; max key length is 1000 bytes`
+
+When using MySQL, please modify the default database engine to `InnoDB`.
+
+:::

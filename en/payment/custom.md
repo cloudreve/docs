@@ -163,47 +163,59 @@ HTTP/1.1 200 OK
 
 ## Verify Signature {#verify-signature}
 
-You can set a `communication key` in the Cloudreve payment settings. Cloudreve's payment creation requests will use this key for signing and place it in the Authorization header. You can verify this signature using the following algorithm:
+You can set a `communication key` in the Cloudreve payment settings. Cloudreve's payment creation requests will use this key for signing and place it in the Request:
 
-1. Extract the part after Bearer in the Authorization value, split the string by `:`, and the second part is the expiration timestamp of the signature, noted as `timestamp`. Verify that it is greater than the current timestamp. The part before `:` is noted as `signature`;
+- For payment creation requests, the signature is placed in the `Authorization` header, prefixed with `Bearer Cr`, and the prefix should be removed;
+- For query order status requests, the signature is placed in the URL parameter `sign`.
 
-2. Iterate over all request headers, filter out those prefixed with `X-Cr-`, convert them to `key=value` format, then sort and join the results with `&` to form the string `signedHeaderStr`.
+Verify the signature using the following algorithm:
 
-```go
-var signedHeader []string
-for k, _ := range r.Header {
-	if strings.HasPrefix(k, "X-Cr-") {
-		signedHeader = append(signedHeader, fmt.Sprintf("%s=%s", k, r.Header.Get(k)))
-	}
-}
-sort.Strings(signedHeader)
-signedHeaderStr := strings.Join(signedHeader, "&")
-```
+1. Extract the signature from the request, split the string by `:`, and the second part is the expiration timestamp of the signature, noted as `timestamp`. Verify that it is greater than the current timestamp. The part before `:` is noted as `signature`;
 
-3. Encode the request URL's `Path` part, request body, and `signedHeaderStr` as a JSON string `signContent`.
+2. Get the string to be signed:
 
-```go
-type RequestRawSign struct {
-	Path   string
-	Header string
-	Body   string
-}
+   - **For payment creation requests:**
 
-signContent, err := json.Marshal(RequestRawSign{
-	Path:   r.URL.Path,
-	Header: signedHeaderStr,
-	Body:   string(r.Body),
-})
-```
+     1. Iterate through all request headers, filter out the headers that start with `X-Cr-`, convert them to `key=value` format, then sort them and join them with `&` to form the string `signedHeaderStr`.
 
-4. Concatenate `signContent` and `timestamp` with `:` to form the string `signContentFinal`, and use the HMAC algorithm and `Communication key` to calculate the signature for `signContentFinal`, noted as `signActual`.
+     ```go
+     var signedHeader []string
+     for k, _ := range r.Header {
+         if strings.HasPrefix(k, "X-Cr-") {
+             signedHeader = append(signedHeader, fmt.Sprintf("%s=%s", k, r.Header.Get(k)))
+         }
+     }
+     sort.Strings(signedHeader)
+     signedHeaderStr := strings.Join(signedHeader, "&")
+     ```
+
+     2. Encode the `Path` part of the request URL, request body, and `signedHeaderStr` as a JSON string `signContent`.
+
+     ```go
+     type RequestRawSign struct {
+         Path   string
+         Header string
+         Body   string
+     }
+
+     signContent, err := json.Marshal(RequestRawSign{
+         Path:   r.URL.Path,
+         Header: signedHeaderStr,
+         Body:   string(r.Body),
+     })
+     ```
+
+   - **For query order status requests:**
+     Just use the `Path` part (excluding `Query`) of the request URL as `signContent`.
+
+3. Concatenate `signContent` and `timestamp` with `:` to form the string `signContentFinal`, and use the HMAC algorithm and `Communication key` to calculate the signature for `signContentFinal`, noted as `signActual`.
 
 ```go
 signContentFinal := fmt.Sprintf("%s:%s", signContent, timestamp)
 signActual := hmac.New(sha256.New, []byte(Communication key)).Sum([]byte(signContentFinal))
 ```
 
-5. Compare `signActual` with `signature` to check for consistency.
+4. Compare `signActual` with `signature` to check for consistency.
 
 ## Send Callback
 
