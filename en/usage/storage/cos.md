@@ -87,3 +87,5 @@ When adding a custom CDN acceleration domain to the COS bucket settings, check i
 - If not enabled, please check if your CDN CNAME is configured correctly and the storage policy credentials are filled in correctly;
 
 :::
+
+<!--@include: ./parts/refer-photopea.md-->

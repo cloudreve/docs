@@ -114,3 +114,5 @@ In the error message, `xxxx` is the specific error when requesting the callback 
 2. Check if the bucket CORS policy is set and if it is correct;
 
 :::
+
+<!--@include: ./parts/refer-photopea.md-->

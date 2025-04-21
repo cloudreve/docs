@@ -89,3 +89,5 @@ reverse_proxy https://<bucket-name>.cos.<region>.myqcloud.com {
 - 如果并未开启，请检查你的 CDN CNAME 是否配置正确、存储策略凭证填写是否正确；
 
 :::
+
+<!--@include: ./parts/refer-photopea.md-->

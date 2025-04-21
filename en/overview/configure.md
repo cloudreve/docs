@@ -37,7 +37,7 @@ CertPath =
 KeyPath =
 
 ; Enable Unix Socket listening
-[Unix]
+[UnixSocket]
 ; Unix Socket listening path, default is empty
 Listen = /run/cloudreve/cloudreve.sock
 ; Set permissions for the generated socket file, default is empty

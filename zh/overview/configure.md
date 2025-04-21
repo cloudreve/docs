@@ -37,7 +37,7 @@ CertPath =
 KeyPath =
 
 ; 启用 Unix Socket 监听
-[Unix]
+[UnixSocket]
 ; Unix Socket 监听路径，默认为空
 Listen = /run/cloudreve/cloudreve.sock
 ; 设置产生的 socket 文件的权限，默认为空

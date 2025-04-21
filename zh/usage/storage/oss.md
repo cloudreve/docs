@@ -114,3 +114,5 @@ reverse_proxy https://<bucket-name>.oss-<region>.aliyuncs.com {
 2. 检查跨域策略是否设置，以及设置是否正确；
 
 :::
+
+<!--@include: ./parts/refer-photopea.md-->
