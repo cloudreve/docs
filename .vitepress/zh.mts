@@ -125,6 +125,8 @@ export default defineConfig({
           { text: "缩略图", link: "/zh/usage/thumbnails" },
           { text: "媒体信息提取", link: "/zh/usage/media-meta" },
           { text: "离线下载", link: "/zh/usage/remote-download" },
+          { text: "Office 文档在线编辑", link: "/zh/usage/wopi" },
+          { text: "自定义前端", link: "/zh/usage/custom-frontend" },
         ],
       },
       {
@@ -133,6 +135,7 @@ export default defineConfig({
         items: [
           { text: "更新 Cloudreve", link: "/zh/maintain/upgrade" },
           { text: "从 V3 升级", link: "/zh/maintain/upgrade-from-v3" },
+          { text: "升级到 Pro 版", link: "/zh/maintain/upgrade-to-pro" },
           { text: "Pro 授权管理", link: "/zh/maintain/pro-license" },
         ],
       },

@@ -123,6 +123,11 @@ export default defineConfig({
           { text: "Thumbnails", link: "/en/usage/thumbnails" },
           { text: "Extract Media Metadata", link: "/en/usage/media-meta" },
           { text: "Remote Download", link: "/en/usage/remote-download" },
+          {
+            text: "Office Document Online Collaboration",
+            link: "/en/usage/wopi",
+          },
+          { text: "Custom Frontend", link: "/en/usage/custom-frontend" },
         ],
       },
       {
@@ -131,6 +136,7 @@ export default defineConfig({
         items: [
           { text: "Upgrade Cloudreve", link: "/en/maintain/upgrade" },
           { text: "Upgrade from V3", link: "/en/maintain/upgrade-from-v3" },
+          { text: "Upgrade to Pro", link: "/en/maintain/upgrade-to-pro" },
           { text: "Pro License Management", link: "/en/maintain/pro-license" },
         ],
       },
