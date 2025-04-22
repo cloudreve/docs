@@ -51,6 +51,10 @@ export default defineConfig({
               },
             ],
           },
+          {
+            text: "从源代码编译",
+            link: "/zh/overview/build",
+          },
           { text: "命令行", link: "/zh/overview/cli" },
           { text: "配置", link: "/zh/overview/configure" },
         ],

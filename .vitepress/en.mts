@@ -49,6 +49,10 @@ export default defineConfig({
               },
             ],
           },
+          {
+            text: "Build from Source",
+            link: "/en/overview/build",
+          },
           { text: "CLI", link: "/en/overview/cli" },
           { text: "Configure", link: "/en/overview/configure" },
         ],
