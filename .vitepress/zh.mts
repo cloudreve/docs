@@ -129,6 +129,7 @@ export default defineConfig({
           { text: "缩略图", link: "/zh/usage/thumbnails" },
           { text: "媒体信息提取", link: "/zh/usage/media-meta" },
           { text: "离线下载", link: "/zh/usage/remote-download" },
+          { text: "文件浏览应用", link: "/zh/usage/file-apps" },
           { text: "Office 文档在线编辑", link: "/zh/usage/wopi" },
           { text: "自定义前端", link: "/zh/usage/custom-frontend" },
         ],

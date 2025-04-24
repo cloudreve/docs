@@ -113,7 +113,7 @@ Cloudreve 不会在文件上传后立即尝试为其生成缩略图，而是在�
 
 :::
 
-### 歌曲封面
+### 歌曲封面 {#song-cover}
 
 无需安装第三方库，从 MP3 (ID3v1, 2.x), MP4 (ACC, M4A, ALAC), OGG 或 FLAC 中提取专辑封面。需要依赖于其他任一支持图片的生成器（VIPS 或者 Cloudreve 原生）。
 

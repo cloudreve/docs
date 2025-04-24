@@ -127,6 +127,7 @@ export default defineConfig({
           { text: "Thumbnails", link: "/en/usage/thumbnails" },
           { text: "Extract Media Metadata", link: "/en/usage/media-meta" },
           { text: "Remote Download", link: "/en/usage/remote-download" },
+          { text: "File Apps", link: "/en/usage/file-apps" },
           {
             text: "Office Document Online Collaboration",
             link: "/en/usage/wopi",

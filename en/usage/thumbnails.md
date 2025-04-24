@@ -106,7 +106,7 @@ For remote storage policies, you can refer to the [Native Thumbnails](./storage/
 
 :::
 
-### Music Cover
+### Music Cover {#song-cover}
 
 No third-party libraries required. Extracts album covers from MP3 (ID3v1, 2.x), MP4 (ACC, M4A, ALAC), OGG, or FLAC. Depends on any other image-supporting generator (VIPS or Cloudreve native).
 
