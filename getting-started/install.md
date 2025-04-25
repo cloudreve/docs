@@ -281,6 +281,14 @@ sudo supervisorctl stop cloudreve
 sudo supervisorctl status cloudreve
 ```
 
+## 宝塔面板Docker一键部署（推荐）
+
+1. 安装宝塔面板9.2.0及以上版本，前往 [宝塔面板](https://www.bt.cn/new/download.html?r=dk_cloudreve) 官网，选择正式版的脚本下载安装
+
+2. 安装后登录宝塔面板，在左侧菜单栏中点击 `Docker`，首次进入会提示安装`Docker`服务，点击立即安装，按提示完成安装
+
+3. 安装完成后在应用商店中搜索`Cloudreve`，点击安装，配置域名等基本信息即可完成安装
+
 ## Docker
 > 使用之前，请确保您知道 docker 的工作机制，在一般情况下，上述部署流程已经能够覆盖绝大多数使用场景。
 
