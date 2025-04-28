@@ -325,7 +325,7 @@ cloudreve/cloudreve:latest
 ### 创建目录结构
 
 ```bash
-mkdir -vp cloudreve/{uploads,avatar} \
+mkdir -vp cloudreve/data/{uploads,avatar} \
 && touch cloudreve/conf.ini \
 && touch cloudreve/cloudreve.db \
 && mkdir -p aria2/config \
@@ -348,10 +348,10 @@ services:
       - "5212:5212"
     volumes:
       - temp_data:/data
-      - ./cloudreve/uploads:/cloudreve/uploads
+      - ./cloudreve/data/uploads:/cloudreve/data/uploads
       - ./cloudreve/conf.ini:/cloudreve/conf.ini
       - ./cloudreve/cloudreve.db:/cloudreve/cloudreve.db
-      - ./cloudreve/avatar:/cloudreve/avatar
+      - ./cloudreve/data/avatar:/cloudreve/data/avatar
     depends_on:
       - aria2
   aria2:
