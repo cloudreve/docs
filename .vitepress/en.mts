@@ -145,6 +145,16 @@ export default defineConfig({
           { text: "Pro License Management", link: "/en/maintain/pro-license" },
         ],
       },
+      {
+        text: "API",
+        collapsed: false,
+        items: [
+          { text: "Overview", link: "/en/api/overview" },
+          { text: "Authentication", link: "/en/api/auth" },
+          { text: "Boolset Encoding and Decoding", link: "/en/api/boolset" },
+          { text: "File URI", link: "/en/api/file-uri" },
+        ],
+      },
     ],
   },
 });

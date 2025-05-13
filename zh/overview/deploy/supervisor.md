@@ -191,4 +191,6 @@ DB = 0
 
 ## 下一步 {#next-steps}
 
+Cloudreve 默认会监听 5212 端口。你可以在浏览器中访问 http://localhost:5212 进入 Cloudreve。请注册一个账户，首个注册的账户会被设置为管理员。
+
 至此，Cloudreve 已经启动成功并监听 5212 端口，请继续前往 [后续步骤](./configure) 页面，完善你的部署。

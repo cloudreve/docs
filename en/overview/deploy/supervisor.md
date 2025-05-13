@@ -191,4 +191,6 @@ After modifying the configuration file, you need to restart Cloudreve.
 
 ## Next Steps {#next-steps}
 
+Cloudreve will listen on port 5212 by default. You can access Cloudreve by visiting `http://localhost:5212` in your browser. Please register an account; the first registered account will be set as the administrator.
+
 At this point, Cloudreve has started successfully and is listening on port 5212. Please continue to the [Next Steps](./configure) page to complete your deployment.
