@@ -164,7 +164,7 @@ Name = cloudreve
 
 ## 配置 Redis {#configure-redis}
 
-在首次成功启动 Cloudreve 后，会在 `Cloudreve 主程序所在目录/data/conf.ini` 生成一份默认的配置文件，在此文件中中增加 Redis 配置：
+在首次成功启动 Cloudreve 后，会在 `Cloudreve 主程序所在目录/data/conf.ini` 生成一份默认的配置文件，在此文件中增加 Redis 配置：
 
 ```ini{5-8}
 [System]

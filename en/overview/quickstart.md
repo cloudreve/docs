@@ -49,7 +49,7 @@ chmod +x ./cloudreve
 
 == Windows
 
-On Windows, simply extract the obtained ZIP archive and start `cloudreve.exe`. You can also run `cloudreve.exe` in the terminal to start Cloudreve:
+On Windows, simply extract the obtained ZIP archive and run `cloudreve.exe` in the terminal to start Cloudreve:
 
 ```powershell
 # Start Cloudreve

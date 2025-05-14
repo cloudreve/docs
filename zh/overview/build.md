@@ -69,7 +69,7 @@ go build -a -o cloudreve \
 
 ```bash
 # 安装 goreleaser
-go install github.com/goreleaser/goreleaser@latest
+go install github.com/goreleaser/goreleaser/v2@latest
 
 # 构建项目
 goreleaser build --clean --single-target --snapshot

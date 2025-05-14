@@ -7,7 +7,7 @@ Cloudreve 支持使用以下方式部署：
 | 部署方式                              | 说明                                                                                                                                                                                                                                                                |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [Docker Compose](./docker-compose.md) | 使用 Docker Compose 启动多个容器，其中默认包含并启用了： <ul><li>Cloudreve 主程序；</li><li>Redis；</li><li>PostgreSQL 数据库；</li><li>离线下载器 (Aria2)；</li><li>缩略图组件 (VIPS, FFMpeg, LibreOffice)；</li><li>视频信息提取 (FFProbe)</li></ul>              |
-| [Docker 单容器](./docker.md)          | 直接使用我们提供的镜像启动容器，其中默认包含并启用了： <ul><li>Cloudreve 主程序；</li><li>Redis；</li><li>离线下载器 (Aria2)；</li><li>缩略图组件 (VIPS, FFMpeg, LibreOffice)；</li><li>视频信息提取 (FFProbe)</li></ul> 你仍然需要根据需求自行配置数据库和 Redis。 |
+| [Docker 单容器](./docker.md)          | 直接使用我们提供的镜像启动容器，其中默认包含并启用了： <ul><li>Cloudreve 主程序；</li><li>离线下载器 (Aria2)；</li><li>缩略图组件 (VIPS, FFMpeg, LibreOffice)；</li><li>视频信息提取 (FFProbe)</li></ul> 你仍然需要根据需求自行配置数据库和 Redis。 |
 | [进程守护](./supervisor.md)           | 使用进程守护工具（如 Supervisor）启动 Cloudreve 主程序。你仍然需要根据需求自行配置数据库和 Redis。                                                                                                                                                                  |
 
 请根据需求或喜好选择合适的部署方式。我们推荐使用 Docker Compose 或 Docker 单容器部署，因为它更易于管理，并且提供了更丰富的功能。

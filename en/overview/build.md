@@ -69,7 +69,7 @@ You can use [goreleaser](https://goreleaser.com/) to quickly complete building, 
 
 ```bash
 # Install goreleaser
-go install github.com/goreleaser/goreleaser@latest
+go install github.com/goreleaser/goreleaser/v2@latest
 
 # Build the project
 goreleaser build --clean --single-target --snapshot
