@@ -49,7 +49,7 @@ chmod +x ./cloudreve
 
 == Windows
 
-Windows 下，直接解压获取到的 ZIP 压缩包，启动 `cloudreve.exe` 即可。你也可以在终端中运行 `cloudreve.exe` 来启动 Cloudreve：
+Windows 下，直接解压获取到的 ZIP 压缩包，在终端中运行 `cloudreve.exe` 来启动 Cloudreve：
 
 ```powershell
 # 启动 Cloudreve
