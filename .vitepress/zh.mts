@@ -8,7 +8,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: "首页", link: "https://cloudreve.org/" },
-      { text: "V3 文档", link: "https://docs.cloudreve.org" },
+      { text: "V3 文档", link: "https://docsv3.cloudreve.org" },
     ],
 
     sidebar: [

@@ -6,7 +6,7 @@ export default defineConfig({
   themeConfig: {
     nav: [
       { text: "Home", link: "https://cloudreve.org/" },
-      { text: "V3 Doc", link: "https://docs.cloudreve.org/" },
+      { text: "V3 Doc", link: "https://docsv3.cloudreve.org/" },
     ],
 
     sidebar: [
