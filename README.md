@@ -1,7 +1,9 @@
 # 欢迎
 
+
+
 {% hint style="info" %}
-当前文档针对的是 V3.x 版本，V4 的文档请前往 [docsv4.cloudreve.org](https://docsv4.cloudreve.org/)。
+当前文档针对的是 V3.x 版本，V4 的文档请前往 [docs.cloudreve.org](https://docs.cloudreve.org/zh/)。
 {% endhint %}
 
 ## Cloudreve 是什么？
