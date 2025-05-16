@@ -21,7 +21,7 @@ export default defineConfig({
       options: {
         appId: "S7JRLMCZAV",
         apiKey: "f14604c870f58b8ea265e5b4a36d05bb",
-        indexName: "vitepress",
+        indexName: "cloudreve",
         locales: {
           ...zhSearch,
         },
