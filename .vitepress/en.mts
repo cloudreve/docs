@@ -156,5 +156,10 @@ export default defineConfig({
         ],
       },
     ],
+
+    editLink: {
+      pattern: "https://github.com/cloudreve/docs/blob/v4/:path",
+      text: "Edit on GitHub",
+    },
   },
 });

@@ -159,7 +159,7 @@ export default defineConfig({
     ],
 
     editLink: {
-      pattern: "https://github.com/cloudreve/docs/edit/main/:path",
+      pattern: "https://github.com/cloudreve/docs/blob/v4/:path",
       text: "在 GitHub 上编辑此页面",
     },
 
