@@ -16,7 +16,7 @@ Web Application Open Platform Interface (WOPI) is a protocol for integrating web
 | RefreshLock     | ✅             |
 | Unlock          | ✅             |
 | PutFile         | ✅             |
-| PutRelativeFile | ❌             |
+| PutRelativeFile | ✅             |
 | RenameFile      | ✅             |
 
 ## Setting Up WOPI Services {#wopi-service}

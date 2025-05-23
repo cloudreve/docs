@@ -16,7 +16,7 @@ Web Application Open Platform Interface (WOPI) 协议是一种用于集成 Web �
 | RefreshLock     | ✅       |
 | Unlock          | ✅       |
 | PutFile         | ✅       |
-| PutRelativeFile | ❌       |
+| PutRelativeFile | ✅       |
 | RenameFile      | ✅       |
 
 ## 搭建 WOPI 服务 {#wopi-service}
