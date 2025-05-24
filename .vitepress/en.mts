@@ -153,6 +153,7 @@ export default defineConfig({
           { text: "Authentication", link: "/en/api/auth" },
           { text: "Boolset Encoding and Decoding", link: "/en/api/boolset" },
           { text: "File URI", link: "/en/api/file-uri" },
+          { text: "Metadata", link: "/en/api/metadata" },
         ],
       },
     ],

@@ -39,4 +39,19 @@ File path, used to specify the location of the file in the file system.
 
 ### Query - Search Conditions {#query}
 
-File search conditions, used to specify file search conditions, applicable only to APIs that list files. For APIs that operate on specified files (delete, update, etc.), this part will be ignored.
+File search conditions, used to specify file search conditions, applicable only to APIs that list files. For APIs that operate on specified files (delete, update, etc.), this part will be ignored. Available Query parameters:
+| Query Parameter | Description |
+| --- | --- |
+| `name` | Search for file names, can specify multiple keywords, such as `name=mp3&name=op6`. |
+| `name_op_or` | When the `name` query parameter exists and has multiple keywords, it can be specified as `name_op_or=true`, indicating that the file name contains any of the keywords. |
+| `use_or` | Same as `name_op_or`. |
+| `case_folding` | When the `name` query parameter exists, it can be specified as `case_folding=true`, indicating that the search ignores case. |
+| `category` | Use preset search conditions to query file types, available values are `image`, `video`, `audio`, `document`. When this query is set, all other query conditions will be ignored. |
+|`type` | Available values are `file` or `folder`, filter file types. |
+|`meta_<key>` | Use file Metadata to query files, `<key>` is the Metadata key, such as `meta_music:album=Deluxe`, where the Metadata key matches exactly `music:album`, and the value contains `Deluxe` (case-insensitive). An empty value `meta_<key>=` can also be used to query all files with the given Metadata key. |
+|`size_gte`| File size lower limit, only valid when greater than `0`. |
+|`size_lte`| File size upper limit, only valid when greater than `0`. |
+|`created_gte`| File creation time lower limit, Unix second timestamp. |
+|`created_lte`| File creation time upper limit, Unix second timestamp. |
+|`updated_gte`| File update time lower limit, Unix second timestamp. |
+|`updated_lte`| File update time upper limit, Unix second timestamp. |

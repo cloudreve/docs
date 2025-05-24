@@ -39,4 +39,19 @@ Cloudreve 使用 `User` 部分来指定文件系统 ID。
 
 ### Query 查询参数 - 搜索条件 {#query}
 
-文件搜索条件，用于指定文件搜索条件，只适用于列取文件的 API。对于操作指定文件的 API（删除、更新 等），这一部分会被忽略。
+文件搜索条件，用于指定文件搜索条件，只适用于列取文件的 API。对于操作指定文件的 API（删除、更新 等），这一部分会被忽略。可用 Query 如下：
+| 查询参数 | 描述 |
+| --- | --- |
+| `name` | 搜索文件名，可指定多个关键词，如：`name=mp3&name=op6`。 |
+| `name_op_or` | 当 `name` 查询参数存在且有多个关键词时，可指定为 `name_op_or=true`，表示搜索文件名包含任一关键词的文件。 |
+| `use_or` | 作用和 `name_op_or` 相同。 |
+| `case_folding` | 当 `name` 查询参数存在时，可指定为 `case_folding=true`，表示搜索时忽略大小写。 |
+| `category` | 使用预设的搜索条件查询文件种类，可用值为 `image`、`video`、`audio`、`document`。设定此查询时，其他所有查询条件会被忽略。 |
+|`type` | 可用值为 `file` 或 `folder`，过滤文件类型。|
+|`meta_<key>` | 使用文件 Metadata 查询文件，`<key>` 为 Metadata 键，如：`meta_music:album=Deluxe`, 其中 Metadata 键完整匹配为 `music:album`，值包含 `Deluxe`（忽略大小写）。也可使用空的值 `meta_<key>=` 来查询所有存在给定 Metadata 键的文件。|
+|`size_gte`| 文件大小下限，只有大于 `0` 时有效。|
+|`size_lte`| 文件大小上限，只有大于 `0` 时有效。|
+|`created_gte`| 文件创建时间下限，Unix 秒级时间戳。|
+|`created_lte`| 文件创建时间上限，Unix 秒级时间戳。|
+|`updated_gte`| 文件更新时间下限，Unix 秒级时间戳。|
+|`updated_lte`| 文件更新时间上限，Unix 秒级时间戳。|

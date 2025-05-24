@@ -91,6 +91,8 @@ Common information recorded in metadata includes:
 - Expiration date of files in the recycle bin
 - File tags
 
+For more information about metadata, please refer to the [Metadata](../api/metadata) chapter.
+
 Metadata can be used for file searching.
 
 ## File Permissions {#file-permission}
