@@ -42,3 +42,16 @@ MinIO 不需要配置跨域策略，点击 `我已自行设置` 跳过跨域策�
 2. 检查是否有外部 WAF 防火墙拦截了上传请求。
 
 :::
+
+::: details 使用 Nginx 反代后的 MinIO 端点，无法上传或进行任何文件操作。
+
+1. 如果你的反代后的端点包含了端口号，在配置 Nginx 时，请将 `proxy_set_header` 设定为 `$http_host`:
+
+   ```nginx
+   proxy_set_header Host $host; # [!code --]
+   proxy_set_header Host $http_host; # [!code ++]
+   ```
+
+2. 如果文件新建、删除操作正常，但是无法从 Web 端上传文件，请尝试在 Nginx 反代配置中加入 `proxy_cache_convert_head off;`。
+
+:::

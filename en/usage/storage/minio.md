@@ -42,3 +42,16 @@ Check `Settings` -> `Filesystem` -> `Upload session TTL (seconds)`, its value sh
 2. Check if there is an external WAF firewall blocking the upload request.
 
 :::
+
+::: details Using a MinIO endpoint after reverse proxy, I cannot upload or perform any file operations.
+
+1. If the reverse proxy endpoint contains a port, when configuring Nginx, set `proxy_set_header` to `$http_host`:
+
+   ```nginx
+   proxy_set_header Host $host; # [!code --]
+   proxy_set_header Host $http_host; # [!code ++]
+   ```
+
+2. If the file creation and deletion operations are OK, but you cannot upload files from the Web client, try adding `proxy_cache_convert_head off;` to the Nginx reverse proxy configuration.
+
+:::
