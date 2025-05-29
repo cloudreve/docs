@@ -57,7 +57,7 @@ Start the Supervisor service and Cloudreve application:
 
 ```bash
 # Start supervisor through the global configuration file:
-supervisord -c /etc/supervisord.conf
+supervisord -c /etc/supervisor/supervisord.conf
 
 # Start Cloudreve
 sudo supervisorctl start cloudreve
