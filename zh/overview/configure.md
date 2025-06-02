@@ -2,10 +2,10 @@
 
 Cloudreve 的配置分为两部份存储：配置文件中存放的程序运行关键配置，数据库中存放其他应用层面配置。本页主要介绍配置文件的结构。
 
-Cloudreve 的默认配置文件为 `data/config.ini`，你可以在启动 Cloudreve 时通过命令行参数传入配置文件路径：
+Cloudreve 的默认配置文件为 `data/conf.ini`，你可以在启动 Cloudreve 时通过命令行参数传入配置文件路径：
 
 ```bash
-./cloudreve -c /path/to/config.ini
+./cloudreve -c /path/to/conf.ini
 ```
 
 ## 配置文件结构 {#config-file-structure}
