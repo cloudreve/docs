@@ -57,7 +57,7 @@ environment=
 
 ```bash
 # 通过全局配置文件启动 supervisor：
-supervisord -c /etc/supervisord.conf
+supervisord -c /etc/supervisor/supervisord.conf
 
 # 启动 Cloudreve
 sudo supervisorctl start cloudreve
