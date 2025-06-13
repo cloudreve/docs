@@ -8,6 +8,10 @@ When using custom static resources, please note that you need to replace them wi
 
 :::
 
+## Change Logo {#change-logo}
+
+Changing the site logo does not require custom static resources. Please go to the dashboard `Settings` -> `Basic` -> `LOGO` to fill in the URL address of the LOGO image. You can use the direct link function of Cloudreve to get the URL address of the image.
+
 ## Using Custom Static Resources {#use}
 
 Please rename the `build` directory compiled from the [frontend repository](https://github.com/cloudreve/frontend) to `statics` and place it in the `data` directory under the same directory as Cloudreve executable, then restart Cloudreve for the changes to take effect. Upon startup, Cloudreve will print `Folder with xxx already exists, it will be used to serve static files.` in the log, indicating that custom static resources are being used.

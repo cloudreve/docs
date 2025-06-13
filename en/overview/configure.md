@@ -121,7 +121,7 @@ docker container ls | grep cloudreve
 # 43acd4c97d4b   cloudreve/cloudreve:latest   "sh ./entrypoint.sh"     About a minute ago   Up About a minute   443/tcp, 0.0.0.0:5212->5212/tcp, :::5212->5212/tcp     cloudreve
 
 # View container mount information
-docker inspect --format="{{.Mounts}}" <container ID>
+docker inspect --format="{{.Mounts}}" <Container ID>
 
 # For example:
 docker inspect --format="{{.Mounts}}" 43acd4c97d4b

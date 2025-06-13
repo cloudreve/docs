@@ -8,6 +8,10 @@ Cloudreve 的可执行文件中内嵌了所需要的静态资源，包括 HTML �
 
 :::
 
+## 更换 LOGO {#change-logo}
+
+更换 LOGO 不需要自定义静态资源，请前往后台 `参数设置` -> `站点信息` -> `LOGO` 中填写 LOGO 图像的 URL 地址即可。你可以使用 Cloudreve 的直链功能获取图像的 URL 地址。
+
 ## 使用自定义的静态资源 {#use}
 
 请将[前端仓库](https://github.com/cloudreve/frontend)编译得到的 `build` 目录重命名为 `statics` 并置于 Cloudreve 同级目录下的 `data` 目录，重启 Cloudreve 后生效。启动时，Cloudreve 会在日志中打印 `Folder with xxx already exists, it will be used to serve static files.`，表示使用自定义的静态资源。
