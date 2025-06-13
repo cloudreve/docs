@@ -54,7 +54,7 @@ Add `ProxyPass` configuration to the `VirtualHost` block:
 
 ### Configure SSL for Built-in Web Server {#configure-ssl-for-built-in-web-server}
 
-If you don't want to use a reverse proxy but still want to use SSL, you can use Cloudreve's built-in web server and configure SSL. Edit the `data/config.ini` file and add the following configuration:
+If you don't want to use a reverse proxy but still want to use SSL, you can use Cloudreve's built-in web server and configure SSL. Edit the `data/conf.ini` file and add the following configuration:
 
 ```ini
 [SSL]
@@ -65,7 +65,7 @@ KeyPath = /path/to/your/privkey.pem ; Private key file path
 
 ### Deliver Client Real IP {#deliver-client-real-ip}
 
-Cloudreve's event logging feature will attempt to record the client's real IP, but if you use a reverse proxy, the real IP will be overwritten in the `X-Forwarded-For` header, causing incorrect log records. You can add the `ProxyHeader` configuration to the `data/config.ini` file to let Cloudreve extract the real IP from the `X-Forwarded-For` header:
+Cloudreve's event logging feature will attempt to record the client's real IP, but if you use a reverse proxy, the real IP will be overwritten in the `X-Forwarded-For` header, causing incorrect log records. You can add the `ProxyHeader` configuration to the `data/conf.ini` file to let Cloudreve extract the real IP from the `X-Forwarded-For` header:
 
 ```ini{4}
 [System]

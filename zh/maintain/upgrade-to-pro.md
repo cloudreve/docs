@@ -19,7 +19,7 @@
 你可以通过 `-c` 指定配置文件位置：
 
 ```bash
-./cloudreve proupgrade -c data/config.ini
+./cloudreve proupgrade -c data/conf.ini
 ```
 
 :::

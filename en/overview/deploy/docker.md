@@ -88,7 +88,7 @@ The available configuration variables are:
 
 == Configure After Container Startup
 
-After the container is started, you can add database configuration by modifying the `~/cloudreve/data/config.ini` file mounted on the host:
+After the container is started, you can add database configuration by modifying the `~/cloudreve/data/conf.ini` file mounted on the host:
 
 ```ini{5-11}
 [System]
@@ -152,7 +152,7 @@ The available configuration variables are:
 
 === Configure After Container Startup
 
-After the container is started, you can add Redis configuration by modifying the `~/cloudreve/data/config.ini` file mounted on the host:
+After the container is started, you can add Redis configuration by modifying the `~/cloudreve/data/conf.ini` file mounted on the host:
 
 ```ini{5-8}
 [System]

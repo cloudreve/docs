@@ -19,7 +19,7 @@ Run the following command to upgrade the database to the Pro edition:
 You can specify the configuration file location with `-c`:
 
 ```bash
-./cloudreve proupgrade -c data/config.ini
+./cloudreve proupgrade -c data/conf.ini
 ```
 
 :::

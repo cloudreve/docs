@@ -54,7 +54,7 @@ reverse_proxy 127.0.0.1:5212
 
 ### 为内建 Web 服务器配置 SSL {#configure-ssl-for-built-in-web-server}
 
-如果你不想使用反向代理，但又想使用 SSL，你可以使用 Cloudreve 内建的 Web 服务器，并配置 SSL。编辑 `data/config.ini` 文件，加入以下配置：
+如果你不想使用反向代理，但又想使用 SSL，你可以使用 Cloudreve 内建的 Web 服务器，并配置 SSL。编辑 `data/conf.ini` 文件，加入以下配置：
 
 ```ini
 [SSL]
@@ -65,7 +65,7 @@ KeyPath = /path/to/your/privkey.pem ; 私钥文件路径
 
 ### 呈递客户端真实 IP {#deliver-client-real-ip}
 
-Cloudreve 的事件日志功能会尝试记录客户端的真实 IP，但如果你使用反向代理，真实 IP 会被覆写在 `X-Forwarded-For` 头中，导致日志记录错误。你可以在 `data/config.ini` 文件中加入 `ProxyHeader` 配置，让 Cloudreve 从 `X-Forwarded-For` 头中提取真实 IP：
+Cloudreve 的事件日志功能会尝试记录客户端的真实 IP，但如果你使用反向代理，真实 IP 会被覆写在 `X-Forwarded-For` 头中，导致日志记录错误。你可以在 `data/conf.ini` 文件中加入 `ProxyHeader` 配置，让 Cloudreve 从 `X-Forwarded-For` 头中提取真实 IP：
 
 ```ini{4}
 [System]

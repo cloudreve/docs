@@ -88,7 +88,7 @@ docker run -d --name cloudreve -p 5212:5212 \
 
 == 在容器启动后配置
 
-在容器启动后，你可以通过修改宿主机上挂载的 `~/cloudreve/data/config.ini` 文件来增加数据库配置：
+在容器启动后，你可以通过修改宿主机上挂载的 `~/cloudreve/data/conf.ini` 文件来增加数据库配置：
 
 ```ini{5-11}
 [System]
@@ -152,7 +152,7 @@ docker run -d --name cloudreve -p 5212:5212 \
 
 === 在容器启动后配置
 
-在容器启动后，你可以通过修改宿主机上挂载的 `~/cloudreve/data/config.ini` 文件来增加 Redis 配置：
+在容器启动后，你可以通过修改宿主机上挂载的 `~/cloudreve/data/conf.ini` 文件来增加 Redis 配置：
 
 ```ini{5-8}
 [System]

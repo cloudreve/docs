@@ -2,10 +2,10 @@
 
 Cloudreve's configuration is stored in two parts: critical configuration for program operation is stored in the configuration file, while other application-level configurations are stored in the database. This page mainly introduces the structure of the configuration file.
 
-Cloudreve's default configuration file is `data/config.ini`. You can pass the configuration file path as a command line parameter when starting Cloudreve:
+Cloudreve's default configuration file is `data/conf.ini`. You can pass the configuration file path as a command line parameter when starting Cloudreve:
 
 ```bash
-./cloudreve -c /path/to/config.ini
+./cloudreve -c /path/to/conf.ini
 ```
 
 ## Configuration File Structure {#config-file-structure}
