@@ -105,32 +105,33 @@ const encoded = bs.toString();
 
 ### File System Capabilities {#file-system-capability}
 
-| Flag Bit | Description                    |
-| -------- | ------------------------------ |
-| `0`      | Create file                    |
-| `1`      | Rename file or folder          |
-| `2`      | Set permissions                |
-| `3`      | Move to "My Files"             |
-| `4`      | Move to share directory        |
-| `5`      | Move to trash                  |
-| `6`      | Upload file                    |
-| `7`      | Download file                  |
-| `8`      | Update metadata                |
-| `9`      | List sub-items                 |
-| `10`     | Generate thumbnail             |
-| `11`     | Copy to "My Files"             |
-| `12`     | Copy to share directory        |
-| `13`     | Copy to trash                  |
-| `14`     | Permanent delete               |
-| `15`     | Lock file or folder            |
-| `16`     | Soft delete (move to trash)    |
-| `17`     | Restore from trash bin         |
-| `18`     | Create share                   |
-| `19`     | Get file or folder information |
-| `20`     | Version control                |
-| `21`     | Mount storage policy           |
-| `22`     | Transfer storage policy        |
-| `23`     | Enter folder                   |
+| Flag Bit | Description                             |
+| -------- | --------------------------------------- |
+| `0`      | Create file                             |
+| `1`      | Rename file or folder                   |
+| `2`      | Set permissions                         |
+| `3`      | Move to "My Files"                      |
+| `4`      | Move to share directory                 |
+| `5`      | Move to trash                           |
+| `6`      | Upload file                             |
+| `7`      | Download file                           |
+| `8`      | Update metadata                         |
+| `9`      | List sub-items                          |
+| `10`     | Generate thumbnail                      |
+| `11`     | Copy to "My Files"                      |
+| `12`     | Copy to share directory                 |
+| `13`     | Copy to trash                           |
+| `14`     | Permanent delete                        |
+| `15`     | Lock file or folder                     |
+| `16`     | Soft delete (move to trash)             |
+| `17`     | Restore from trash bin                  |
+| `18`     | Create share                            |
+| `19`     | Get file or folder information          |
+| `20`     | Version control                         |
+| `21`     | Mount storage policy                    |
+| `22`     | Transfer storage policy                 |
+| `23`     | Enter folder                            |
+| `24`     | Modify attributes (e.g., view settings) |
 
 ### File Permissions {#file-permission}
 
@@ -150,3 +151,10 @@ const encoded = bs.toString();
 | `2`      | Decompress file         |
 | `3`      | Remote download         |
 | `4`      | Transfer storage policy |
+
+### WebDAV Account Settings {#webdav-account-settings}
+
+| Flag Bit | Description   |
+| -------- | ------------- |
+| `0`      | Read          |
+| `1`      | Reverse proxy |

@@ -154,6 +154,7 @@ export default defineConfig({
           { text: "Boolset Encoding and Decoding", link: "/en/api/boolset" },
           { text: "File URI", link: "/en/api/file-uri" },
           { text: "Metadata", link: "/en/api/metadata" },
+          { text: "API Methods", link: "https://cloudrevev4.apifox.cn/" },
         ],
       },
     ],
