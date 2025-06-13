@@ -108,6 +108,31 @@ Password = `#123456`
 
 :::
 
+## 修改容器中的配置文件 {#modify-container-config-file}
+
+在使用容器部署时，配置文件位于容器内的 `/cloudreve/data/conf.ini`，你可以在宿主机对应挂载目录下找到此文件。如果你不确定具体路径，请在宿主机执行：
+
+```bash
+## 列出容器，找到 Cloudreve 的容器 ID
+docker container ls | grep cloudreve
+
+# 输出示例：
+# aaronliu@AarondeMacBook-Pro ~ % docker container ls | grep cloudreve
+# 43acd4c97d4b   cloudreve/cloudreve:latest   "sh ./entrypoint.sh"     About a minute ago   Up About a minute   443/tcp, 0.0.0.0:5212->5212/tcp, :::5212->5212/tcp     cloudreve
+
+# 查看容器挂载信息
+docker inspect --format="{{.Mounts}}" <容器ID>
+
+# 比如：
+docker inspect --format="{{.Mounts}}" 43acd4c97d4b
+
+# 输出示例：
+# aaronliu@AarondeMacBook-Pro ~ % docker inspect --format="{{.Mounts}}" 43acd4c97d4b
+# [{volume cloudreve_backend_data /var/lib/docker/volumes/cloudreve_backend_data/_data /cloudreve/data local rw true }]
+```
+
+在以上示例中，你可以在宿主机的 `/var/lib/docker/volumes/cloudreve_backend_data/_data` 目录下找到配置文件。修改配置文件后，重启容器即可生效。
+
 ## Debug 模式 {#debug-mode}
 
 你可以通过设置 `Debug` 为 `true` 来开启 Debug 模式，开启后，Cloudreve 会记录更多的日志信息，方便你进行问题排查。

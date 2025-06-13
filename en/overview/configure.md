@@ -108,6 +108,31 @@ Password = `#123456`
 
 :::
 
+## Modify Configuration File in Containers {#modify-container-config-file}
+
+When deployed with Docker, the configuration file is located in `/cloudreve/data/conf.ini` inside the container. You can find this file in the corresponding mount directory on the host machine. If you are not sure about the specific path, please execute the following command on the host machine:
+
+```bash
+## List containers and find the Cloudreve container ID
+docker container ls | grep cloudreve
+
+# Output example:
+# aaronliu@AarondeMacBook-Pro ~ % docker container ls | grep cloudreve
+# 43acd4c97d4b   cloudreve/cloudreve:latest   "sh ./entrypoint.sh"     About a minute ago   Up About a minute   443/tcp, 0.0.0.0:5212->5212/tcp, :::5212->5212/tcp     cloudreve
+
+# View container mount information
+docker inspect --format="{{.Mounts}}" <container ID>
+
+# For example:
+docker inspect --format="{{.Mounts}}" 43acd4c97d4b
+
+# Output example:
+# aaronliu@AarondeMacBook-Pro ~ % docker inspect --format="{{.Mounts}}" 43acd4c97d4b
+# [{volume cloudreve_backend_data /var/lib/docker/volumes/cloudreve_backend_data/_data /cloudreve/data local rw true }]
+```
+
+In the above example, you can find the configuration file in the `/var/lib/docker/volumes/cloudreve_backend_data/_data` directory on the host machine. After modifying the configuration file, restart the container to take effect.
+
 ## Debug Mode {#debug-mode}
 
 You can enable Debug mode by setting `Debug` to `true`. When enabled, Cloudreve will record more log information to help you troubleshoot issues.
