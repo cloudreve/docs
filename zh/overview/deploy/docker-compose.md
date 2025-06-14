@@ -62,11 +62,12 @@ services:
     image: redis:latest
     container_name: redis
     volumes:
-      - backend_data:/data
+      - redis_data:/data
 
 volumes:
   backend_data:
   database_postgres:
+  redis_data:
 ```
 
 :::
