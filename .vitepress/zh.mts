@@ -132,6 +132,7 @@ export default defineConfig({
           { text: "文件浏览应用", link: "/zh/usage/file-apps" },
           { text: "Office 文档在线编辑", link: "/zh/usage/wopi" },
           { text: "自定义前端", link: "/zh/usage/custom-frontend" },
+          { text: "OIDC 认证", link: "/zh/usage/oidc" },
         ],
       },
       {

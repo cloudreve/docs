@@ -133,6 +133,7 @@ export default defineConfig({
             link: "/en/usage/wopi",
           },
           { text: "Custom Frontend", link: "/en/usage/custom-frontend" },
+          { text: "OIDC Authentication", link: "/en/usage/oidc" },
         ],
       },
       {

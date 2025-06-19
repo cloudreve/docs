@@ -51,13 +51,13 @@ After the dev server starts, you can access the site at `http://localhost:5173`.
 
 ## Select a Task {#select-a-task}
 
-In Cloudreve's [issues](https://github.com/cloudreve/cloudreve/issues?q=state%3Aopen%20label%3A%22backlog%22), filter for issues with the `Backlog` label. These are tasks waiting to be claimed. After choosing a task, leave a comment in the issue to indicate that you will claim it, and assign the issue to yourself.
+In Cloudreve's [issues](https://github.com/cloudreve/cloudreve/issues?q=state%3Aopen%20label%3A%22backlog%22), filter for issues with the `Backlog` label. These are tasks waiting to be claimed. After choosing a task, leave a comment in the issue to indicate that you will claim it, and remind the maintainer to assign the issue to you.
 
 For newcomers, we recommend choosing issues labeled with `good first issue`.
 
 ## Propose a New Task {#propose-a-new-task}
 
-If you have a new task idea, create a new issue in [issues](https://github.com/cloudreve/cloudreve/issues), describe your idea and implementation plan in detail, and assign it to yourself. Please wait for other developers to confirm your idea before you start development.
+If you have a new task idea, create a new issue in [issues](https://github.com/cloudreve/cloudreve/issues), describe your idea and implementation plan in detail, and remind the maintainer to assign it to you. Please wait for other developers to confirm your idea before you start development.
 
 ## Submit a PR {#submit-pr}
 

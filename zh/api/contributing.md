@@ -51,13 +51,13 @@ yarn run dev
 
 ## 选择一个任务 {#select-a-task}
 
-在 Cloudreve 的 [issue](https://github.com/cloudreve/cloudreve/issues?q=state%3Aopen%20label%3A%22backlog%22) 中，过滤出 label 带有 `Backlog` 的 issue，这些 issue 是待认领的任务。选择一个任务后，在 issue 中留言，表示你将认领该任务，并将此 issue assign 给你自己。
+在 Cloudreve 的 [issue](https://github.com/cloudreve/cloudreve/issues?q=state%3Aopen%20label%3A%22backlog%22) 中，过滤出 label 带有 `Backlog` 的 issue，这些 issue 是待认领的任务。选择一个任务后，在 issue 中留言，表示你将认领该任务，并提醒维护者将此 issue 分配给你自己。
 
 对于入门开发者，我们推荐选择 label 带有 `good first issue` 的 issue。
 
 ## 提议新的任务 {#propose-a-new-task}
 
-如果你有新的任务想法，请在 [issue](https://github.com/cloudreve/cloudreve/issues) 中创建一个新 issue，详细描述你的想法和实现计划，并将其 assign 给你自己。请在等待其他开发者确认你的想法后，再开始开发。
+如果你有新的任务想法，请在 [issue](https://github.com/cloudreve/cloudreve/issues) 中创建一个新 issue，详细描述你的想法和实现计划，并提醒维护者将其分配给你自己。请在等待其他开发者确认你的想法后，再开始开发。
 
 ## 提交 PR {#submit-pr}
 
