@@ -53,3 +53,5 @@
 2. 检查是否有外部 WAF 防火墙拦截了上传请求。
 
 :::
+
+<!--@include: ./parts/cf-upload-size.md-->

@@ -53,3 +53,5 @@ Please check if an external WAF firewall is blocking the upload request.
 2. Check if an external WAF firewall is blocking the upload request.
 
 :::
+
+<!--@include: ./parts/cf-upload-size.md-->

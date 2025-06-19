@@ -116,3 +116,5 @@ media_meta_ffprobe_size_remote = "0"
 2. 如果使用了 Cloudflare，请检查其缓存设置中 `缓存级别` 应设置为 `标准`。
 
 :::
+
+<!--@include: ./parts/cf-upload-size.md-->

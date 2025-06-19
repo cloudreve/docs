@@ -116,3 +116,5 @@ Save and restart the slave Cloudreve. Finally, add the newly supported file exte
 2. If you are using Cloudflare, please check that the `Cache Level` is set to `Standard`.
 
 :::
+
+<!--@include: ./parts/cf-upload-size.md-->
