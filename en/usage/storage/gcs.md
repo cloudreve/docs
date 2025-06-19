@@ -16,6 +16,7 @@ In Cloudreve, create an `S3 Compatible` storage policy and fill in the informati
 - For `Endpoint` in the storage policy, enter `https://storage.googleapis.com`;
 - For `Region` in the storage policy, enter `auto`;
 - For `Access credential` in the storage policy, enter the `Access Key` and `Secret` of the access key you just created;
+- For `Maximum batch delete size` in the storage policy, enter `1`. Because GCS does not implement the batch delete API of S3, it needs to be manually set to `1`, otherwise Blobs cannot be recycled;
 
 ### Configuring CORS Policy
 
