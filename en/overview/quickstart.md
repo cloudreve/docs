@@ -17,17 +17,18 @@ Log in to the [Pro License Management Panel](https://cloudreve.org/login) to get
 
 We provide pre-compiled versions for different CPU architectures and operating systems. The naming convention is `cloudreve_version_OS_CPU-architecture.tar.gz`. All available combinations are shown in the table below:
 
-| Operating System | Architecture          | Package Name                         |
-| ---------------- | --------------------- | ------------------------------------ |
-| Linux            | x86_64                | cloudreve_version_linux_amd64.tar.gz |
-| Linux            | ARM64                 | cloudreve_version_linux_arm64.tar.gz |
-| Linux            | ARMv5                 | cloudreve_version_linux_armv5.tar.gz |
-| Linux            | ARMv6                 | cloudreve_version_linux_armv6.tar.gz |
-| Linux            | ARMv7                 | cloudreve_version_linux_armv7.tar.gz |
-| Windows          | x86_64                | cloudreve_version_windows_amd64.zip  |
-| Windows          | ARM64                 | cloudreve_version_windows_arm64.zip  |
-| MacOS            | Intel x86_64          | cloudreve_version_macos_amd64.zip    |
-| MacOS            | Apple Silicon (ARM64) | cloudreve_version_macos_arm64.zip    |
+| Operating System | Architecture          | Package Name                           |
+| ---------------- | --------------------- | -------------------------------------- |
+| Linux            | x86_64                | cloudreve_version_linux_amd64.tar.gz   |
+| Linux            | ARM64                 | cloudreve_version_linux_arm64.tar.gz   |
+| Linux            | ARMv5                 | cloudreve_version_linux_armv5.tar.gz   |
+| Linux            | ARMv6                 | cloudreve_version_linux_armv6.tar.gz   |
+| Linux            | ARMv7                 | cloudreve_version_linux_armv7.tar.gz   |
+| Windows          | x86_64                | cloudreve_version_windows_amd64.zip    |
+| Windows          | ARM64                 | cloudreve_version_windows_arm64.zip    |
+| MacOS            | Intel x86_64          | cloudreve_version_darwin_amd64.zip     |
+| MacOS            | Apple Silicon (ARM64) | cloudreve_version_darwin_arm64.zip     |
+| Linux            | LoongArch64           | cloudreve_version_linux_loong64.tar.gz |
 
 ## Launch Cloudreve {#start-cloudreve}
 

@@ -17,17 +17,18 @@
 
 我们提供了针对不同 CPU 架构和操作系统的预编译版本，命名规则为 `cloudreve_版本号_操作系统_CPU架构.tar.gz`，所有可用组合如下表：
 
-| 操作系统 | 架构                  | 压缩包名                              |
-| -------- | --------------------- | ------------------------------------- |
-| Linux    | x86_64                | cloudreve\_版本号\_linux_amd64.tar.gz |
-| Linux    | ARM64                 | cloudreve\_版本号\_linux_arm64.tar.gz |
-| Linux    | ARMv5                 | cloudreve\_版本号\_linux_armv5.tar.gz |
-| Linux    | ARMv6                 | cloudreve\_版本号\_linux_armv6.tar.gz |
-| Linux    | ARMv7                 | cloudreve\_版本号\_linux_armv7.tar.gz |
-| Windows  | x86_64                | cloudreve\_版本号\_windows_amd64.zip  |
-| Windows  | ARM64                 | cloudreve\_版本号\_windows_arm64.zip  |
-| MacOS    | Intel x86_64          | cloudreve\_版本号\_macos_amd64.zip    |
-| MacOS    | Apple Silicon (ARM64) | cloudreve\_版本号\_macos_arm64.zip    |
+| 操作系统 | 架构                  | 压缩包名                                |
+| -------- | --------------------- | --------------------------------------- |
+| Linux    | x86_64                | cloudreve\_版本号\_linux_amd64.tar.gz   |
+| Linux    | ARM64                 | cloudreve\_版本号\_linux_arm64.tar.gz   |
+| Linux    | ARMv5                 | cloudreve\_版本号\_linux_armv5.tar.gz   |
+| Linux    | ARMv6                 | cloudreve\_版本号\_linux_armv6.tar.gz   |
+| Linux    | ARMv7                 | cloudreve\_版本号\_linux_armv7.tar.gz   |
+| Windows  | x86_64                | cloudreve\_版本号\_windows_amd64.zip    |
+| Windows  | ARM64                 | cloudreve\_版本号\_windows_arm64.zip    |
+| MacOS    | Intel x86_64          | cloudreve\_版本号\_darwin_amd64.zip     |
+| MacOS    | Apple Silicon (ARM64) | cloudreve\_版本号\_darwin_arm64.zip     |
+| Linux    | LoongArch64           | cloudreve\_版本号\_linux_loong64.tar.gz |
 
 ## 启动 Cloudreve {#start-cloudreve}
 
