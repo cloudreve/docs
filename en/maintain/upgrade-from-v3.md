@@ -1,11 +1,5 @@
 # Upgrade from V3.x.x {#upgrade-from-v3}
 
-::: warning Warning
-
-The current upgrade tool is still in testing phase. Please make backups before proceeding and be prepared to revert to the original version in case of upgrade failure.
-
-:::
-
 When upgrading from V3.x.x to V4.0.x, the following data will be lost:
 
 - Remote download and other background task records;
