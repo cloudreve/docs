@@ -35,3 +35,7 @@ When a file or directory has the `sys:shared_redirect` metadata, it indicates th
 `sys:restore_uri` is used to record the original URI of a trashed file, from which the display name of the file can be obtained.
 
 `sys:expected_collect_time` is used to record the expected collection time of the trashed file as a Unix timestamp in seconds.
+
+## LivePhoto
+
+`customize:live_photo` is used to mark whether a file is a LivePhoto, and its value is `true` or `false`. To display LivePhoto, the file also needs to have a LivePhoto Blob with a MOV video.

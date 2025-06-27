@@ -85,23 +85,24 @@ const encoded = bs.toString();
 
 ### User Group Permissions {#group-permission}
 
-| Flag Bit | Description                                          |
-| -------- | ---------------------------------------------------- |
-| `0`      | Is administrator                                     |
-| `1`      | Is anonymous user group                              |
-| `2`      | Can share files                                      |
-| `3`      | Can access WebDAV                                    |
-| `4`      | Can perform server-side batch download               |
-| `5`      | Can execute archive compression tasks                |
-| `6`      | Can enable WebDAV proxy                              |
-| `7`      | Can download shares from others                      |
-| `8`      | Can download shares for free                         |
-| `9`      | Can perform remote downloads                         |
-| `10`     | Can relocate storage policy                          |
-| `11`     | Use redirect direct link                             |
-| `12`     | Can use advanced delete options                      |
-| `13`     | Can select specific node to process tasks            |
-| `14`     | Can set higher share permissions for anonymous users |
+| Flag Bit | Description                                                                  |
+| -------- | ---------------------------------------------------------------------------- |
+| `0`      | Is administrator                                                             |
+| `1`      | Is anonymous user group                                                      |
+| `2`      | Can share files                                                              |
+| `3`      | Can access WebDAV                                                            |
+| `4`      | Can perform server-side batch download                                       |
+| `5`      | Can execute archive compression tasks                                        |
+| `6`      | Can enable WebDAV proxy                                                      |
+| `7`      | Can download shares from others                                              |
+| `8`      | Can download shares for free                                                 |
+| `9`      | Can perform remote downloads                                                 |
+| `10`     | Can relocate storage policy                                                  |
+| `11`     | Use redirect direct link                                                     |
+| `12`     | Can use advanced delete options                                              |
+| `13`     | Can select specific node to process tasks                                    |
+| `14`     | Can set higher share permissions for anonymous users                         |
+| `17`     | Use unique direct link (only effective when redirect direct link is enabled) |
 
 ### File System Capabilities {#file-system-capability}
 

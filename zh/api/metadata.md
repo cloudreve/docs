@@ -35,3 +35,7 @@
 `sys:restore_uri` 用于记录回收站文件的原始 URI，可从中得到文件的展示名称。
 
 `sys:expected_collect_time` 用于记录回收站文件的预计回收时间的 Unix 秒级时间戳。
+
+## LivePhoto
+
+`customize:live_photo` 用于标记文件是否有 LivePhoto 属性，其值为 `true` 或 `false`。为了展示 LivePhoto，文件还需要存在对应的 LivePhoto Blob，其内容为 MOV 视频。
