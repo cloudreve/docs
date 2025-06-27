@@ -128,6 +128,10 @@ Cloudreve 内置了视频播放器应用，其所支持的格式[取决于浏览
 
 ![图片查看器](./images/file-apps-image-editor.png)
 
+如果你通过 iOS 客户端上传了带有 LivePhoto 的图片，图像查看器会自动展示 LivePhoto 的预览。
+
+对于 HEIC/HEIF 格式的图片，浏览器不支持原生预览，Cloudreve 会自动将图片转换为 PNG 并展示 （需要安全上下文）。
+
 你可以通过 [媒体信息提取](media-meta) 功能获取图片的 EXIF 信息，并展示在图片查看器中。
 
 ## Draw.io {#drawio}
@@ -137,6 +141,14 @@ Cloudreve 内置了视频播放器应用，其所支持的格式[取决于浏览
 ![Draw.io 在线编辑器](./images/file-apps-drawio-editor.png)
 
 默认情况下会使用 `diagrams.net` 的在线服务，你可以在 Cloudreve 中编辑此应用，填写自建的 DrawIO 服务地址。
+
+## Excalidraw {#excalidraw}
+
+支持使用 Excalidraw 在线编辑图表或白板。
+
+![Excalidraw 在线编辑器](./images/file-apps-excalidraw.png)
+
+Excalidraw 已经内置在 Cloudreve 中，无需依赖外部服务。
 
 ## 文本编辑器 {#monaco}
 

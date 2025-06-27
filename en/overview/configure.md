@@ -45,7 +45,7 @@ Perm = 0666
 
 ; Database related, if you only want to use the built-in SQLite database, you can delete this section
 [Database]
-; Database type, currently supports sqlite/mysql/postgres, default is sqlite
+; Database type, currently supports sqlite/mysql/postgres/mariadb, default is sqlite
 Type = sqlite
 ; Database port, default is 3306
 Port = 3306
@@ -63,6 +63,9 @@ Charset = utf8mb4
 DBFile = cloudreve.db
 ; Connect to the database using Unix Socket, default is false. If enabled, please specify the Unix Socket path in Host
 UnixSocket = false
+; Database connection string, if set, other database configuration will be ignored, but Type is still required.
+; e.g. root:123456@tcp(127.0.0.1:3306)/cloudreve?charset=utf8mb4&parseTime=True&loc=Local for MySQL.
+DatabaseURL =
 
 ; Slave mode configuration
 [Slave]
@@ -92,6 +95,10 @@ Password =
 DB = 0
 ; Username, default is empty
 User =
+; Use TLS to connect to Redis, default is false
+UseTLS = false
+; Skip TLS verification, default is false
+TLSSkipVerify = false
 
 ; Slave configuration application override
 [OptionOverwrite]

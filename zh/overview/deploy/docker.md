@@ -75,16 +75,17 @@ docker run -d --name cloudreve -p 5212:5212 \
 
 其中可用的配置变量为：
 
-| 变量名                        | 说明                                                     |
-| ----------------------------- | -------------------------------------------------------- |
-| `CR_CONF_Database.Type`       | 数据库类型，支持 `postgres`、`mysql`、`sqlite`           |
-| `CR_CONF_Database.Host`       | 数据库地址                                               |
-| `CR_CONF_Database.Port`       | 数据库端口                                               |
-| `CR_CONF_Database.User`       | 数据库用户名                                             |
-| `CR_CONF_Database.Password`   | 数据库密码                                               |
-| `CR_CONF_Database.Name`       | 数据库名称                                               |
-| `CR_CONF_Database.DBFile`     | 可选，SQLite 数据库文件路径                              |
-| `CR_CONF_Database.UnixSocket` | 可选，`true` 或 `false`，是否使用 Unix Socket 连接数据库 |
+| 变量名                         | 说明                                                                       |
+| ------------------------------ | -------------------------------------------------------------------------- |
+| `CR_CONF_Database.Type`        | 数据库类型，支持 `postgres`、`mysql`、`sqlite`、`mariadb`                  |
+| `CR_CONF_Database.Host`        | 数据库地址                                                                 |
+| `CR_CONF_Database.Port`        | 数据库端口                                                                 |
+| `CR_CONF_Database.User`        | 数据库用户名                                                               |
+| `CR_CONF_Database.Password`    | 数据库密码                                                                 |
+| `CR_CONF_Database.Name`        | 数据库名称                                                                 |
+| `CR_CONF_Database.DBFile`      | 可选，SQLite 数据库文件路径                                                |
+| `CR_CONF_Database.UnixSocket`  | 可选，`true` 或 `false`，是否使用 Unix Socket 连接数据库                   |
+| `CR_CONF_Database.DatabaseURL` | 可选，数据库连接字符串，如果设置，其他数据库配置将忽略，但 Type 仍需设置。 |
 
 == 在容器启动后配置
 
@@ -106,16 +107,17 @@ Name = cloudreve
 
 其中可用的配置项为：
 
-| 设置名       | 说明                                                     |
-| ------------ | -------------------------------------------------------- |
-| `Type`       | 数据库类型，支持 `postgres`、`mysql`、`sqlite`           |
-| `Host`       | 数据库地址                                               |
-| `Port`       | 数据库端口                                               |
-| `User`       | 数据库用户名                                             |
-| `Password`   | 数据库密码                                               |
-| `Name`       | 数据库名称                                               |
-| `DBFile`     | 可选，SQLite 数据库文件路径                              |
-| `UnixSocket` | 可选，`true` 或 `false`，是否使用 Unix Socket 连接数据库 |
+| 设置名        | 说明                                                                       |
+| ------------- | -------------------------------------------------------------------------- |
+| `Type`        | 数据库类型，支持 `postgres`、`mysql`、`sqlite`、`mariadb`                  |
+| `Host`        | 数据库地址                                                                 |
+| `Port`        | 数据库端口                                                                 |
+| `User`        | 数据库用户名                                                               |
+| `Password`    | 数据库密码                                                                 |
+| `Name`        | 数据库名称                                                                 |
+| `DBFile`      | 可选，SQLite 数据库文件路径                                                |
+| `UnixSocket`  | 可选，`true` 或 `false`，是否使用 Unix Socket 连接数据库                   |
+| `DatabaseURL` | 可选，数据库连接字符串，如果设置，其他数据库配置将忽略，但 Type 仍需设置。 |
 
 修改配置文件后，需要重启容器生效。
 
@@ -142,13 +144,15 @@ docker run -d --name cloudreve -p 5212:5212 \
 
 其中可用的配置变量为：
 
-| 变量名                   | 说明                                                                                                                                                                                                   |
-| ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `CR_CONF_Redis.Server`   | Redis 地址                                                                                                                                                                                             |
-| `CR_CONF_Redis.Password` | 连接密码                                                                                                                                                                                               |
-| `CR_CONF_Redis.DB`       | 数据库编号，默认为 `0`                                                                                                                                                                                 |
-| `CR_CONF_Redis.Network`  | 网络类型，默认为`tcp`，可选 `tcp`, `tcp4` (IPv4-only), `tcp6` (IPv6-only), `udp`, `udp4` (IPv4-only), `udp6` (IPv6-only), `ip`, `ip4` (IPv4-only), `ip6` (IPv6-only), `unix`, `unixgram`, `unixpacket` |
-| `CR_CONF_Redis.User`     | Redis ACL 用户名                                                                                                                                                                                       |
+| 变量名                        | 说明                                                                                                                                                                                                   |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `CR_CONF_Redis.Server`        | Redis 地址                                                                                                                                                                                             |
+| `CR_CONF_Redis.Password`      | 连接密码                                                                                                                                                                                               |
+| `CR_CONF_Redis.DB`            | 数据库编号，默认为 `0`                                                                                                                                                                                 |
+| `CR_CONF_Redis.Network`       | 网络类型，默认为`tcp`，可选 `tcp`, `tcp4` (IPv4-only), `tcp6` (IPv6-only), `udp`, `udp4` (IPv4-only), `udp6` (IPv6-only), `ip`, `ip4` (IPv4-only), `ip6` (IPv6-only), `unix`, `unixgram`, `unixpacket` |
+| `CR_CONF_Redis.User`          | Redis ACL 用户名                                                                                                                                                                                       |
+| `CR_CONF_Redis.UseTLS`        | 可选，是否使用 TLS 连接到 Redis，默认为 `false`                                                                                                                                                        |
+| `CR_CONF_Redis.TLSSkipVerify` | 可选，是否跳过 TLS 验证，默认为 `false`                                                                                                                                                                |
 
 === 在容器启动后配置
 
@@ -167,13 +171,15 @@ DB = 0
 
 其中可用的配置项为：
 
-| 设置名     | 说明                                                                                                                                                                                                   |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `Server`   | Redis 地址                                                                                                                                                                                             |
-| `Password` | 连接密码                                                                                                                                                                                               |
-| `DB`       | 数据库编号, 默认为 `0`                                                                                                                                                                                 |
-| `Network`  | 网络类型，默认为`tcp`，可选 `tcp`, `tcp4` (IPv4-only), `tcp6` (IPv6-only), `udp`, `udp4` (IPv4-only), `udp6` (IPv6-only), `ip`, `ip4` (IPv4-only), `ip6` (IPv6-only), `unix`, `unixgram`, `unixpacket` |
-| `User`     | Redis ACL 用户名                                                                                                                                                                                       |
+| 设置名          | 说明                                                                                                                                                                                                   |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `Server`        | Redis 地址                                                                                                                                                                                             |
+| `Password`      | 连接密码                                                                                                                                                                                               |
+| `DB`            | 数据库编号, 默认为 `0`                                                                                                                                                                                 |
+| `Network`       | 网络类型，默认为`tcp`，可选 `tcp`, `tcp4` (IPv4-only), `tcp6` (IPv6-only), `udp`, `udp4` (IPv4-only), `udp6` (IPv6-only), `ip`, `ip4` (IPv4-only), `ip6` (IPv6-only), `unix`, `unixgram`, `unixpacket` |
+| `User`          | Redis ACL 用户名                                                                                                                                                                                       |
+| `UseTLS`        | 可选，是否使用 TLS 连接到 Redis，默认为 `false`                                                                                                                                                        |
+| `TLSSkipVerify` | 可选，是否跳过 TLS 验证，默认为 `false`                                                                                                                                                                |
 
 修改配置文件后，需要重启容器生效。
 

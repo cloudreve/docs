@@ -75,16 +75,17 @@ docker run -d --name cloudreve -p 5212:5212 \
 
 The available configuration variables are:
 
-| Variable Name                 | Description                                                                        |
-| ----------------------------- | ---------------------------------------------------------------------------------- |
-| `CR_CONF_Database.Type`       | Database type, supports `postgres`, `mysql`, `sqlite`                              |
-| `CR_CONF_Database.Host`       | Database address                                                                   |
-| `CR_CONF_Database.Port`       | Database port                                                                      |
-| `CR_CONF_Database.User`       | Database username                                                                  |
-| `CR_CONF_Database.Password`   | Database password                                                                  |
-| `CR_CONF_Database.Name`       | Database name                                                                      |
-| `CR_CONF_Database.DBFile`     | Optional, SQLite database file path                                                |
-| `CR_CONF_Database.UnixSocket` | Optional, `true` or `false`, whether to use Unix Socket to connect to the database |
+| Variable Name                  | Description                                                                                |
+| ------------------------------ | ------------------------------------------------------------------------------------------ |
+| `CR_CONF_Database.Type`        | Database type, supports `postgres`, `mysql`, `sqlite`, `mariadb`                           |
+| `CR_CONF_Database.Host`        | Database address                                                                           |
+| `CR_CONF_Database.Port`        | Database port                                                                              |
+| `CR_CONF_Database.User`        | Database username                                                                          |
+| `CR_CONF_Database.Password`    | Database password                                                                          |
+| `CR_CONF_Database.Name`        | Database name                                                                              |
+| `CR_CONF_Database.DBFile`      | Optional, SQLite database file path                                                        |
+| `CR_CONF_Database.UnixSocket`  | Optional, `true` or `false`, whether to use Unix Socket to connect to the database         |
+| `CR_CONF_Database.DatabaseURL` | Optional, Database connection string, if set, other database configuration will be ignored |
 
 == Configure After Container Startup
 
@@ -106,16 +107,17 @@ Name = cloudreve
 
 The available configuration items are:
 
-| Setting Name | Description                                                                        |
-| ------------ | ---------------------------------------------------------------------------------- |
-| `Type`       | Database type, supports `postgres`, `mysql`, `sqlite`                              |
-| `Host`       | Database address                                                                   |
-| `Port`       | Database port                                                                      |
-| `User`       | Database username                                                                  |
-| `Password`   | Database password                                                                  |
-| `Name`       | Database name                                                                      |
-| `DBFile`     | Optional, SQLite database file path                                                |
-| `UnixSocket` | Optional, `true` or `false`, whether to use Unix Socket to connect to the database |
+| Setting Name  | Description                                                                                |
+| ------------- | ------------------------------------------------------------------------------------------ |
+| `Type`        | Database type, supports `postgres`, `mysql`, `sqlite`, `mariadb`                           |
+| `Host`        | Database address                                                                           |
+| `Port`        | Database port                                                                              |
+| `User`        | Database username                                                                          |
+| `Password`    | Database password                                                                          |
+| `Name`        | Database name                                                                              |
+| `DBFile`      | Optional, SQLite database file path                                                        |
+| `UnixSocket`  | Optional, `true` or `false`, whether to use Unix Socket to connect to the database         |
+| `DatabaseURL` | Optional, Database connection string, if set, other database configuration will be ignored |
 
 After modifying the configuration file, you need to restart the container for the changes to take effect.
 
@@ -142,13 +144,15 @@ docker run -d --name cloudreve -p 5212:5212 \
 
 The available configuration variables are:
 
-| Variable Name            | Description                                                                                                                                                                                                                |
-| ------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CR_CONF_Redis.Server`   | Redis address                                                                                                                                                                                                              |
-| `CR_CONF_Redis.Password` | Connection password                                                                                                                                                                                                        |
-| `CR_CONF_Redis.DB`       | Database number, default is `0`                                                                                                                                                                                            |
-| `CR_CONF_Redis.Network`  | Network type, default is `tcp`, options include `tcp`, `tcp4` (IPv4-only), `tcp6` (IPv6-only), `udp`, `udp4` (IPv4-only), `udp6` (IPv6-only), `ip`, `ip4` (IPv4-only), `ip6` (IPv6-only), `unix`, `unixgram`, `unixpacket` |
-| `CR_CONF_Redis.User`     | Redis ACL username                                                                                                                                                                                                         |
+| Variable Name                 | Description                                                                                                                                                                                                                |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `CR_CONF_Redis.Server`        | Redis address                                                                                                                                                                                                              |
+| `CR_CONF_Redis.Password`      | Connection password                                                                                                                                                                                                        |
+| `CR_CONF_Redis.DB`            | Database number, default is `0`                                                                                                                                                                                            |
+| `CR_CONF_Redis.Network`       | Network type, default is `tcp`, options include `tcp`, `tcp4` (IPv4-only), `tcp6` (IPv6-only), `udp`, `udp4` (IPv4-only), `udp6` (IPv6-only), `ip`, `ip4` (IPv4-only), `ip6` (IPv6-only), `unix`, `unixgram`, `unixpacket` |
+| `CR_CONF_Redis.User`          | Redis ACL username                                                                                                                                                                                                         |
+| `CR_CONF_Redis.UseTLS`        | Optional, whether to use TLS to connect to Redis, default is `false`                                                                                                                                                       |
+| `CR_CONF_Redis.TLSSkipVerify` | Optional, whether to skip TLS verification, default is `false`                                                                                                                                                             |
 
 === Configure After Container Startup
 
@@ -167,13 +171,15 @@ DB = 0
 
 The available configuration items are:
 
-| Setting Name | Description                                                                                                                                                                                                                |
-| ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `Server`     | Redis address                                                                                                                                                                                                              |
-| `Password`   | Connection password                                                                                                                                                                                                        |
-| `DB`         | Database number, default is `0`                                                                                                                                                                                            |
-| `Network`    | Network type, default is `tcp`, options include `tcp`, `tcp4` (IPv4-only), `tcp6` (IPv6-only), `udp`, `udp4` (IPv4-only), `udp6` (IPv6-only), `ip`, `ip4` (IPv4-only), `ip6` (IPv6-only), `unix`, `unixgram`, `unixpacket` |
-| `User`       | Redis ACL username                                                                                                                                                                                                         |
+| Setting Name    | Description                                                                                                                                                                                                                |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Server`        | Redis address                                                                                                                                                                                                              |
+| `Password`      | Connection password                                                                                                                                                                                                        |
+| `DB`            | Database number, default is `0`                                                                                                                                                                                            |
+| `Network`       | Network type, default is `tcp`, options include `tcp`, `tcp4` (IPv4-only), `tcp6` (IPv6-only), `udp`, `udp4` (IPv4-only), `udp6` (IPv6-only), `ip`, `ip4` (IPv4-only), `ip6` (IPv6-only), `unix`, `unixgram`, `unixpacket` |
+| `User`          | Redis ACL username                                                                                                                                                                                                         |
+| `UseTLS`        | Optional, whether to use TLS to connect to Redis, default is `false`                                                                                                                                                       |
+| `TLSSkipVerify` | Optional, whether to skip TLS verification, default is `false`                                                                                                                                                             |
 
 After modifying the configuration file, you need to restart the container for the changes to take effect.
 

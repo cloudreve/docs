@@ -63,10 +63,18 @@ This section describes how Cloudreve generates thumbnails for files. Cloudreve s
         <td>3</td>
       </tr>
       <tr>
+        <td>LibrRaw</td>
+        <td>
+          Use LibrRAW to generate thumbnails for RAW files. This generator depends on any other image generator (Cloudreve built-in or VIPS). When the source file is on a third-party storage, it will download the entire source file.
+        </td>
+        <td>All storage policy types except local storage that haven't enabled "generator proxy".</td>
+        <td>4</td>
+      </tr>
+      <tr>
         <td>VIPS</td>
         <td>Uses libvips to process thumbnail images, supports more image formats, and consumes fewer resources. When the source file is on a third-party storage, it will download the entire source file.</td>
         <td>All storage policy types except local storage that haven't enabled "generator proxy".</td>
-        <td>4</td>
+        <td>5</td>
       </tr>
       <tr>
         <td>FFmpeg</td>
@@ -74,7 +82,7 @@ This section describes how Cloudreve generates thumbnails for files. Cloudreve s
           Uses FFmpeg to generate video thumbnails. When the source file is on a third-party storage, it attempts to use Range requests to download only the necessary parts, without downloading the entire file.
         </td>
         <td>All storage policy types except local storage that haven't enabled "generator proxy".</td>
-        <td>5</td>
+        <td>6</td>
       </tr>
       <tr>
         <td>Cloudreve Built-in</td>
@@ -82,7 +90,7 @@ This section describes how Cloudreve generates thumbnails for files. Cloudreve s
           No third-party dependencies, uses Cloudreve's built-in image processing capabilities, only supports PNG, JPEG, and GIF formats. When the source file is on a third-party storage, it will download the entire source file.
         </td>
         <td>All storage policy types except local storage that haven't enabled "generator proxy".</td>
-        <td>6</td>
+        <td>7</td>
       </tr>
     </tbody>
   </table>
@@ -121,6 +129,34 @@ For Ubuntu, install LibreOffice:
 ```sh
 sudo apt install libreoffice
 ```
+
+### LibrRaw {#librraw}
+
+Homepage: [https://libraw.org/](https://libraw.org/)
+
+Cloudreve uses the `simple_dcraw` tool from LibRAW to generate thumbnails. For Ubuntu:
+
+```sh
+sudo apt install libraw-bin
+
+# Find the path of simple_dcraw
+sudo find / -name "simple_dcraw"
+
+# Output example:
+# /usr/lib/libraw/simple_dcraw
+```
+
+Then enable the `LibrRaw/DCRaw` generator in `Settings` -> `Media Processing` -> `Thumbnails`, and fill in the path of `simple_dcraw` in `Executable`.
+
+For Windows and macOS, you can download the pre-compiled `simple_dcraw` tool from [LibRAW Download](https://www.libraw.org/download).
+
+For other Linux distributions, if the package manager doesn't provide the `libraw-bin` package, you need to compile it yourself.
+
+::: tip
+
+You can also use the DCRaw tool to generate thumbnails, but you need to manually configure `Executable` to `dcraw`. Note that when testing the executable file, it will report an error, but the thumbnail generator will still work.
+
+:::
 
 ### VIPS
 

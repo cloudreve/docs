@@ -128,6 +128,10 @@ The image viewer supports image preview and editing:
 
 ![Image Viewer](./images/file-apps-image-editor.png)
 
+If you upload images with LivePhoto via iOS app, the image viewer will automatically display the LivePhoto preview.
+
+For HEIC/HEIF format images, browsers do not support native preview, and Cloudreve will automatically convert the image to PNG and display it (requires secure context).
+
 You can use the [Media Metadata Extraction](media-meta) feature to obtain EXIF information from images and display it in the image viewer.
 
 ## Draw.io {#drawio}
@@ -137,6 +141,14 @@ Supports online editing of diagrams or whiteboards using Draw.io, with collabora
 ![Draw.io Online Editor](./images/file-apps-drawio-editor.png)
 
 By default, it uses the online service from `diagrams.net`. You can edit this application in Cloudreve to provide the address of your self-hosted DrawIO service.
+
+## Excalidraw {#excalidraw}
+
+Supports online editing of diagrams or whiteboards using Excalidraw.
+
+![Excalidraw Online Editor](./images/file-apps-excalidraw.png)
+
+Excalidraw is built-in in Cloudreve and does not require external services.
 
 ## Text Editor {#monaco}
 

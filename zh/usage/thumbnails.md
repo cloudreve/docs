@@ -68,10 +68,19 @@ Cloudreve 不会在文件上传后立即尝试为其生成缩略图，而是在�
         <td>3</td>
       </tr>
       <tr>
+        <td>LibrRaw</td>
+        <td>
+          使用 LibrRAW 生成 RAW 文件的缩略图。这一生成器依赖于任一其他图像生成器（Cloudreve 内置 或
+          VIPS）。源文件位于第三方存储端时，会完整下载源文件。
+        </td>
+        <td>除了本机存储外，所有未开启“生成器代理”的其他类型存储策略。</td>
+        <td>4</td>
+      </tr>
+      <tr>
         <td>VIPS</td>
         <td>使用 libvips 处理缩略图图像，支持更多图像格式，资源消耗更低。源文件位于第三方存储端时，会完整下载源文件。</td>
         <td>除了本机存储外，所有未开启“生成器代理”的其他类型存储策略。</td>
-        <td>4</td>
+        <td>5</td>
       </tr>
       <tr>
         <td>FFmpeg</td>
@@ -80,7 +89,7 @@ Cloudreve 不会在文件上传后立即尝试为其生成缩略图，而是在�
           请求下载必要部分数据，无需完整下载文件。
         </td>
         <td>除了本机存储外，所有未开启“生成器代理”的其他类型存储策略。</td>
-        <td>5</td>
+        <td>6</td>
       </tr>
       <tr>
         <td>Cloudreve 内置</td>
@@ -89,7 +98,7 @@ Cloudreve 不会在文件上传后立即尝试为其生成缩略图，而是在�
           格式的图片。源文件位于第三方存储端时，会完整下载源文件。
         </td>
         <td>除了本机存储外，所有未开启“生成器代理”的其他类型存储策略。</td>
-        <td>6</td>
+        <td>7</td>
       </tr>
     </tbody>
   </table>
@@ -128,6 +137,34 @@ Cloudreve 不会在文件上传后立即尝试为其生成缩略图，而是在�
 ```sh
 sudo apt install libreoffice
 ```
+
+### LibrRaw {#librraw}
+
+主页：[https://libraw.org/](https://libraw.org/)
+
+Cloudreve 使用 LibRAW 附带的 `simple_dcraw` 工具生成缩略图。以 Ubuntu 为例：
+
+```sh
+sudo apt install libraw-bin
+
+# 查找 simple_dcraw 的路径
+sudo find / -name "simple_dcraw"
+
+# 输出示例：
+# /usr/lib/libraw/simple_dcraw
+```
+
+然后在 `参数设置` -> `媒体处理` -> `缩略图生成器` 中开启 `LibrRaw/DCRaw` 生成器，并将 `simple_dcraw` 的路径填写到 `可执行文件` 中。
+
+对于 Windows 和 macOS，你可以参考 [LibRAW Download](https://www.libraw.org/download) 中下载已经编译好的 `simple_dcraw` 工具。
+
+对于其他 Linux 发行版，包管理器如果没有提供 `libraw-bin` 包，你需要根据自行编译。
+
+::: tip
+
+你也可以使用 DCRaw 工具生成缩略图，但需要手动配置 `可执行文件` 为 `dcraw`。注意这时候测试可执行文件时会报错，但缩略图生成器会正常工作。
+
+:::
 
 ### VIPS
 

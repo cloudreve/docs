@@ -45,7 +45,7 @@ Perm = 0666
 
 ; 数据库相关，如果你只想使用内置的 SQLite 数据库，这一部分直接删去即可
 [Database]
-; 数据库类型，目前支持 sqlite/mysql/postgres，默认为 sqlite
+; 数据库类型，目前支持 sqlite/mysql/postgres/mariadb，默认为 sqlite
 Type = sqlite
 ; 数据库端口，默认为 3306
 Port = 3306
@@ -63,6 +63,9 @@ Charset = utf8mb4
 DBFile = cloudreve.db
 ; 使用 Unix Socket 连接到数据库, 默认为 false，如需开启，请在 Host 中指定 Unix Socket 路径
 UnixSocket = false
+; 数据库连接字符串，如果设置，其他数据库配置将忽略，但 Type 仍需设置。
+; 例如：root:123456@tcp(127.0.0.1:3306)/cloudreve?charset=utf8mb4&parseTime=True&loc=Local 用于 MySQL。
+DatabaseURL =
 
 ; 从机模式下的配置
 [Slave]
@@ -92,6 +95,10 @@ Password =
 DB = 0
 ; 用户名，默认为空
 User =
+; 是否使用 TLS 连接到 Redis，默认为 false
+UseTLS = false
+; 是否跳过 TLS 验证，默认为 false
+TLSSkipVerify = false
 
 ; 从机配置应用配置覆盖
 [OptionOverwrite]
