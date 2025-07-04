@@ -24,6 +24,8 @@ You can specify the configuration file location with `-c`:
 
 :::
 
+If you are using SQLite, the storage policy selection for user groups will be lost, please go to the dashboard after starting the Pro edition to assign storage policies to user groups.
+
 ## Update Startup Parameters
 
 The Pro edition requires the `--license-key` parameter at startup, passing the license key obtained from your authorization management panel.
