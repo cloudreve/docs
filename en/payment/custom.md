@@ -165,12 +165,48 @@ HTTP/1.1 200 OK
 
 You can set a `communication key` in the Cloudreve payment settings. Cloudreve's payment creation requests will use this key for signing and place it in the Request:
 
-- For payment creation requests, the signature is placed in the `Authorization` header, prefixed with `Bearer Cr`, and the prefix should be removed;
+- For payment creation requests, the signature is placed in the `Authorization` header, prefixed with `Bearer Cr `, and the prefix should be removed (note that the prefix should not have any spaces);
 - For query order status requests, the signature is placed in the URL parameter `sign`.
 
 Verify the signature using the following algorithm:
 
 1. Extract the signature from the request, split the string by `:`, and the second part is the expiration timestamp of the signature, noted as `timestamp`. Verify that it is greater than the current timestamp. The part before `:` is noted as `signature`;
+
+```go
+// For payment creation requests
+authHeader := r.Header.Get("Authorization")
+if !strings.HasPrefix(authHeader, "Bearer Cr ") {
+	return fmt.Errorf("invalid Authorization header format")
+}
+
+signaturePart := strings.TrimPrefix(authHeader, "Bearer Cr ")
+parts := strings.Split(signaturePart, ":")
+if len(parts) != 2 {
+	return fmt.Errorf("invalid signature format in header")
+}
+signature, timestampStr := parts[0], parts[1]
+
+// For query order status requests
+signaturePart := r.URL.Query().Get("sign")
+parts := strings.Split(signaturePart, ":")
+if len(parts) != 2 {
+	return fmt.Errorf("invalid signature format in URL")
+}
+signature, timestampStr := parts[0], parts[1]
+```
+
+2. Verify that `timestamp` is greater than the current timestamp. If it is less, return an error.
+
+```go
+timestamp, err := strconv.ParseInt(timestampStr, 10, 64)
+if err != nil {
+	return fmt.Errorf("invalid timestamp: %w", err)
+}
+
+if time.Now().Unix() > timestamp {
+	return fmt.Errorf("signature expired")
+}
+```
 
 2. Get the string to be signed:
 
@@ -189,7 +225,7 @@ Verify the signature using the following algorithm:
      signedHeaderStr := strings.Join(signedHeader, "&")
      ```
 
-     2. Encode the `Path` part of the request URL, request body, and `signedHeaderStr` as a JSON string `signContent`.
+     2. Encode the `Path` part of the request URL, request body, and `signedHeaderStr` as a JSON string `signContent`. If `Path` is empty, use `/` instead.
 
      ```go
      type RequestRawSign struct {
@@ -198,24 +234,44 @@ Verify the signature using the following algorithm:
          Body   string
      }
 
+     path := r.URL.Path
+     if path == "" {
+         path = "/"
+     }
+
      signContent, err := json.Marshal(RequestRawSign{
-         Path:   r.URL.Path,
+         Path:   path,
          Header: signedHeaderStr,
          Body:   string(r.Body),
      })
      ```
 
    - **For query order status requests:**
-     Just use the `Path` part (excluding `Query`) of the request URL as `signContent`.
+     Just use the `Path` part (excluding `Query`) of the request URL as `signContent`. If `Path` is empty, use `/` instead.
 
-3. Concatenate `signContent` and `timestamp` with `:` to form the string `signContentFinal`, and use the HMAC algorithm and `Communication key` to calculate the signature for `signContentFinal`, noted as `signActual`.
+     ```go
+     path := r.URL.Path
+     if path == "" {
+         path = "/"
+     }
+     ```
+
+3. Concatenate `signContent` and `timestamp` with `:` to form the string `signContentFinal`, and use the HMAC algorithm and `Communication key` to calculate the signature for `signContentFinal`, noted as `signActual`. Use [URL-safe Base64 encoding](https://datatracker.ietf.org/doc/html/rfc4648#section-5) for the signature.
 
 ```go
-signContentFinal := fmt.Sprintf("%s:%s", signContent, timestamp)
-signActual := hmac.New(sha256.New, []byte(Communication key)).Sum([]byte(signContentFinal))
+signContentFinal := fmt.Sprintf("%s:%s", signContent, timestampStr)
+h := hmac.New(sha256.New, []byte(communicationKey))
+h.Write([]byte(signContentFinal))
+signActual := base64.URLEncoding.EncodeToString(h.Sum(nil))
 ```
 
-4. Compare `signActual` with `signature` to check for consistency.
+5. Compare `signActual` with `signature` to check for consistency.
+
+```go
+if signActual != signature {
+	return fmt.Errorf("invalid signature")
+}
+```
 
 ## Send Callback
 

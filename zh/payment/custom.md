@@ -166,14 +166,50 @@ HTTP/1.1 200 OK
 
 你可以在 Cloudreve 后台设定 `通信密钥`，Cloudreve 创建订单的请求会使用此密钥进行加密并放在请求中：
 
-- 对于创建订单请求，签名放在 `Authorization` header 中，并追加 `Bearer Cr` 前缀，请将此前缀去除；
+- 对于创建订单请求，签名放在 `Authorization` header 中，并追加 `Bearer Cr ` 前缀，请将此前缀去除 (注意检查签名前缀不能有空格)；
 - 对于查询订单状态请求，签名放在 URL 参数 `sign` 中。
 
 验证签名的算法如下：
 
-1. 签名从请求中取出，使用`:`分割字符串，其第二部分是签名过期的时间戳，记为 `timestamp`，验证确保其大于当前时间戳。将:前一部分记为 `signature`；
+1. 签名从请求中取出，使用`:`分割字符串，其第二部分是签名过期的时间戳，记为 `timestamp`，验证确保其大于当前时间戳。将`:`前一部分记为 `signature`；
 
-2. 获取待签名字段：
+```go
+// 对于创建订单请求
+authHeader := r.Header.Get("Authorization")
+if !strings.HasPrefix(authHeader, "Bearer Cr ") {
+	return fmt.Errorf("invalid Authorization header format")
+}
+
+signaturePart := strings.TrimPrefix(authHeader, "Bearer Cr ")
+parts := strings.Split(signaturePart, ":")
+if len(parts) != 2 {
+	return fmt.Errorf("invalid signature format in header")
+}
+signature, timestampStr := parts[0], parts[1]
+
+// 对于查询订单状态请求
+signaturePart := r.URL.Query().Get("sign")
+parts := strings.Split(signaturePart, ":")
+if len(parts) != 2 {
+	return fmt.Errorf("invalid signature format in URL")
+}
+signature, timestampStr := parts[0], parts[1]
+```
+
+2. 验证 `timestamp` 是否大于当前时间戳，如果小于则返回错误。
+
+```go
+timestamp, err := strconv.ParseInt(timestampStr, 10, 64)
+if err != nil {
+	return fmt.Errorf("invalid timestamp: %w", err)
+}
+
+if time.Now().Unix() > timestamp {
+	return fmt.Errorf("signature expired")
+}
+```
+
+3. 获取待签名字段：
 
    - **对于创建订单请求：**
 
@@ -190,7 +226,7 @@ HTTP/1.1 200 OK
      signedHeaderStr := strings.Join(signedHeader, "&")
      ```
 
-     2. 将请求 URL 的 `Path` 部分，请求正文，`signedHeaderStr` 以 JSON 格式编码为字符串 `signContent`。
+     2. 将请求 URL 的 `Path` 部分，请求正文，`signedHeaderStr` 以 JSON 格式编码为字符串 `signContent`。如果 `Path` 为空，则使用 `/` 代替。
 
      ```go
      type RequestRawSign struct {
@@ -199,24 +235,44 @@ HTTP/1.1 200 OK
          Body   string
      }
 
+     path := r.URL.Path
+     if path == "" {
+         path = "/"
+     }
+
      signContent, err := json.Marshal(RequestRawSign{
-         Path:   r.URL.Path,
+         Path:   path,
          Header: signedHeaderStr,
          Body:   string(r.Body),
      })
      ```
 
    - **对于查询订单状态请求：**
-     直接将请求 URL 的 `Path` 部分（不包含 `Query`）作为 `signContent`。
+     直接将请求 URL 的 `Path` 部分（不包含 `Query`）作为 `signContent`。如果 `Path` 为空，则使用 `/` 代替。
 
-3. 将 `signContent` 和 `timestamp` 用 `:` 拼接为字符串 `signContentFinal`, 使用 HMAC 算法和 `通信密钥` 对 `signContentFinal` 计算签名，记为 `signActual`。
+     ```go
+     path := r.URL.Path
+     if path == "" {
+         path = "/"
+     }
+     ```
+
+4. 将 `signContent` 和 `timestamp` 用 `:` 拼接为字符串 `signContentFinal`, 使用 HMAC 算法和 `通信密钥` 对 `signContentFinal` 计算签名， 使用 [URL 安全的 Base64 编码](https://datatracker.ietf.org/doc/html/rfc4648#section-5) 后，记为 `signActual`。
 
 ```go
-signContentFinal := fmt.Sprintf("%s:%s", signContent, timestamp)
-signActual := hmac.New(sha256.New, []byte(通信密钥)).Sum([]byte(signContentFinal))
+signContentFinal := fmt.Sprintf("%s:%s", signContent, timestampStr)
+h := hmac.New(sha256.New, []byte(communicationKey))
+h.Write([]byte(signContentFinal))
+signActual := base64.URLEncoding.EncodeToString(h.Sum(nil))
 ```
 
-4. 对比 `signActual` 和 `signature` 是否一致。
+5. 对比 `signActual` 和 `signature` 是否一致。
+
+```go
+if signActual != signature {
+	return fmt.Errorf("invalid signature")
+}
+```
 
 ## 发送回调
 
