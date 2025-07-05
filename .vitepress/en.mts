@@ -107,6 +107,10 @@ export default defineConfig({
                 text: "Backblaze B2 (S3 compatible)",
                 link: "/en/usage/storage/b2",
               },
+              {
+                text: "Load Balance",
+                link: "/en/usage/storage/load-balance",
+              },
             ],
           },
           {

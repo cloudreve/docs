@@ -109,6 +109,10 @@ export default defineConfig({
                 text: "Backblaze B2 (S3 兼容)",
                 link: "/zh/usage/storage/b2",
               },
+              {
+                text: "负载均衡",
+                link: "/zh/usage/storage/load-balance",
+              },
             ],
           },
           {
