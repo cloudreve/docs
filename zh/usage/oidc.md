@@ -18,7 +18,7 @@ Cloudreve 原生适配了 [QQ 互联](https://connect.qq.com/)，你可以直接
 
 ### 创建应用注册
 
-登录 [Azure 管理门户](https://portal.azure.com/)，在左侧导航栏中选择 `Mcrosoft Entra ID`，然后选择 `添加`, 点击 `应用注册`。
+登录 [Azure 管理门户](https://portal.azure.com/)，在左侧导航栏中选择 `Microsoft Entra ID`，然后选择 `添加`, 点击 `应用注册`。
 
 ![创建应用注册](./images/new-aad-app.png)
 
