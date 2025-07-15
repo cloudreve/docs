@@ -39,3 +39,7 @@ When a file or directory has the `sys:shared_redirect` metadata, it indicates th
 ## LivePhoto
 
 `customize:live_photo` is used to mark whether a file is a LivePhoto, and its value is `true` or `false`. To display LivePhoto, the file also needs to have a LivePhoto Blob with a MOV video.
+
+## Custom Properties
+
+`props:<key>` is used to record custom file properties, and its value is a string. Where `<key>` is the ID of the custom property, which can be obtained through [Get site settings](https://cloudrevev4.apifox.cn/get-site-settings-289489676e0) via the `exploer` section, where `custom_props` field contains all available options.

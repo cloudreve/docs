@@ -39,3 +39,7 @@
 ## LivePhoto
 
 `customize:live_photo` 用于标记文件是否有 LivePhoto 属性，其值为 `true` 或 `false`。为了展示 LivePhoto，文件还需要存在对应的 LivePhoto Blob，其内容为 MOV 视频。
+
+## 自定义属性
+
+`props:<key>` 用于记录自定义属性，其值为字符串。其中 `<key>` 为自定义属性的 ID，可以通过 [Get site settings](https://cloudrevev4.apifox.cn/get-site-settings-289489676e0) 获取 `exploer` 分区的设置，其中的 `custom_props` 记录了所有可用选项。

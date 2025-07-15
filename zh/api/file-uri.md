@@ -49,6 +49,7 @@ Cloudreve 使用 `User` 部分来指定文件系统 ID。
 | `category` | 使用预设的搜索条件查询文件种类，可用值为 `image`、`video`、`audio`、`document`。设定此查询时，其他所有查询条件会被忽略。 |
 |`type` | 可用值为 `file` 或 `folder`，过滤文件类型。|
 |`meta_<key>` | 使用文件 Metadata 查询文件，`<key>` 为 Metadata 键，如：`meta_music:album=Deluxe`, 其中 Metadata 键完整匹配为 `music:album`，值包含 `Deluxe`（忽略大小写）。也可使用空的值 `meta_<key>=` 来查询所有存在给定 Metadata 键的文件。|
+|`exact_meta_<key>` | 使用文件 Metadata 查询文件，`<key>` 为 Metadata 键，如：`exact_meta_music:album=Deluxe`, 其中 Metadata 键完整匹配为 `music:album`，值必须完全匹配 `Deluxe`。|
 |`size_gte`| 文件大小下限，只有大于 `0` 时有效。|
 |`size_lte`| 文件大小上限，只有大于 `0` 时有效。|
 |`created_gte`| 文件创建时间下限，Unix 秒级时间戳。|
