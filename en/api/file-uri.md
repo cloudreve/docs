@@ -49,6 +49,7 @@ File search conditions, used to specify file search conditions, applicable only 
 | `category` | Use preset search conditions to query file types, available values are `image`, `video`, `audio`, `document`. When this query is set, all other query conditions will be ignored. |
 |`type` | Available values are `file` or `folder`, filter file types. |
 |`meta_<key>` | Use file Metadata to query files, `<key>` is the Metadata key, such as `meta_music:album=Deluxe`, where the Metadata key matches exactly `music:album`, and the value contains `Deluxe` (case-insensitive). An empty value `meta_<key>=` can also be used to query all files with the given Metadata key. |
+|`exact_meta_<key>` | Use file Metadata to query files, `<key>` is the Metadata key, such as `exact_meta_music:album=Deluxe`, where the Metadata key matches exactly `music:album`, and the value must match exactly `Deluxe`. |
 |`size_gte`| File size lower limit, only valid when greater than `0`. |
 |`size_lte`| File size upper limit, only valid when greater than `0`. |
 |`created_gte`| File creation time lower limit, Unix second timestamp. |
