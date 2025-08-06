@@ -15,6 +15,9 @@ Cloudreve project mainly consists of two parts: the backend main repository [clo
 # Clone the repository
 git clone --recurse-submodules https://github.com/cloudreve/Cloudreve.git
 
+# Enter the project directory
+cd Cloudreve
+
 # Check out the version you want to compile
 git checkout 4.x.x
 ```
