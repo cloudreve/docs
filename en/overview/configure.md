@@ -20,8 +20,9 @@ Mode = master
 Listen = :5212
 ; Whether to enable Debug mode, default is false
 Debug = false
-; Header used to present client IP, default is X-Forwarded-For
-ProxyHeader = X-Forwarded-For
+; Header used to present client IP, default is empty. If this header contains multiple IPs separated by `,`, Cloudreve will use the first one as the client IP
+; For deployments behind a reverse proxy, the value can be set to X-Forwarded-For. However, please note that due to potential XFF injection issues, it should only be used when it is confirmed to be trustworthy
+ProxyHeader =
 ; Maximum buffer time for safe process exit, default is 0, no limit
 GracePeriod = 0
 ; Log level, available values are debug/info/warning/error, default is info

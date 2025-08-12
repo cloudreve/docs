@@ -20,8 +20,9 @@ Mode = master
 Listen = :5212
 ; 是否开启 Debug 模式，默认为 false
 Debug = false
-; 呈递客户端 IP 时使用的 Header，默认为 X-Forwarded-For
-ProxyHeader = X-Forwarded-For
+; 呈递客户端 IP 时使用的 Header，默认为空。如果该 Header 由多个使用 `,` 分隔的 IP 构成，Cloudreve 会取用首个作为客户端 IP
+; 对于配置反向代理的部署，可以取值为 X-Forwarded-For。但是，请注意，由于潜在的 XFF 注入问题，仅在确认可信的情况下使用
+ProxyHeader =
 ; 进程安全退出的最长缓冲时间，默认为 0，不限制
 GracePeriod = 0
 ; 日志级别，可选值为 debug/info/warning/error，默认为 info
@@ -61,7 +62,7 @@ Name = cloudreve
 Charset = utf8mb4
 ; SQLite 数据库文件路径，默认为 data/cloudreve.db
 DBFile = cloudreve.db
-; 使用 Unix Socket 连接到数据库, 默认为 false，如需开启，请在 Host 中指定 Unix Socket 路径
+; 使用 Unix Socket 连接到数据库，默认为 false，如需开启，请在 Host 中指定 Unix Socket 路径
 UnixSocket = false
 ; 数据库连接字符串，如果设置，其他数据库配置将忽略，但 Type 仍需设置。
 ; 例如：root:123456@tcp(127.0.0.1:3306)/cloudreve?charset=utf8mb4&parseTime=True&loc=Local 用于 MySQL。
