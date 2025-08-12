@@ -10,12 +10,6 @@ Cloudreve 的默认配置文件为 `data/conf.ini`，你可以在启动 Cloudrev
 
 ## 配置文件结构 {#config-file-structure}
 
-::: warning 警告
-
-由于潜在的 XFF 注入问题，仅在确认可信的情况下设置 `ProxyHeader` 为 `X-Forwarded-For`。
-
-:::
-
 Cloudreve 的配置文件结构如下：
 
 ```ini
