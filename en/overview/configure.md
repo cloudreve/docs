@@ -10,12 +10,6 @@ Cloudreve's default configuration file is `data/conf.ini`. You can pass the conf
 
 ## Configuration File Structure {#config-file-structure}
 
-::: warning Warning
-
-Due to potential XFF injection issues, set `ProxyHeader` to `X-Forwarded-For` only when it is confirmed to be trustworthy.
-
-:::
-
 Cloudreve's configuration file structure is as follows:
 
 ```ini
