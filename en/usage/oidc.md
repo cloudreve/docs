@@ -81,6 +81,7 @@ Required:
 - Support for `response_type` of `code`;
 - Supported `scope` includes `openid`, `email`, `profile`;
 - Provides a `userinfo_endpoint` to get user information;
+- Can present the `state` parameter;
 
 Not required, but recommended:
 

@@ -66,3 +66,18 @@ After completing the task, you can submit a PR to the [cloudreve/cloudreve](http
 ## Discussion {#discussion}
 
 You can discuss task details or get support in the `development` channel of our [Discord community](https://discord.com/channels/1343585183047094367/1343585679585579018).
+
+## AIGC
+
+We do not oppose using AI-generated code tools (AIGC) to assist development, but we firmly oppose "vibe coding" (blindly copying and pasting AI-generated code without understanding its meaning).
+
+### AIGC Guidelines {#aigc-guidelines}
+
+If you choose to use AI tools to assist development, please follow these guidelines:
+
+1. **Understand every line of code**: You must fully understand the purpose and principles of every line of AI-generated code
+2. **Careful review**: Check whether the AI-generated code complies with the project's coding standards and best practices
+3. **Thorough testing**: Conduct comprehensive testing of AI-generated code to ensure its correctness and stability
+4. **Project adaptation**: Ensure that AI-generated code is consistent with the architecture and design patterns of the existing codebase
+
+Remember, AI tools are just auxiliary means, and the final code quality and correctness still need to be guaranteed by developers.

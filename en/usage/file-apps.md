@@ -122,6 +122,18 @@ Supports editing and previewing Markdown files. When file content is invalid, pr
 
 ![Markdown Editor](./images/file-apps-markdown-editor.png)
 
+::: tip Inserting Images in Markdown
+
+If you need to insert images in Markdown files, you have several options:
+
+- Use relative paths to insert images, e.g., `![image](./image.png)` will reference an image file named `image.png` in the same directory as the Markdown file;
+- Upload images directly in the editor, and Cloudreve will upload the image to the same directory as the Markdown file.
+- Use [File URI](../api/file-uri) to insert images, e.g., `![image](cloudreve://VoMFL@share/images/1.png)`.
+- Use image URLs to insert images, e.g., `![image](https://cloudreve.org/f/VoMFL/images/1.png)`.
+
+When using the first three methods, visitors need to have read permissions for the image files. When using relative paths or uploading images, if you need to share the Markdown file, it's recommended to share the entire directory including the image files.
+:::
+
 ## Image Viewer {#image-editor}
 
 The image viewer supports image preview and editing:

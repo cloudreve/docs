@@ -2,6 +2,14 @@
 
 This page lists some recommended subsequent deployment steps. Although not mandatory, we still recommend that you complete these steps.
 
+## Configure Site in Admin Dashboard {#configure-site-in-admin-panel}
+
+The first user will be set as the administrator. After logging in, go to `{your-domain}/admin` to enter the admin dashboard, and it is recommended to configure the following:
+
+- Change or add `Site URL`;
+- Add or modify storage policies in `Storage Policies`;
+- Add or modify user groups in `User Groups`, and assign storage policies to user groups;
+
 ## Configure Reverse Proxy {#configure-reverse-proxy}
 
 In the previous process, the Cloudreve instance you deployed can only be accessed via `http://<your-server-ip>:5212`, where users directly access Cloudreve's built-in web server. You can continue to use this method for personal use or small-scale scenarios, but if you need to deploy Cloudreve to the public internet, we recommend configuring a reverse proxy, which can give you more configuration options, such as logging, SSL, WAF, etc.

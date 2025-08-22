@@ -81,6 +81,7 @@ Cloudreve 对接的 OIDC 服务有以下基本要求：
 - 支持 `response_type` 为 `code`；
 - 支持的 `scope` 包含 `openid`, `email`, `profile`；
 - 提供 `userinfo_endpoint` 用于获取用户信息；
+- 能够呈递 `state` 参数；
 
 非必要，但是推荐实现：
 

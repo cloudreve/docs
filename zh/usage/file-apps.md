@@ -122,6 +122,18 @@ Cloudreve 内置了视频播放器应用，其所支持的格式[取决于浏览
 
 ![Markdown 编辑器](./images/file-apps-markdown-editor.png)
 
+::: tip 在 Markdown 中插入图片
+
+如果需要在 Markdown 文件中插入图片，你有下列多种选择：
+
+- 使用相对路径插入图片，如 `![image](./image.png)` 会引用 Markdown 文件所在目录下名为 `image.png` 的图片文件；
+- 直接在编辑器中选择图片上传，Cloudreve 会将此图片上传到 Markdown 文件相同的目录。
+- 使用 [文件 URI](../api/file-uri) 来插入图片，如 `![image](cloudreve://VoMFL@share/images/1.png)`。
+- 使用图片 URL 来插入图片，如 `![image](https://cloudreve.org/f/VoMFL/images/1.png)`。
+
+在使用前三种方式时，访问者需要拥有图片文件的读取权限。在使用相对路径或上传图像时，如果需要分享 Markdown 文件，推荐连同图片文件将整个目录分享。
+:::
+
 ## 图片查看器 {#image-editor}
 
 图片查看器支持图像的预览和编辑：

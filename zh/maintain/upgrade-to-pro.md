@@ -4,15 +4,82 @@
 
 ## 替换可执行文件 {#replace-main-program}
 
-备份所有数据，将 Pro 版可执行文件替换到原先的社区版目录下。
+:::tabs
+
+=== 直接部署
+
+备份所有数据，将 Pro 版可执行文件替换到原先的社区版目录下。你好需要更新启动参数，Pro 版本启动时需要携带 `--license-key` 参数，传入你在授权管理面板获取的密钥。
+
+=== Docker
+
+参考 [获取镜像](../overview/deploy/docker#get-image) 登录容器仓库，将原有社区版镜像替换为 Pro 版镜，并通过环境变量传入许可密钥。比如：
+
+```bash{3-4}
+docker run -d --name cloudreve -p 5212:5212 \
+    -v ~/cloudreve/data:/cloudreve/data \
+    -e CR_LICENSE_KEY=你的授权密钥 \
+    cloudreve.azurecr.io/cloudreve/pro:latest
+```
+
+=== Docker Compose
+
+参考 [获取镜像](../overview/deploy/docker#get-image) 登录容器仓库，编辑 `docker-compose.yml` 文件，将原有社区版镜像替换为 Pro 版镜，并通过环境变量传入许可密钥。比如：
+
+```yaml{3,18}
+services:
+  pro:
+    image: cloudreve.azurecr.io/cloudreve/pro:latest
+    container_name: cloudreve-pro-backend
+    depends_on:
+      - postgresql
+      - redis
+    restart: always
+    ports:
+      - 5212:5212
+    environment:
+      - CR_CONF_Database.Type=postgres
+      - CR_CONF_Database.Host=postgresql
+      - CR_CONF_Database.User=cloudreve
+      - CR_CONF_Database.Name=cloudreve
+      - CR_CONF_Database.Port=5432
+      - CR_CONF_Redis.Server=redis:6379
+      - CR_LICENSE_KEY=${CR_LICENSE_KEY}
+    volumes:
+      - backend_data:/cloudreve/data
+
+...
+```
+
+在启动前，将许可密钥写入到 `CR_LICENSE_KEY` 环境变量中。
+
+```bash
+export CR_LICENSE_KEY=你的授权密钥
+docker-compose up -d
+```
+
+:::
 
 ## 执行升级脚本 {#execute-upgrade-script}
+
+:::tabs
+
+=== 直接部署
 
 执行下面的命令将数据库升级到 Pro 版：
 
 ```bash
 ./cloudreve proupgrade
 ```
+
+=== Docker 或 Docker Compose
+
+通过 `docker exec` 进入容器，执行下面的命令将数据库升级到 Pro 版：
+
+```bash
+docker exec -it <容器名> ./cloudreve proupgrade
+```
+
+:::
 
 ::: tip
 
@@ -25,7 +92,3 @@
 :::
 
 如果你使用的是 SQLite 数据库，用户组的存储策略设置会丢失，请在 Pro 版启动后前往后台重新设置。
-
-## 更新启动参数
-
-Pro 版本启动时需要携带 `--license-key` 参数，传入你在授权管理面板获取的密钥。

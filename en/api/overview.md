@@ -153,6 +153,7 @@ The definition of error codes can be found in the [`error.go`](https://github.co
 | 40085 | Amount Too Small                          |
 | 40086 | Node Used by Storage Policy               |
 | 40087 | Domain Not Licensed                       |
+| 40088 | Anonymous User Not Allowed                |
 | 50001 | Database Operation Failed                 |
 | 50002 | Encryption Failed                         |
 | 50004 | IO Operation Failed                       |
