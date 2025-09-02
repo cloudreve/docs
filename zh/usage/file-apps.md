@@ -185,3 +185,13 @@ Excalidraw 已经内置在 Cloudreve 中，无需依赖外部服务。
 Photopea 会使用 `https://www.photopea.com` 作为 `Referrer` 头请求文件内容，如果你配置了防盗链，请确保此请求头被允许。
 
 :::
+
+## 压缩文件预览 {#archive-preview}
+
+在线预览 ZIP 和 7Z 压缩文件的结构，选择需要的文件在线解压缩。
+
+![ZIP 文件预览](./images/file-apps-zip-preview.png)
+
+要使用此功能，请为用户组配置 `压缩/解压缩任务` 权限。
+
+如果文件位于远程存储中，Cloudreve 会尝试通过 Range 请求读取并缓存文件列表，避免下载整个压缩文件，某些情况下单次预览需要发送 50 ～ 60 个请求，请酌情开启使用。

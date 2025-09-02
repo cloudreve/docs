@@ -87,3 +87,40 @@ Not required, but recommended:
 
 - Provide Email and avatar URL in `userinfo_endpoint`;
 - Provide `end_session_endpoint` to redirect the user to the authentication server to log out;
+
+### User info fields mapping {#custom-user-info-mapping}
+
+Cloudreve uses [UserInfo](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo) to get user profile information. By default, the expected response format is:
+
+```json
+{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "picture": "https://example.com/avatar.jpg"
+}
+```
+
+If the OIDC provider provides a non-standard UserInfo response format, you can configure it through `User info fields mapping`. For example, the following response:
+
+```json
+{
+  "attributes": {
+    "uid": "5900055",
+    "securityEmail": "support@cloudreve.org",
+    "cn": "Aaron Liu",
+    "status": "Active"
+  },
+  "id": "5900055"
+}
+```
+
+You can configure the following mapping relationships:
+
+| Field                    | Mapping                    |
+| ------------------------ | -------------------------- |
+| User info fields mapping | `attributes.uid`           |
+| Email                    | `attributes.securityEmail` |
+| Display name             | `attributes.cn`            |
+
+You can use [GJSON](https://github.com/tidwall/gjson/blob/master/SYNTAX.md) syntax to describe the JSON field path.

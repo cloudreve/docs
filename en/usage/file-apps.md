@@ -185,3 +185,13 @@ Use Photopea to edit images, PSD, and other files online.
 Photopea uses `https://www.photopea.com` as the `Referrer` header when requesting file content. If you have configured hotlinking protection, please ensure this request header is allowed.
 
 :::
+
+## Archive Preview {#archive-preview}
+
+Online preview ZIP and 7Z archive files, select the required files to decompress online.
+
+![Archive Preview](./images/file-apps-zip-preview.png)
+
+To use this feature, please configure the `Compress/Decompression Tasks` permission for the user group.
+
+If the file is located in a remote storage, Cloudreve will try to read and cache the file list through Range requests to avoid downloading the entire archive file. In some cases, the preview may require sending 50 ～ 60 requests, so please enable it judiciously.

@@ -87,3 +87,40 @@ Cloudreve 对接的 OIDC 服务有以下基本要求：
 
 - `userinfo_endpoint` 中提供 Email 和头像 URL；
 - 提供 `end_session_endpoint` 用于重定向用户到认证服务端退出登录；
+
+### 自定义用户资料映射 {#custom-user-info-mapping}
+
+Cloudreve 会使用 [UserInfo](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo) 来获取用户资料。默认情况下，预期的响应格式为：
+
+```json
+{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "email": "john.doe@example.com",
+  "picture": "https://example.com/avatar.jpg"
+}
+```
+
+如果 OIDC 服务商提供了非标准的 UserInfo 响应格式，你可以通过 `用户信息字段映射` 来配置。比如如下响应：
+
+```json
+{
+  "attributes": {
+    "uid": "5900055",
+    "securityEmail": "support@cloudreve.org",
+    "cn": "刘云",
+    "status": "Active"
+  },
+  "id": "5900055"
+}
+```
+
+你可以配置如下映射关系：
+
+| 字段                | 映射                       |
+| ------------------- | -------------------------- |
+| ​Sub (用户唯一标识) | `attributes.uid`           |
+| 邮箱                | `attributes.securityEmail` |
+| 名称                | `attributes.cn`            |
+
+你可以使用 [GJSON](https://github.com/tidwall/gjson/blob/master/SYNTAX.md) 语法描述 JSON 字段路径。
