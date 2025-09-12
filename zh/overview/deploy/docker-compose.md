@@ -37,6 +37,8 @@ services:
     restart: always
     ports:
       - 5212:5212
+      - 6888:6888
+      - 6888:6888/udp
     environment:
       - CR_CONF_Database.Type=postgres
       - CR_CONF_Database.Host=postgresql
@@ -49,7 +51,7 @@ services:
       - backend_data:/cloudreve/data
 
   postgresql:
-    image: postgres:latest
+    image: postgres:17
     container_name: postgresql
     environment:
       - POSTGRES_USER=cloudreve
