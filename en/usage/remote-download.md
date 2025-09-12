@@ -35,6 +35,30 @@ You can also start Aria2 directly from the command line and specify RPC service 
 aria2c --enable-rpc --rpc-secret=your_rpc_secret --rpc-listen-port=6800
 ```
 
+::: details Using Aria2 in the Official Image
+
+The official Cloudreve image already includes Aria2 running in the same container, so no additional installation is required. It listens on the local loopback address port `6800` and has no RPC token set.
+
+If you need to perform BT downloads, please map port `6888` to the host machine when starting the Cloudreve image, for example:
+
+```bash {3-4}
+docker run -d --name cloudreve \
+    -p 5212:5212 \
+    -p 6888:6888 \
+    -p 6888:6888/udp \
+    ...
+```
+
+If possible, we recommend using the host network for the Cloudreve container to achieve better transmission performance:
+
+```bash {2}
+docker run -d --name cloudreve \
+    --network host \
+    ...
+```
+
+:::
+
 #### qBittorrent {#qbittorrent}
 
 Download [qBittorrent](https://www.qbittorrent.org/) version higher than `4.4`, start it, and enable the Web UI service in settings, then set the username and password.

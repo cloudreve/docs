@@ -30,7 +30,10 @@ docker login -u 获取到的用户名 -p 获取到的密码 cloudreve.azurecr.io
 == 社区版
 
 ```bash
-docker run -d --name cloudreve -p 5212:5212 \
+docker run -d --name cloudreve \
+    -p 5212:5212 \
+    -p 6888:6888 \
+    -p 6888:6888/udp \
     -v ~/cloudreve/data:/cloudreve/data \
     cloudreve/cloudreve:latest
 ```
@@ -40,12 +43,19 @@ docker run -d --name cloudreve -p 5212:5212 \
 在 [Pro 授权管理面板](https://cloudreve.org/login) 点击`获取授权密钥`按钮，在启动镜像时通过环境变量传入。
 
 ```bash
-docker run -d --name cloudreve -p 5212:5212 \
+docker run -d --name cloudreve \
+    -p 5212:5212 \
+    -p 6888:6888 \
+    -p 6888:6888/udp \
     -v ~/cloudreve/data:/cloudreve/data \
     -e CR_LICENSE_KEY=你的授权密钥 \
     cloudreve.azurecr.io/cloudreve/pro:latest
 ```
 
+:::
+
+::: tip
+上述命令额外暴露了 `6888` 端口，用于给 Aria2 离线下载使用。
 :::
 
 ### 容器 Volume {#container-volume}
@@ -61,8 +71,11 @@ docker run -d --name cloudreve -p 5212:5212 \
 
 在启动容器时，你可以通过环境变量传入数据库配置：
 
-```bash{3-8}
-docker run -d --name cloudreve -p 5212:5212 \
+```bash{5-10}
+docker run -d --name cloudreve \
+    -p 5212:5212 \
+    -p 6888:6888 \
+    -p 6888:6888/udp \
     -v ~/cloudreve/data:/cloudreve/data \
     -e CR_CONF_Database.Type=postgres \
     -e CR_CONF_Database.Host=127.0.0.1 \
@@ -133,8 +146,11 @@ Name = cloudreve
 
 在启动容器时，你可以通过环境变量传入 Redis 配置：
 
-```bash{3-5}
-docker run -d --name cloudreve -p 5212:5212 \
+```bash{3-7}
+docker run -d --name cloudreve \
+    -p 5212:5212 \
+    -p 6888:6888 \
+    -p 6888:6888/udp \
     -v ~/cloudreve/data:/cloudreve/data \
     -e CR_CONF_Redis.Server=127.0.0.1:6379 \
     -e CR_CONF_Redis.Password=your_redis_password \

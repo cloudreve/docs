@@ -30,7 +30,10 @@ docker login -u obtained_username -p obtained_password cloudreve.azurecr.io
 == Community Edition
 
 ```bash
-docker run -d --name cloudreve -p 5212:5212 \
+docker run -d --name cloudreve \
+    -p 5212:5212 \
+    -p 6888:6888 \
+    -p 6888:6888/udp \
     -v ~/cloudreve/data:/cloudreve/data \
     cloudreve/cloudreve:latest
 ```
@@ -40,12 +43,19 @@ docker run -d --name cloudreve -p 5212:5212 \
 In the [Pro license management panel](https://cloudreve.org/login), click the `Get Authorization Key` button, and pass it through environment variables when starting the image.
 
 ```bash
-docker run -d --name cloudreve -p 5212:5212 \
+docker run -d --name cloudreve \
+    -p 5212:5212 \
+    -p 6888:6888 \
+    -p 6888:6888/udp \
     -v ~/cloudreve/data:/cloudreve/data \
     -e CR_LICENSE_KEY=your_authorization_key \
     cloudreve.azurecr.io/cloudreve/pro:latest
 ```
 
+:::
+
+::: tip
+The above commands expose the `6888` port additionally, which is used for Aria2 remote download.
 :::
 
 ### Container Volume {#container-volume}
@@ -61,8 +71,11 @@ In the startup commands above, we haven't configured a database, so Cloudreve wi
 
 When starting the container, you can pass database configuration through environment variables:
 
-```bash{3-8}
-docker run -d --name cloudreve -p 5212:5212 \
+```bash{5-10}
+docker run -d --name cloudreve \
+    -p 5212:5212 \
+    -p 6888:6888 \
+    -p 6888:6888/udp \
     -v ~/cloudreve/data:/cloudreve/data \
     -e CR_CONF_Database.Type=postgres \
     -e CR_CONF_Database.Host=127.0.0.1 \
@@ -133,8 +146,11 @@ In the startup commands above, we haven't configured Redis, so Cloudreve will us
 
 When starting the container, you can pass Redis configuration through environment variables:
 
-```bash{3-5}
-docker run -d --name cloudreve -p 5212:5212 \
+```bash{3-7}
+docker run -d --name cloudreve \
+    -p 5212:5212 \
+    -p 6888:6888 \
+    -p 6888:6888/udp \
     -v ~/cloudreve/data:/cloudreve/data \
     -e CR_CONF_Redis.Server=127.0.0.1:6379 \
     -e CR_CONF_Redis.Password=your_redis_password \

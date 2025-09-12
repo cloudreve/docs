@@ -35,6 +35,30 @@ rpc-secret=<your token>
 aria2c --enable-rpc --rpc-secret=your_rpc_secret --rpc-listen-port=6800
 ```
 
+::: details 使用官方镜像中的 Aria2
+
+Cloudreve 官方镜像中已经包含 Aria2 运行在同一容器中，无需额外安装。其使监听了本机回环地址的 `6800` 端口，且未设置 RPC 令牌。
+
+如果需要进行 BT 下载，请在启动 Cloudreve 镜像时，将 `6888` 端口映射到宿主机，比如：
+
+```bash {3-4}
+docker run -d --name cloudreve \
+    -p 5212:5212 \
+    -p 6888:6888 \
+    -p 6888:6888/udp \
+    ...
+```
+
+如果条件允许，推荐让 Cloudreve 容器使用宿主机网络以获得更好的传输性能：
+
+```bash {2}
+docker run -d --name cloudreve \
+    --network host \
+    ...
+```
+
+:::
+
 #### qBittorrent {#qbittorrent}
 
 下载高于 `4.4` 版本的 [qBittorrent](https://www.qbittorrent.org/) 后启动，在设置中启用 Web UI 服务，并设定用户名和密码。
