@@ -4,6 +4,12 @@
 
 ## 配置 {#configure}
 
+### 地区代码 {#region-code}
+
+创建 OSS 存储策略时，需要提供存储桶所在的地区代码。你可以在 [OSS 地域和访问域名](https://www.alibabacloud.com/help/oss/regions-and-endpoints) 的表格中找到对应地域，并填写对应的 `地域 ID`，比如 `cn-hangzhou`，注意不要包含 `oss-` 前缀。
+
+你也可以根据 OSS 提供的存储桶 Endpoint 推测出地区代码，比如 `oss-cn-beijing.aliyuncs.com` 对应的地区代码为 `cn-beijing`。
+
 ### 跨域策略 {#cors}
 
 存储桶需要配置跨域策略后才能使用 Cloudreve 网页端上传或浏览文件。正常情况下，你可以在添加存储策略时让 Cloudreve 自动配置跨域策略。如果需要手动配置，请在 `数据安全` -> `跨域设置` 中添加。

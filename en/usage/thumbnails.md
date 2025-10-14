@@ -248,3 +248,9 @@ A known issue is that LibreOffice sometimes fails to start when generating multi
 Thumbnails generated using non-native generators are stored in a thumbnail Blob, which counts against the user's storage capacity. Storage policy native thumbnails do not consume user capacity.
 
 :::
+
+::: details How to re-trigger file thumbnail generation?
+
+Right-click the file, select `More actions` -> `Reset broken thumbnail`.
+
+:::

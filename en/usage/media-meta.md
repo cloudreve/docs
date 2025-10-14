@@ -17,6 +17,7 @@ All extraction tasks are managed by a unified queue. You can set queue parameter
 | EXIF                  | Built-in. Extracts EXIF information from images: width, height, GPS coordinates, photographer, copyright information, software, camera information, lens information, exposure parameters, shooting time, photo orientation, etc. When the source file is on a third-party storage, it will attempt to download only the necessary parts using Range requests, without downloading the entire file. |
 | Music Metadata        | Built-in. Extracts audio format, type, artist, album, composer, genre, and other information. When the source file is on a third-party storage, it will attempt to download only the necessary parts using Range requests, without downloading the entire file.                                                                                                                                     |
 | FFProbe               | Requires [third-party dependencies](./thumbnails#ffmpeg). Extracts audio/video stream parameters: duration, bitrate, frame rate, codec, audio streams, chapters, and other information. When the source file is on a third-party storage, it will attempt to download only the necessary parts using Range requests, without downloading the entire file.                                           |
+| Reverse Geocoding     | Depends on the EXIF extractor and the external [Mapbox service](https://www.mapbox.com/). Converts the GPS coordinates extracted from EXIF to text address information. No need to download the entire file.                                                                                                                                                                                        |
 
 You can enable each extractor in `Settings` -> `Media Processing` -> `Extract media metadata`.
 
@@ -47,3 +48,8 @@ Different types of media metadata are used as follows:
   ::: warning
   Only Cloudreve's FFProbe can extract chapter data; the storage policy native extractor cannot extract chapters.
   :::
+
+##### Reverse Geocoding
+
+- Search
+- Display in file details sidebar

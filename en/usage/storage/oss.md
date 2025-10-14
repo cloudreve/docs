@@ -4,6 +4,12 @@ Using [Alibaba Cloud OSS](https://www.alibabacloud.com/product/oss) buckets to s
 
 ## Configuration {#configure}
 
+### Region Code {#region-code}
+
+When creating an OSS storage policy, you need to specify the region code of the bucket. You can find the appropriate region and its corresponding `Region ID` (such as `cn-hangzhou`) in the table on the [OSS Regions and Endpoints](https://www.alibabacloud.com/help/oss/regions-and-endpoints) page. Please note: do not include the `oss-` prefix.
+
+Alternatively, you can infer the region code from the endpoint of your OSS bucket. For example, an endpoint like `oss-cn-beijing.aliyuncs.com` corresponds to the region code `cn-beijing`.
+
 ### CORS Policy {#cors}
 
 The bucket needs to be configured with a CORS policy before it can be used with Cloudreve's web client for uploading or browsing files. Normally, you can let Cloudreve automatically configure the CORS policy while adding a storage policy. If you need to configure it manually, please add it in `Content Security` -> `CORS`.
