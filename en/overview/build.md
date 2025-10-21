@@ -25,6 +25,10 @@ git checkout 4.x.x
 ## Building the Frontend {#build-frontend}
 
 ```bash
+# Get current version number and commit
+export COMMIT_SHA=$(git rev-parse --short HEAD)
+export VERSION=$(git describe --tags)
+
 chmod +x ./.build/build-assets.sh
 
 # Build the frontend
@@ -55,10 +59,6 @@ The build output is in the `build` directory.
 ## Building the Final Executable {#build-executable-file}
 
 ```bash
-# Get current version number and commit
-export COMMIT_SHA=$(git rev-parse --short HEAD)
-export VERSION=$(git describe --tags)
-
 # Start compiling
 go build -a -o cloudreve \
     -ldflags "-s -w -X 'github.com/cloudreve/Cloudreve/v4/application/constants.BackendVersion=$VERSION' -X 'github.com/cloudreve/Cloudreve/v4/application/constants.LastCommit=$COMMIT_SHA'"
