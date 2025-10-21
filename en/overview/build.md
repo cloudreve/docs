@@ -32,7 +32,7 @@ export VERSION=$(git describe --tags)
 chmod +x ./.build/build-assets.sh
 
 # Build the frontend
-./.build/build-assets.sh
+./.build/build-assets.sh $VERSION
 ```
 
 The compiled frontend resource package is located at `application/statics/assets.zip`.
