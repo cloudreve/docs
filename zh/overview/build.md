@@ -25,10 +25,14 @@ git checkout 4.x.x
 ## 编译前端 {#build-frontend}
 
 ```bash
+# 获得当前版本号、Commit
+export COMMIT_SHA=$(git rev-parse --short HEAD)
+export VERSION=$(git describe --tags)
+
 chmod +x ./.build/build-assets.sh
 
 # 构建前端
-./.build/build-assets.sh
+./.build/build-assets.sh $VERSION
 ```
 
 构建后的前端资源压缩包位于 `application/statics/assets.zip`。
@@ -55,10 +59,6 @@ yarn run build
 ## 编译最终可执行文件 {#build-executable-file}
 
 ```bash
-# 获得当前版本号、Commit
-export COMMIT_SHA=$(git rev-parse --short HEAD)
-export VERSION=$(git describe --tags)
-
 # 开始编译
 go build -a -o cloudreve \
     -ldflags "-s -w -X 'github.com/cloudreve/Cloudreve/v4/application/constants.BackendVersion=$VERSION' -X 'github.com/cloudreve/Cloudreve/v4/application/constants.LastCommit=$COMMIT_SHA'"
