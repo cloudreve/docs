@@ -138,6 +138,7 @@ export default defineConfig({
           },
           { text: "Custom Frontend", link: "/en/usage/custom-frontend" },
           { text: "OIDC Authentication", link: "/en/usage/oidc" },
+          // { text: "File Encryption", link: "/en/usage/file-encryption" },
         ],
       },
       {
@@ -147,7 +148,7 @@ export default defineConfig({
           { text: "Upgrade Cloudreve", link: "/en/maintain/upgrade" },
           { text: "Upgrade from V3", link: "/en/maintain/upgrade-from-v3" },
           { text: "Upgrade to Pro", link: "/en/maintain/upgrade-to-pro" },
-          { text: "Pro License Management", link: "/en/maintain/pro-license" },
+          // { text: "Pro License Management", link: "/en/maintain/pro-license" },
         ],
       },
       {
