@@ -138,7 +138,7 @@ export default defineConfig({
           },
           { text: "Custom Frontend", link: "/en/usage/custom-frontend" },
           { text: "OIDC Authentication", link: "/en/usage/oidc" },
-          // { text: "File Encryption", link: "/en/usage/file-encryption" },
+          { text: "File Encryption", link: "/en/usage/file-encryption" },
         ],
       },
       {
