@@ -27,6 +27,8 @@ ProxyHeader =
 GracePeriod = 0
 ; Log level, available values are debug/info/warning/error, default is info
 LogLevel = info
+; Address to listen for pprof, e.g. "localhost:6060". Empty to disable. Read more at https://pkg.go.dev/net/http/pprof
+Pprof =
 
 ; SSL related
 [SSL]

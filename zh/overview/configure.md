@@ -27,6 +27,8 @@ ProxyHeader =
 GracePeriod = 0
 ; 日志级别，可选值为 debug/info/warning/error，默认为 info
 LogLevel = info
+; 监听 pprof 的地址，如 "localhost:6060"。留空禁用。更多信息请参考 https://pkg.go.dev/net/http/pprof
+Pprof =
 
 ; SSL 相关
 [SSL]
