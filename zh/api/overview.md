@@ -154,6 +154,8 @@ Cloudreve 服务端提供 RESTful API 接口，您可以通过这些接口实现
 | 40086 | Node Used by Storage Policy               |
 | 40087 | Domain Not Licensed                       |
 | 40088 | Anonymous User Not Allowed                |
+| 40089 | OAuth Token Scope Insufficient            |
+| 40090 | Disabled in Demo Mode                     |
 | 50001 | Database Operation Failed                 |
 | 50002 | Encryption Failed                         |
 | 50004 | IO Operation Failed                       |
