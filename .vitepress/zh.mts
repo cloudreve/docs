@@ -138,6 +138,7 @@ export default defineConfig({
           { text: "自定义前端", link: "/zh/usage/custom-frontend" },
           { text: "OIDC 认证", link: "/zh/usage/oidc" },
           { text: "文件加密", link: "/zh/usage/file-encryption" },
+          { text: "桌面同步客户端", link: "/zh/usage/desktop-client" },
         ],
       },
       {
