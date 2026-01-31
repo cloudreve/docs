@@ -158,6 +158,7 @@ export default defineConfig({
           { text: "API 方法", link: "https://cloudrevev4.apifox.cn/" },
           { text: "认证方式", link: "/zh/api/auth" },
           { text: "Boolset 编码与解码", link: "/zh/api/boolset" },
+          { text: "文件变更事件", link: "/zh/api/events" },
           // { text: "缩略图链接", link: "/zh/api/thumbnail" },
           { text: "文件 URI", link: "/zh/api/file-uri" },
           { text: "元数据", link: "/zh/api/metadata" },
