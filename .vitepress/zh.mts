@@ -139,6 +139,25 @@ export default defineConfig({
           { text: "OIDC 认证", link: "/zh/usage/oidc" },
           { text: "文件加密", link: "/zh/usage/file-encryption" },
           { text: "桌面同步客户端", link: "/zh/usage/desktop-client" },
+          {
+            text: "文件搜索",
+            collapsed: true,
+            link: "/zh/usage/search/",
+            items: [
+              {
+                text: "搜索方式",
+                link: "/zh/usage/search/",
+              },
+              {
+                text: "全文搜索",
+                link: "/zh/usage/search/fts",
+              },
+              {
+                text: "AI 语义搜索",
+                link: "/zh/usage/search/ai-semantic-search",
+              },
+            ],
+          },
         ],
       },
       {

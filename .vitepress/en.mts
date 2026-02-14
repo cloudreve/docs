@@ -140,6 +140,25 @@ export default defineConfig({
           { text: "OIDC Authentication", link: "/en/usage/oidc" },
           { text: "File Encryption", link: "/en/usage/file-encryption" },
           { text: "Desktop Sync Client", link: "/en/usage/desktop-client" },
+          {
+            text: "Search",
+            collapsed: true,
+            link: "/en/usage/search/",
+            items: [
+              {
+                text: "Search Types",
+                link: "/en/usage/search/",
+              },
+              {
+                text: "Full-text Search",
+                link: "/en/usage/search/fts",
+              },
+              {
+                text: "AI Semantic Search",
+                link: "/en/usage/search/ai-semantic-search",
+              },
+            ],
+          },
         ],
       },
       {
