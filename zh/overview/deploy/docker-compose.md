@@ -6,73 +6,28 @@
 
 请参考 [Docker Compose 安装文档](https://docs.docker.com/compose/install/) 安装 Docker 和 Docker Compose。
 
-## 准备 `docker-compose.yml` 文件 {#prepare-docker-compose-yml}
+## 准备 Compose 文件 {#prepare-docker-compose-yml}
 
-创建一个目录作为 Docker Compose 文件的存储目录，比如：
+将 [Docker Compose 仓库](https://github.com/cloudreve/docker-compose) 克隆到服务端：
 
 ```bash
-mkdir -p ~/cloudreve
+git clone https://github.com/cloudreve/docker-compose.git ~/cloudreve
 cd ~/cloudreve
 ```
 
-将获取到的 `docker-compose.yml` 文件保存到此目录。
+复制示例环境变量文件：
 
-:::tabs
-== 社区版
-
-将 [GitHub 仓库](https://github.com/cloudreve/Cloudreve/blob/master/docker-compose.yml) 中的 `docker-compose.yml` 文件保存到服务端。
-
-== Pro 版
-
-如下是一个包含所有必要服务的 Pro 版 `docker-compose.yml` 文件示例。将其保存到服务端。
-
-```yaml
-services:
-  pro:
-    image: cloudreve.azurecr.io/cloudreve/pro:latest
-    container_name: cloudreve-pro-backend
-    depends_on:
-      - postgresql
-      - redis
-    restart: always
-    ports:
-      - 5212:5212
-      - 6888:6888
-      - 6888:6888/udp
-    environment:
-      - CR_CONF_Database.Type=postgres
-      - CR_CONF_Database.Host=postgresql
-      - CR_CONF_Database.User=cloudreve
-      - CR_CONF_Database.Name=cloudreve
-      - CR_CONF_Database.Port=5432
-      - CR_CONF_Redis.Server=redis:6379
-      - CR_LICENSE_KEY=${CR_LICENSE_KEY}
-    volumes:
-      - backend_data:/cloudreve/data
-
-  postgresql:
-    image: postgres:17
-    container_name: postgresql
-    environment:
-      - POSTGRES_USER=cloudreve
-      - POSTGRES_DB=cloudreve
-      - POSTGRES_HOST_AUTH_METHOD=trust
-    volumes:
-      - database_postgres:/var/lib/postgresql/data
-
-  redis:
-    image: redis:latest
-    container_name: redis
-    volumes:
-      - redis_data:/data
-
-volumes:
-  backend_data:
-  database_postgres:
-  redis_data:
+```bash
+cp .env.example .env
 ```
 
-:::
+仓库中包含以下 Compose 文件：
+
+| 文件 | 说明 |
+| --- | --- |
+| `docker-compose.yml` | 基础服务栈：Cloudreve + PostgreSQL + Redis |
+| `docker-compose.pro.yml` | Pro 版覆盖：切换为 Pro 镜像并添加授权密钥 |
+| `docker-compose.fts.yml` | 全文搜索附加组件：添加 Apache Tika 和 Meilisearch，详见[全文搜索](../../usage/search/fts) |
 
 ## 启动 {#start}
 
@@ -87,17 +42,16 @@ docker compose up -d
 
 == Pro 版
 
-在 [Pro 授权管理面板](https://cloudreve.org/login) 点击 `获取 Docker 镜像` 按钮，并生成一份用于登录 Pro 版本私有镜像仓库的账号，点击`获取授权密钥`按钮，将获取到的授权密钥保存到 `CR_LICENSE_KEY` 环境变量中，然后启动。
+在 [Pro 授权管理面板](https://cloudreve.org/login) 点击 `获取 Docker 镜像` 按钮，并生成一份用于登录 Pro 版本私有镜像仓库的账号，点击`获取授权密钥`按钮，将获取到的授权密钥保存到 `.env` 文件中的 `CR_LICENSE_KEY`。
 
 ```bash
 # 登录 Pro 版本私有镜像仓库
 docker login -u 获取到的用户名 -p 获取到的密码 cloudreve.azurecr.io
 
-# 设置授权密钥
-export CR_LICENSE_KEY=你的授权密钥
+# 编辑 .env 文件，设置 CR_LICENSE_KEY=你的授权密钥
 
-# 启动
-docker compose up -d
+# 使用 Pro 覆盖文件启动
+docker compose -f docker-compose.yml -f docker-compose.pro.yml up -d
 ```
 
 > [!NOTE]

@@ -11,6 +11,46 @@
 | Apache Tika     | 从文件中提取文本内容       | 9998     |
 | Meilisearch     | 对提取的文本内容进行索引   | 7700     |
 
+## 使用 Docker Compose 部署 {#deploy-with-docker-compose}
+
+如果你通过 [Docker Compose](../../overview/deploy/docker-compose) 部署了 Cloudreve，可以通过应用 `docker-compose.fts.yml` 覆盖文件来部署 Tika 和 Meilisearch。
+
+生成 Meilisearch Master Key 并保存到 `.env` 文件：
+
+```bash
+# 生成 Master Key
+openssl rand -hex 32
+
+# 编辑 .env 文件，设置 MEILI_MASTER_KEY=<生成的密钥>
+```
+
+然后使用 FTS 覆盖文件重新启动：
+
+:::tabs
+== 社区版
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.fts.yml up -d
+```
+
+== Pro 版
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.pro.yml -f docker-compose.fts.yml up -d
+```
+
+:::
+
+服务启动后，前往[启用全文搜索](#enable-full-text-search)在管理面板中配置端点。Docker Compose 网络内请使用以下值：
+
+| 参数              | 值                         |
+| ----------------- | -------------------------- |
+| Meilisearch 端点  | `http://meilisearch:7700`  |
+| API 密钥          | `.env` 中设置的 `MEILI_MASTER_KEY` |
+| Apache Tika 端点  | `http://tika:9998`         |
+
+如果你没有使用 Docker Compose，请按照以下手动部署步骤操作。
+
 ## 部署 Apache Tika Server {#deploy-tika}
 
 [Apache Tika](https://tika.apache.org/) 是一个开源的文件内容提取工具，支持从常见文档格式中提取文字内容用于索引。

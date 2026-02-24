@@ -23,38 +23,12 @@ docker run -d --name cloudreve -p 5212:5212 \
 
 === Docker Compose
 
-Refer to [Get Image](../overview/deploy/docker#get-image) to log in to the container registry, edit the `docker-compose.yml` file, replace the original Community edition image with the Pro edition image, and pass in the license key through environment variables. For example:
-
-```yaml{3,18}
-services:
-  pro:
-    image: cloudreve.azurecr.io/cloudreve/pro:latest
-    container_name: cloudreve-pro-backend
-    depends_on:
-      - postgresql
-      - redis
-    restart: always
-    ports:
-      - 5212:5212
-    environment:
-      - CR_CONF_Database.Type=postgres
-      - CR_CONF_Database.Host=postgresql
-      - CR_CONF_Database.User=cloudreve
-      - CR_CONF_Database.Name=cloudreve
-      - CR_CONF_Database.Port=5432
-      - CR_CONF_Redis.Server=redis:6379
-      - CR_LICENSE_KEY=${CR_LICENSE_KEY}
-    volumes:
-      - backend_data:/cloudreve/data
-
-...
-```
-
-Before starting, write the license key to the `CR_LICENSE_KEY` environment variable.
+Refer to [Get Image](../overview/deploy/docker#get-image) to log in to the container registry. Save the license key as `CR_LICENSE_KEY` in the `.env` file, then start with the Pro override:
 
 ```bash
-export CR_LICENSE_KEY=your-license-key
-docker-compose up -d
+# Edit .env and set CR_LICENSE_KEY=your-license-key
+
+docker compose -f docker-compose.yml -f docker-compose.pro.yml up -d
 ```
 
 :::

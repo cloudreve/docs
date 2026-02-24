@@ -6,73 +6,28 @@ Using Docker Compose you can deploy multiple containers to support Cloudreve's o
 
 Please refer to the [Docker Compose installation documentation](https://docs.docker.com/compose/install/) to install Docker and Docker Compose.
 
-## Prepare `docker-compose.yml` File {#prepare-docker-compose-yml}
+## Prepare Compose Files {#prepare-docker-compose-yml}
 
-Create a directory to store the Docker Compose file, for example:
+Clone the [Docker Compose repository](https://github.com/cloudreve/docker-compose) to your server:
 
 ```bash
-mkdir -p ~/cloudreve
+git clone https://github.com/cloudreve/docker-compose.git ~/cloudreve
 cd ~/cloudreve
 ```
 
-Save the obtained `docker-compose.yml` file to this directory.
+Copy the example environment file:
 
-:::tabs
-== Community Edition
-
-Save the `docker-compose.yml` file from the [GitHub repository](https://github.com/cloudreve/Cloudreve/blob/master/docker-compose.yml) to your server.
-
-== Pro Edition
-
-Below is an example `docker-compose.yml` file for the Pro edition that includes all necessary services. Save it to your server.
-
-```yaml
-services:
-  pro:
-    image: cloudreve.azurecr.io/cloudreve/pro:latest
-    container_name: cloudreve-pro-backend
-    depends_on:
-      - postgresql
-      - redis
-    restart: always
-    ports:
-      - 5212:5212
-      - 6888:6888
-      - 6888:6888/udp
-    environment:
-      - CR_CONF_Database.Type=postgres
-      - CR_CONF_Database.Host=postgresql
-      - CR_CONF_Database.User=cloudreve
-      - CR_CONF_Database.Name=cloudreve
-      - CR_CONF_Database.Port=5432
-      - CR_CONF_Redis.Server=redis:6379
-      - CR_LICENSE_KEY=${CR_LICENSE_KEY}
-    volumes:
-      - backend_data:/cloudreve/data
-
-  postgresql:
-    image: postgres:17
-    container_name: postgresql
-    environment:
-      - POSTGRES_USER=cloudreve
-      - POSTGRES_DB=cloudreve
-      - POSTGRES_HOST_AUTH_METHOD=trust
-    volumes:
-      - database_postgres:/var/lib/postgresql/data
-
-  redis:
-    image: redis:latest
-    container_name: redis
-    volumes:
-      - redis_data:/data
-
-volumes:
-  backend_data:
-  database_postgres:
-  redis_data:
+```bash
+cp .env.example .env
 ```
 
-:::
+The repository contains the following compose files:
+
+| File | Description |
+| --- | --- |
+| `docker-compose.yml` | Base stack: Cloudreve + PostgreSQL + Redis |
+| `docker-compose.pro.yml` | Pro edition override: switches to Pro image and adds license key |
+| `docker-compose.fts.yml` | Full-text search addon: adds Apache Tika and Meilisearch, see [Full-text Search](../../usage/search/fts) |
 
 ## Start {#start}
 
@@ -87,17 +42,16 @@ docker compose up -d
 
 == Pro Edition
 
-In the [Pro license management panel](https://cloudreve.org/login), click the `Get Docker Image` button and generate an account for logging into the Pro edition private image registry. Click the `Get Authorization Key` button, save the obtained authorization key to the `CR_LICENSE_KEY` environment variable, and then start.
+In the [Pro license management panel](https://cloudreve.org/login), click the `Get Docker Image` button and generate an account for logging into the Pro edition private image registry. Click the `Get Authorization Key` button, and save the obtained authorization key as `CR_LICENSE_KEY` in the `.env` file.
 
 ```bash
 # Log in to the Pro edition private image registry
 docker login -u obtained_username -p obtained_password cloudreve.azurecr.io
 
-# Set authorization key
-export CR_LICENSE_KEY=your_authorization_key
+# Edit .env and set CR_LICENSE_KEY=your_authorization_key
 
-# Start
-docker compose up -d
+# Start with Pro override
+docker compose -f docker-compose.yml -f docker-compose.pro.yml up -d
 ```
 
 > [!NOTE]

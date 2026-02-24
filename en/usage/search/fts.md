@@ -11,6 +11,46 @@ Full-text search depends on the following two external services. Please deploy t
 | Apache Tika     | Extract text content from files      | 9998         |
 | Meilisearch     | Index the extracted text content     | 7700         |
 
+## Deploy with Docker Compose {#deploy-with-docker-compose}
+
+If you deployed Cloudreve using [Docker Compose](../../overview/deploy/docker-compose), you can add full-text search by applying the `docker-compose.fts.yml` override file, which deploys Tika and Meilisearch alongside Cloudreve.
+
+Generate a Meilisearch Master Key and save it to the `.env` file:
+
+```bash
+# Generate a Master Key
+openssl rand -hex 32
+
+# Edit .env and set MEILI_MASTER_KEY=<generated key>
+```
+
+Then restart with the FTS override:
+
+:::tabs
+== Community Edition
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.fts.yml up -d
+```
+
+== Pro Edition
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.pro.yml -f docker-compose.fts.yml up -d
+```
+
+:::
+
+After the services are running, proceed to [Enable Full-text Search](#enable-full-text-search) to configure the endpoints in the admin panel. Use the following values for the Docker Compose network:
+
+| Parameter            | Value                      |
+| -------------------- | -------------------------- |
+| Meilisearch Endpoint | `http://meilisearch:7700`  |
+| API Key              | The `MEILI_MASTER_KEY` you set in `.env` |
+| Apache Tika Endpoint | `http://tika:9998`         |
+
+If you are not using Docker Compose, follow the manual deployment steps below.
+
 ## Deploy Apache Tika Server {#deploy-tika}
 
 [Apache Tika](https://tika.apache.org/) is an open-source content extraction tool that supports extracting text from common document formats for indexing.
