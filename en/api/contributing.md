@@ -63,6 +63,11 @@ If you have a new task idea, create a new issue in [issues](https://github.com/c
 
 After completing the task, you can submit a PR to the [cloudreve/cloudreve](https://github.com/cloudreve/cloudreve) and [cloudreve/frontend](https://github.com/cloudreve/frontend) repositories. After the PR is submitted, a bot will guide you to sign the CLA.
 
+When submitting a PR, please follow these requirements:
+
+1. **PRs must be linked to an issue labeled with `Backlog`**: We do not accept contributions that propose new features directly through a PR. Any new feature or change must first be discussed in an issue, acknowledged by a maintainer, and labeled with `Backlog` before development starts and the corresponding PR is opened. If you have a new idea, please first follow the [Propose a New Task](#propose-a-new-task) flow to create an issue.
+2. **Each PR should correspond to a single change**: Keep your PR focused — one PR should address a single issue or implement a single feature. For large features or refactors, please split them into multiple smaller PRs whenever possible so that they can be reviewed and merged incrementally. This makes review and follow-up debugging much easier.
+
 ## Discussion {#discussion}
 
 You can discuss task details or get support in the `development` channel of our [Discord community](https://discord.com/channels/1343585183047094367/1343585679585579018).
@@ -79,5 +84,8 @@ If you choose to use AI tools to assist development, please follow these guideli
 2. **Careful review**: Check whether the AI-generated code complies with the project's coding standards and best practices
 3. **Thorough testing**: Conduct comprehensive testing of AI-generated code to ensure its correctness and stability
 4. **Project adaptation**: Ensure that AI-generated code is consistent with the architecture and design patterns of the existing codebase
+5. **Do not submit pure vibe-coded PRs**: If you intend to rely entirely on AI to generate code without deeply understanding and controlling the implementation details (i.e. pure "vibe coding"), please **do not** submit a PR. Instead, feel free to post the implementation ideas, design proposals, references, and other insights you obtained from your conversations with the AI directly under the corresponding issue, so that other developers can benefit from them.
+
+To be clear, we are not against AI — on the contrary, contributors who are familiar with the project also use AI to improve their productivity. However, the effort required to review a PR that was AI-generated and not fully understood by its submitter is already enough for a contributor familiar with the project structure to produce a change of equal or higher quality with the help of AI. So if you cannot take responsibility for the code you submit, please do not shift the review cost onto the maintainers.
 
 Remember, AI tools are just auxiliary means, and the final code quality and correctness still need to be guaranteed by developers.
