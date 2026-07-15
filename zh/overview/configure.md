@@ -118,7 +118,37 @@ Password = `#123456`
 
 :::
 
-## 修改容器中的配置文件 {#modify-container-config-file}
+## 使用环境变量覆盖配置 {#override-config-env}
+
+配置文件中的任意值都可以通过以 `CR_CONF_` 为前缀的环境变量覆盖。在容器化部署等不便于挂载配置文件的场景下尤其实用。
+
+默认格式为 `CR_CONF_<Section>.<Key>=<Value>`，其中 `<Section>` 和 `<Key>` 分别对应配置文件中的分区名和配置键名。例如：
+
+```bash
+CR_CONF_System.Listen=:8080
+CR_CONF_Database.Type=mysql
+CR_CONF_Database.Host=127.0.0.1
+CR_CONF_Redis.Server=127.0.0.1:6379
+```
+
+覆盖值会在启动时与配置文件合并，并优先于 `conf.ini` 中的值生效。
+
+### 兼容 TOML 的分隔符 {#toml-safe-separator}
+
+部分部署平台会把环境变量名中的 `.` 解析为嵌套键路径（例如 Fly.io 的 `fly.toml` `[env]` 段落，或部分较旧的 Docker Compose YAML 写法），导致点号形式的变量要么被拒收，要么在到达 Cloudreve 进程前就被静默丢弃。
+
+为此，Cloudreve 也接受 `__`（双下划线）作为等价的分隔符：
+
+```toml
+# fly.toml
+[env]
+  CR_CONF_System__Listen = ":8080"
+  CR_CONF_Database__Type = "mysql"
+```
+
+`CR_CONF_System.Listen` 与 `CR_CONF_System__Listen` 会解析为同一项设置。格式不合法的条目（缺少分区/键分隔符，或分区名/键名为空）会以警告日志跳过，不会导致启动失败。
+
+
 
 在使用容器部署时，配置文件位于容器内的 `/cloudreve/data/conf.ini`，你可以在宿主机对应挂载目录下找到此文件。如果你不确定具体路径，请在宿主机执行：
 

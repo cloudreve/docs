@@ -118,7 +118,37 @@ Password = `#123456`
 
 :::
 
-## Modify Configuration File in Containers {#modify-container-config-file}
+## Override Configuration via Environment Variables {#override-config-env}
+
+Any value in the configuration file can be overridden via environment variables prefixed with `CR_CONF_`. This is especially useful for container deployments where mounting a configuration file is inconvenient.
+
+The default format is `CR_CONF_<Section>.<Key>=<Value>`, where `<Section>` and `<Key>` match the section name and key name in the configuration file. For example:
+
+```bash
+CR_CONF_System.Listen=:8080
+CR_CONF_Database.Type=mysql
+CR_CONF_Database.Host=127.0.0.1
+CR_CONF_Redis.Server=127.0.0.1:6379
+```
+
+Overrides are merged into the file-based configuration at startup and take precedence over the values in `conf.ini`.
+
+### TOML-safe Separator {#toml-safe-separator}
+
+Some deployment platforms interpret `.` in environment variable names as a nested key path (for example, Fly.io's `fly.toml` `[env]` section, or older Docker Compose YAML variants). On those platforms the dot form is either rejected or silently dropped before it reaches the Cloudreve process.
+
+To work around this, Cloudreve also accepts `__` (double underscore) as an equivalent separator:
+
+```toml
+# fly.toml
+[env]
+  CR_CONF_System__Listen = ":8080"
+  CR_CONF_Database__Type = "mysql"
+```
+
+Both `CR_CONF_System.Listen` and `CR_CONF_System__Listen` resolve to the same setting. Malformed entries (no section/key separator, or empty section/key) are logged as a warning and skipped instead of causing startup to fail.
+
+
 
 When deployed with Docker, the configuration file is located in `/cloudreve/data/conf.ini` inside the container. You can find this file in the corresponding mount directory on the host machine. If you are not sure about the specific path, please execute the following command on the host machine:
 
