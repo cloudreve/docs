@@ -1,4 +1,4 @@
-# Upgrad Cloudreve {#upgrade-cloudreve}
+# Upgrade Cloudreve {#upgrade-cloudreve}
 
 The steps described in this section only apply to upgrading within V4.x.x versions.
 
