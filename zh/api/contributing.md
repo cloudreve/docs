@@ -1,6 +1,6 @@
 # 贡献指南 {#contributing}
 
-如果你对参与 Cloudreve 的开发感兴趣，清参考本章节开始上手。要注意的是，Cloudreve 使用双许可证策略发行，社区版在 [GPL-3.0](https://github.com/cloudreve/cloudreve/blob/master/LICENSE) 下发行，而 Pro 版则使用私有许可证。我们只接受针对社区版的贡献，且贡献者需要在合并 PR 前签署 [CLA](https://cla-assistant.io/cloudreve/cloudreve)。
+如果你对参与 Cloudreve 的开发感兴趣，请参考本章节开始上手。要注意的是，Cloudreve 使用双许可证策略发行，社区版在 [GPL-3.0](https://github.com/cloudreve/cloudreve/blob/master/LICENSE) 下发行，而 Pro 版则使用私有许可证。我们只接受针对社区版的贡献，且贡献者需要在合并 PR 前签署 [CLA](https://cla-assistant.io/cloudreve/cloudreve)。
 
 ## 项目结构 {#project-structure}
 
