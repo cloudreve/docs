@@ -201,6 +201,17 @@ After modifying the configuration file, you need to restart the container for th
 
 :::
 
+## Easypanel {#easypanel}
+
+If you'd rather not manage Docker run commands yourself, Cloudreve has a one-click deployment template on [Easypanel](https://easypanel.io), a self-hosted Docker deployment platform:
+
+[![Deploy on Easypanel][easypanel-btn]][easypanel-deploy]
+
+[easypanel-btn]: https://easypanel.io/img/deploy-on-easypanel-40.svg
+[easypanel-deploy]: https://easypanel.io/templates/cloudreve
+
+![Cloudreve running in the Easypanel dashboard after a one-click deploy](./images/easypanel-deploy.png)
+
 ## Next Steps {#next-steps}
 
 Cloudreve will listen on port 5212 by default. You can access Cloudreve by visiting `http://localhost:5212` in your browser. Please register an account; the first registered account will be set as the administrator.
