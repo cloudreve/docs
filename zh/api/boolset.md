@@ -142,6 +142,8 @@ const encoded = bs.toString();
 | `1`    | 更新 |
 | `2`    | 创建 |
 | `3`    | 删除 |
+｜ `4`   | 分享 |
+｜ `5`   | 列取 |
 
 ### 节点功能 {#node-function}
 

@@ -16,7 +16,7 @@
 在 [Pro 授权管理面板](https://cloudreve.org/login) 点击 `获取 Docker 镜像` 按钮， 列出当前可用的镜像，并生成一份用于登录 Pro 版本私有镜像仓库的账号，然后使用 `docker login` 命令登录。
 
 ```bash
-docker login -u 获取到的用户名 -p 获取到的密码 cloudreve.azurecr.io
+docker login -u 获取到的用户名 -p 获取到的密码 release.cloudreve.org
 ```
 
 > [!NOTE]
@@ -49,7 +49,7 @@ docker run -d --name cloudreve \
     -p 6888:6888/udp \
     -v ~/cloudreve/data:/cloudreve/data \
     -e CR_LICENSE_KEY=你的授权密钥 \
-    cloudreve.azurecr.io/cloudreve/pro:latest
+    release.cloudreve.org/cloudreve/pro:latest
 ```
 
 :::

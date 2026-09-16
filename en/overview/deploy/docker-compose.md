@@ -46,16 +46,13 @@ In the [Pro license management panel](https://cloudreve.org/login), click the `G
 
 ```bash
 # Log in to the Pro edition private image registry
-docker login -u obtained_username -p obtained_password cloudreve.azurecr.io
+docker login -u obtained_username -p obtained_password release.cloudreve.org
 
 # Edit .env and set CR_LICENSE_KEY=your_authorization_key
 
 # Start with Pro override
 docker compose -f docker-compose.yml -f docker-compose.pro.yml up -d
 ```
-
-> [!NOTE]
-> The container registry credentials you obtained are not permanently valid. If you encounter credential expiration issues when pulling images for future updates, please re-obtain and log in again.
 
 :::
 

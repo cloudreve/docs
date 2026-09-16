@@ -46,16 +46,13 @@ docker compose up -d
 
 ```bash
 # 登录 Pro 版本私有镜像仓库
-docker login -u 获取到的用户名 -p 获取到的密码 cloudreve.azurecr.io
+docker login -u 获取到的用户名 -p 获取到的密码 release.cloudreve.org
 
 # 编辑 .env 文件，设置 CR_LICENSE_KEY=你的授权密钥
 
 # 使用 Pro 覆盖文件启动
 docker compose -f docker-compose.yml -f docker-compose.pro.yml up -d
 ```
-
-> [!NOTE]
-> 你获取到的容器仓库凭证并非永久有效，如果后续更新拉取镜像时出现凭证过期的情况，请重新获取并登录。
 
 :::
 

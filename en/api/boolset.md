@@ -142,6 +142,8 @@ const encoded = bs.toString();
 | `1`      | Update      |
 | `2`      | Create      |
 | `3`      | Delete      |
+| `4`      | Share       |
+| `5`      | List        |
 
 ### Node Functions {#node-function}
 

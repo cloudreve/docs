@@ -18,7 +18,7 @@
 docker run -d --name cloudreve -p 5212:5212 \
     -v ~/cloudreve/data:/cloudreve/data \
     -e CR_LICENSE_KEY=你的授权密钥 \
-    cloudreve.azurecr.io/cloudreve/pro:latest
+    release.cloudreve.org/cloudreve/pro:latest
 ```
 
 === Docker Compose

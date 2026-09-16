@@ -16,7 +16,7 @@ You can find all available tags on the [cloudreve/cloudreve](https://hub.docker.
 In the [Pro license management panel](https://cloudreve.org/login), click the `Get Docker Image` button to list currently available images, and generate an account for logging into the Pro edition private image registry, then use the `docker login` command to log in.
 
 ```bash
-docker login -u obtained_username -p obtained_password cloudreve.azurecr.io
+docker login -u obtained_username -p obtained_password release.cloudreve.org
 ```
 
 > [!NOTE]
@@ -49,7 +49,7 @@ docker run -d --name cloudreve \
     -p 6888:6888/udp \
     -v ~/cloudreve/data:/cloudreve/data \
     -e CR_LICENSE_KEY=your_authorization_key \
-    cloudreve.azurecr.io/cloudreve/pro:latest
+    release.cloudreve.org/cloudreve/pro:latest
 ```
 
 :::
