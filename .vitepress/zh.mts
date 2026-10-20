@@ -110,6 +110,10 @@ export default defineConfig({
                 link: "/zh/usage/storage/b2",
               },
               {
+                text: "Neon Object Storage (S3 兼容)",
+                link: "/zh/usage/storage/neon",
+              },
+              {
                 text: "负载均衡",
                 link: "/zh/usage/storage/load-balance",
               },
